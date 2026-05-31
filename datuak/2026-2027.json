@@ -1436,6 +1436,1435 @@
         ],
         "esleipenak": []
       }
+    },
+    {
+      "v": 2,
+      "data": "2026-05-31 12:29",
+      "oharra": "2627v1",
+      "edukia": {
+        "ikasturtea": "2026-2027",
+        "etapak": [
+          {
+            "id": "HH",
+            "izena": "Haur Hezkuntza",
+            "kolorea": "#f59e0b",
+            "estandarra": 22,
+            "legezkoOrduak": 23
+          },
+          {
+            "id": "LH",
+            "izena": "Lehen Hezkuntza",
+            "kolorea": "#10b981",
+            "estandarra": 22,
+            "legezkoOrduak": 23
+          },
+          {
+            "id": "DBH",
+            "izena": "DBH",
+            "kolorea": "#3b82f6",
+            "estandarra": 21,
+            "legezkoOrduak": 22
+          }
+        ],
+        "mailak": [
+          {
+            "id": "ma_1780229155958_vxi7d2",
+            "etapaId": "HH",
+            "izena": "HH2",
+            "taldeak": [
+              {
+                "id": "tal_1780229155958_kjijph",
+                "izena": "HH2"
+              }
+            ],
+            "ikasgaiak": [
+              {
+                "id": "ik_1780229155958_r208ve",
+                "izena": "Errealitatea komunikatzeko",
+                "orduak": 7
+              },
+              {
+                "id": "ik_1780229155958_ghkzhk",
+                "izena": "Ingurunea deskribatzeko",
+                "orduak": 6
+              },
+              {
+                "id": "ik_1780229155958_dyn3oy",
+                "izena": "Harmonian hazten",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_md81bo",
+                "izena": "Erlijioa",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_8csk8f",
+                "izena": "Psikomotrizitatea",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_bxit8e",
+                "izena": "Ingelesa",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_8h3s8v",
+                "izena": "STEAM",
+                "orduak": 1
+              }
+            ]
+          },
+          {
+            "id": "ma_1780229155958_cij6e6",
+            "etapaId": "HH",
+            "izena": "HH3",
+            "taldeak": [
+              {
+                "id": "tal_1780229155958_hbrh73",
+                "izena": "HH3"
+              }
+            ],
+            "ikasgaiak": [
+              {
+                "id": "ik_1780229155958_uosv45",
+                "izena": "Errealitatea komunikatzeko",
+                "orduak": 7
+              },
+              {
+                "id": "ik_1780229155958_wleaud",
+                "izena": "Ingurunea deskribatzeko",
+                "orduak": 6
+              },
+              {
+                "id": "ik_1780229155958_6rm9pq",
+                "izena": "Harmonian hazten",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_zxno09",
+                "izena": "Erlijioa",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_1whq9o",
+                "izena": "Psikomotrizitatea",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_ccqyty",
+                "izena": "Ingelesa",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_kgoes6",
+                "izena": "Irakurketa plana",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_0s83ly",
+                "izena": "STEAM",
+                "orduak": 1
+              }
+            ]
+          },
+          {
+            "id": "ma_1780229155958_naxapw",
+            "etapaId": "HH",
+            "izena": "HH4",
+            "taldeak": [
+              {
+                "id": "tal_1780229155958_frmuw2",
+                "izena": "HH4"
+              }
+            ],
+            "ikasgaiak": [
+              {
+                "id": "ik_1780229155958_dxxp1b",
+                "izena": "Errealitatea komunikatzeko",
+                "orduak": 7
+              },
+              {
+                "id": "ik_1780229155958_rqzl7t",
+                "izena": "Ingurunea deskribatzeko",
+                "orduak": 6
+              },
+              {
+                "id": "ik_1780229155958_4f40it",
+                "izena": "Harmonian hazten",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_boxje7",
+                "izena": "Erlijioa",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_cz51ue",
+                "izena": "Psikomotrizitatea",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_f9owdl",
+                "izena": "Ingelesa",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_ttfoum",
+                "izena": "Irakurketa plana",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_ffk18m",
+                "izena": "STEAM",
+                "orduak": 1
+              }
+            ]
+          },
+          {
+            "id": "ma_1780229155958_9vg2ys",
+            "etapaId": "HH",
+            "izena": "HH5",
+            "taldeak": [
+              {
+                "id": "tal_1780229155958_3vjcsx",
+                "izena": "HH5"
+              }
+            ],
+            "ikasgaiak": [
+              {
+                "id": "ik_1780229155958_z34job",
+                "izena": "Errealitatea komunikatzeko",
+                "orduak": 7
+              },
+              {
+                "id": "ik_1780229155958_kvo8mu",
+                "izena": "Ingurunea deskribatzeko",
+                "orduak": 6
+              },
+              {
+                "id": "ik_1780229155958_ikl2h0",
+                "izena": "Harmonian hazten",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_xyuy2c",
+                "izena": "Erlijioa",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_fpmpma",
+                "izena": "Psikomotrizitatea",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_antn0g",
+                "izena": "Ingelesa",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_35m746",
+                "izena": "Irakurketa plana",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_hwjmks",
+                "izena": "STEAM",
+                "orduak": 1
+              }
+            ]
+          },
+          {
+            "id": "ma_1780229155958_h41s3y",
+            "etapaId": "LH",
+            "izena": "LH1",
+            "taldeak": [
+              {
+                "id": "tal_1780229155958_ffoyk1",
+                "izena": "LH1"
+              }
+            ],
+            "ikasgaiak": [
+              {
+                "id": "ik_1780229155958_ztzxt6",
+                "izena": "Tutoretza",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_dyer69",
+                "izena": "Euskara",
+                "orduak": 4
+              },
+              {
+                "id": "ik_1780229155958_azpadh",
+                "izena": "Zientziak",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_wl7o9z",
+                "izena": "STEAM",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_3xm655",
+                "izena": "Soinketa",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_0h2f5a",
+                "izena": "Erlijioa eta balioak",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_r32l24",
+                "izena": "Matematika",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_xwymyd",
+                "izena": "Gaztelania",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_bhs23w",
+                "izena": "Ingelesa",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_stvgkp",
+                "izena": "Arts",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_eezjm3",
+                "izena": "Musika",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_7jhwz9",
+                "izena": "Irakurketa plana",
+                "orduak": 1
+              }
+            ]
+          },
+          {
+            "id": "ma_1780229155958_7lga6w",
+            "etapaId": "LH",
+            "izena": "LH2",
+            "taldeak": [
+              {
+                "id": "tal_1780229155958_xopygb",
+                "izena": "LH2"
+              }
+            ],
+            "ikasgaiak": [
+              {
+                "id": "ik_1780229155958_t2hnwi",
+                "izena": "Tutoretza",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_wh86uk",
+                "izena": "Euskara",
+                "orduak": 4
+              },
+              {
+                "id": "ik_1780229155958_ccf2x3",
+                "izena": "Zientziak",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_mtzj4x",
+                "izena": "STEAM",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_hy9iyy",
+                "izena": "Soinketa",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_g9a524",
+                "izena": "Erlijioa eta balioak",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_97qmz2",
+                "izena": "Matematika",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_yvhrtw",
+                "izena": "Gaztelania",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_qbcv8e",
+                "izena": "Ingelesa",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_3l591j",
+                "izena": "Arts",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_r62kyb",
+                "izena": "Musika",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_5z64wr",
+                "izena": "Irakurketa plana",
+                "orduak": 1
+              }
+            ]
+          },
+          {
+            "id": "ma_1780229155958_rlilae",
+            "etapaId": "LH",
+            "izena": "LH3",
+            "taldeak": [
+              {
+                "id": "tal_1780229155958_s01ab2",
+                "izena": "LH3"
+              }
+            ],
+            "ikasgaiak": [
+              {
+                "id": "ik_1780229155958_kqjey7",
+                "izena": "Tutoretza",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_cz9l80",
+                "izena": "Euskara",
+                "orduak": 4
+              },
+              {
+                "id": "ik_1780229155958_td8kmb",
+                "izena": "Zientziak",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_i1e68w",
+                "izena": "STEAM",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_hm9v67",
+                "izena": "Soinketa",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_fdwxl3",
+                "izena": "Erlijioa eta balioak",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_krp2ty",
+                "izena": "Matematika",
+                "orduak": 4
+              },
+              {
+                "id": "ik_1780229155958_f5hthc",
+                "izena": "Gaztelania",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_kaaa5s",
+                "izena": "Ingelesa",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_9hwdb2",
+                "izena": "Arts",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_9hoejx",
+                "izena": "Musika",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_lis7ud",
+                "izena": "Irakurketa plana",
+                "orduak": 1
+              }
+            ]
+          },
+          {
+            "id": "ma_1780229155958_i7mh7s",
+            "etapaId": "LH",
+            "izena": "LH4",
+            "taldeak": [
+              {
+                "id": "tal_1780229155958_da0xss",
+                "izena": "LH4"
+              }
+            ],
+            "ikasgaiak": [
+              {
+                "id": "ik_1780229155958_c15lgp",
+                "izena": "Tutoretza",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_ep2p8p",
+                "izena": "Euskara",
+                "orduak": 4
+              },
+              {
+                "id": "ik_1780229155958_34jgc5",
+                "izena": "Zientziak",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_inbvap",
+                "izena": "STEAM",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_nh8trc",
+                "izena": "Soinketa",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_72qpdj",
+                "izena": "Erlijioa eta balioak",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_9szv5b",
+                "izena": "Matematika",
+                "orduak": 4
+              },
+              {
+                "id": "ik_1780229155958_f5rls9",
+                "izena": "Gaztelania",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_bx3nbp",
+                "izena": "Ingelesa",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_czzryg",
+                "izena": "Arts",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_3wa4gu",
+                "izena": "Musika",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_1noc38",
+                "izena": "Irakurketa plana",
+                "orduak": 1
+              }
+            ]
+          },
+          {
+            "id": "ma_1780229155958_wktoce",
+            "etapaId": "LH",
+            "izena": "LH5",
+            "taldeak": [
+              {
+                "id": "tal_1780229155958_ylf839",
+                "izena": "LH5"
+              }
+            ],
+            "ikasgaiak": [
+              {
+                "id": "ik_1780229155958_38yara",
+                "izena": "Tutoretza",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_fjs5d0",
+                "izena": "Euskara",
+                "orduak": 4
+              },
+              {
+                "id": "ik_1780229155958_kcc299",
+                "izena": "Zientziak",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_1sz0rg",
+                "izena": "STEAM",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_9hffne",
+                "izena": "Soinketa",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_5hchr0",
+                "izena": "Erlijioa eta balioak",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_0oa05w",
+                "izena": "Matematika",
+                "orduak": 4
+              },
+              {
+                "id": "ik_1780229155958_g5qm7h",
+                "izena": "Gaztelania",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_2orzca",
+                "izena": "Ingelesa",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_o5zl8t",
+                "izena": "Arts",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_aw6i94",
+                "izena": "Musika",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_zbjwac",
+                "izena": "Irakurketa plana",
+                "orduak": 1
+              }
+            ]
+          },
+          {
+            "id": "ma_1780229155958_86o08d",
+            "etapaId": "LH",
+            "izena": "LH6",
+            "taldeak": [
+              {
+                "id": "tal_1780229155958_ud6zrr",
+                "izena": "LH6"
+              }
+            ],
+            "ikasgaiak": [
+              {
+                "id": "ik_1780229155958_akkprf",
+                "izena": "Tutoretza",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_d37j5d",
+                "izena": "Euskara",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_tu7ay0",
+                "izena": "Zientziak",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_ggcm1v",
+                "izena": "STEAM",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_00tlq7",
+                "izena": "Soinketa",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_kwou05",
+                "izena": "Erlijioa eta balioak",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_295f4g",
+                "izena": "Matematika",
+                "orduak": 4
+              },
+              {
+                "id": "ik_1780229155958_hestt8",
+                "izena": "Gaztelania",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_yhxaoi",
+                "izena": "Ingelesa",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_cnhfrg",
+                "izena": "Arts",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_si1jvj",
+                "izena": "Musika",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_5rt2ax",
+                "izena": "Irakurketa plana",
+                "orduak": 0
+              }
+            ]
+          },
+          {
+            "id": "ma_1780229155958_dguh27",
+            "etapaId": "DBH",
+            "izena": "DBH1",
+            "taldeak": [
+              {
+                "id": "tal_1780229155958_urhmds",
+                "izena": "DBH1A"
+              },
+              {
+                "id": "tal_1780229155958_u12fzf",
+                "izena": "DBH1B"
+              }
+            ],
+            "ikasgaiak": [
+              {
+                "id": "ik_1780229155958_0j09tm",
+                "izena": "Matematika",
+                "orduak": 4
+              },
+              {
+                "id": "ik_1780229155958_ell8t4",
+                "izena": "Bio-geo",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_1wyn34",
+                "izena": "Euskara",
+                "orduak": 4
+              },
+              {
+                "id": "ik_1780229155958_yryexx",
+                "izena": "Gaztelania",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_nk32qr",
+                "izena": "Ingelesa",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_or6nug",
+                "izena": "Arts/Musika",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_s6spxm",
+                "izena": "Gizarte",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_kqjcth",
+                "izena": "Erlijioa",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_22axvn",
+                "izena": "Heziketa fisikoa",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_419fu2",
+                "izena": "Tutoretza",
+                "orduak": 1
+              }
+            ]
+          },
+          {
+            "id": "ma_1780229155958_2mld2j",
+            "etapaId": "DBH",
+            "izena": "DBH2",
+            "taldeak": [
+              {
+                "id": "tal_1780229155958_daigio",
+                "izena": "DBH2A"
+              },
+              {
+                "id": "tal_1780229155958_fmjl43",
+                "izena": "DBH2B"
+              }
+            ],
+            "ikasgaiak": [
+              {
+                "id": "ik_1780229155958_wc9h7a",
+                "izena": "Matematika",
+                "orduak": 4
+              },
+              {
+                "id": "ik_1780229155958_ax6i2u",
+                "izena": "Fisika-kimika",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_9l4i2a",
+                "izena": "Teknologia",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_afnwyz",
+                "izena": "Euskara",
+                "orduak": 4
+              },
+              {
+                "id": "ik_1780229155958_1sn7am",
+                "izena": "Gaztelania",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_ms23hd",
+                "izena": "Ingelesa",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_6qz2gp",
+                "izena": "Arts/Musika",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_ga2av4",
+                "izena": "Gizarte",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_o4xic1",
+                "izena": "Erlijioa",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_liwfjn",
+                "izena": "Heziketa fisikoa",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_4dmcfm",
+                "izena": "Tutoretza",
+                "orduak": 1
+              }
+            ]
+          },
+          {
+            "id": "ma_1780229155958_8tlds3",
+            "etapaId": "DBH",
+            "izena": "DBH3",
+            "taldeak": [
+              {
+                "id": "tal_1780229155958_10ywvb",
+                "izena": "DBH3A"
+              },
+              {
+                "id": "tal_1780229852037_fqv1n0",
+                "izena": "DBH3B"
+              }
+            ],
+            "ikasgaiak": [
+              {
+                "id": "ik_1780229155958_69wdmb",
+                "izena": "Matematika",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_9yik4y",
+                "izena": "Bio-geo",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_2ap66g",
+                "izena": "Fisika-kimika",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_30zhrd",
+                "izena": "Teknologia",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_x42594",
+                "izena": "Euskara",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_mkvrab",
+                "izena": "Gaztelania",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_d4jmjt",
+                "izena": "Ingelesa",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_k8egtc",
+                "izena": "Arts/Musika",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_7pftx4",
+                "izena": "Gizarte",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_9c8fog",
+                "izena": "Erlijioa",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_e5r8c6",
+                "izena": "Heziketa fisikoa",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_7edx76",
+                "izena": "Tutoretza",
+                "orduak": 1
+              }
+            ]
+          },
+          {
+            "id": "ma_1780229155958_4c8vg9",
+            "etapaId": "DBH",
+            "izena": "DBH4",
+            "taldeak": [
+              {
+                "id": "tal_1780229155958_xgnefd",
+                "izena": "DBH4"
+              }
+            ],
+            "ikasgaiak": [
+              {
+                "id": "ik_1780229155958_qkqicn",
+                "izena": "Matematika",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_jetxh0",
+                "izena": "Bio-geo",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_vvd7wl",
+                "izena": "Fisika-kimika",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_uveviv",
+                "izena": "Teknologia",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_m46e4g",
+                "izena": "Euskara",
+                "orduak": 4
+              },
+              {
+                "id": "ik_1780229155958_f5yqac",
+                "izena": "Gaztelania",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_o2b3zb",
+                "izena": "Ingelesa",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_y2a24k",
+                "izena": "Gizarte",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_dywvyv",
+                "izena": "Erlijioa",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_rawk05",
+                "izena": "Heziketa fisikoa",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_bcdiit",
+                "izena": "Tutoretza",
+                "orduak": 1
+              }
+            ]
+          },
+          {
+            "id": "ma_1780229155958_b1z4ay",
+            "etapaId": "DBH",
+            "izena": "DBH DC",
+            "taldeak": [
+              {
+                "id": "tal_1780229155958_a45j5w",
+                "izena": "DBH DC"
+              }
+            ],
+            "ikasgaiak": [
+              {
+                "id": "ik_1780229155958_bkescm",
+                "izena": "Esparru zientifiko-teknologikoa",
+                "orduak": 10
+              },
+              {
+                "id": "ik_1780229155958_lg954w",
+                "izena": "Esparru sozio-linguistikoa",
+                "orduak": 12
+              },
+              {
+                "id": "ik_1780229155958_1mbrep",
+                "izena": "Heziketa fisikoa",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_qgwlq5",
+                "izena": "Erlijioa",
+                "orduak": 1
+              }
+            ]
+          }
+        ],
+        "irakasleak": [
+          {
+            "id": "ir_1780229155958_852kpa",
+            "izena": "Maialen",
+            "akronimoa": "MAIA",
+            "etapak": [
+              "HH"
+            ],
+            "mota": "IRAK",
+            "legeMuga": 23,
+            "proposamena": 22,
+            "liberazioak": [],
+            "tutoretzaTaldeId": "tal_1780229155958_kjijph",
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780229155958_667gcb",
+            "izena": "Otxandiano",
+            "akronimoa": "OTX",
+            "etapak": [
+              "HH"
+            ],
+            "mota": "IRAK",
+            "legeMuga": 23,
+            "proposamena": 22,
+            "liberazioak": [],
+            "tutoretzaTaldeId": "tal_1780229155958_3vjcsx",
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780229155958_nxdnn9",
+            "izena": "Maitane",
+            "akronimoa": "MAIT",
+            "etapak": [
+              "HH"
+            ],
+            "mota": "IRAK",
+            "legeMuga": 23,
+            "proposamena": 22,
+            "liberazioak": [
+              {
+                "orduak": 2,
+                "zergatik": "Kudeaketa Aurreratua"
+              },
+              {
+                "orduak": 2,
+                "zergatik": "AG2030"
+              }
+            ],
+            "tutoretzaTaldeId": "tal_1780229155958_hbrh73",
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780229155958_8uzx8j",
+            "izena": "Urtzi",
+            "akronimoa": "URTZ",
+            "etapak": [
+              "HH",
+              "LH"
+            ],
+            "mota": "IRAK",
+            "legeMuga": 23,
+            "proposamena": 22,
+            "liberazioak": [
+              {
+                "orduak": 6,
+                "zergatik": "Etapako koordinatzailea"
+              }
+            ],
+            "tutoretzaTaldeId": null,
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780229155958_sw9319",
+            "izena": "Bego",
+            "akronimoa": "BEG",
+            "etapak": [
+              "HH"
+            ],
+            "mota": "IRAK",
+            "legeMuga": 23,
+            "proposamena": 22,
+            "liberazioak": [
+              {
+                "orduak": 4,
+                "zergatik": "Etapako koordinatzaile"
+              },
+              {
+                "orduak": 2,
+                "zergatik": "Gurasoak + Pastoral"
+              }
+            ],
+            "tutoretzaTaldeId": "tal_1780229155958_frmuw2",
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780229155958_14p8hm",
+            "izena": "Igor",
+            "akronimoa": "IGO",
+            "etapak": [
+              "LH"
+            ],
+            "mota": "IRAK",
+            "legeMuga": 23,
+            "proposamena": 22,
+            "liberazioak": [],
+            "tutoretzaTaldeId": "tal_1780229155958_da0xss",
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780229155958_e4pj6l",
+            "izena": "Arantza",
+            "akronimoa": "",
+            "etapak": [
+              "HH"
+            ],
+            "mota": "PT",
+            "legeMuga": 23,
+            "proposamena": 22,
+            "liberazioak": [],
+            "tutoretzaTaldeId": null,
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780229155958_nz74e2",
+            "izena": "Nerea Fournier",
+            "akronimoa": "FOUR",
+            "etapak": [
+              "LH"
+            ],
+            "mota": "IRAK",
+            "legeMuga": 23,
+            "proposamena": 22,
+            "liberazioak": [],
+            "tutoretzaTaldeId": "tal_1780229155958_ffoyk1",
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780229155958_t7h1da",
+            "izena": "Nerea Oskotz",
+            "akronimoa": "OSK",
+            "etapak": [
+              "LH",
+              "DBH"
+            ],
+            "mota": "PT",
+            "legeMuga": 22,
+            "proposamena": 21,
+            "liberazioak": [
+              {
+                "orduak": 2,
+                "zergatik": "Normalkuntza"
+              }
+            ],
+            "tutoretzaTaldeId": null,
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780229155958_r8qe18",
+            "izena": "Sergio",
+            "akronimoa": "SER",
+            "etapak": [
+              "LH"
+            ],
+            "mota": "IRAK",
+            "legeMuga": 23,
+            "proposamena": 22,
+            "liberazioak": [
+              {
+                "orduak": 2,
+                "zergatik": "Sindikatua"
+              }
+            ],
+            "tutoretzaTaldeId": "tal_1780229155958_ud6zrr",
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780229155958_yaq4pu",
+            "izena": "David",
+            "akronimoa": "DAV",
+            "etapak": [
+              "DBH"
+            ],
+            "mota": "IRAK",
+            "legeMuga": 22,
+            "proposamena": 21,
+            "liberazioak": [
+              {
+                "orduak": 1,
+                "zergatik": "Berrikuntza arduraduna"
+              }
+            ],
+            "tutoretzaTaldeId": null,
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780229155958_tuvjk1",
+            "izena": "Ander Alvarez",
+            "akronimoa": "ALVR",
+            "etapak": [
+              "LH"
+            ],
+            "mota": "IRAK",
+            "legeMuga": 23,
+            "proposamena": 22,
+            "liberazioak": [],
+            "tutoretzaTaldeId": "tal_1780229155958_s01ab2",
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780229155958_103h6s",
+            "izena": "Txaro",
+            "akronimoa": "TXA",
+            "etapak": [
+              "LH"
+            ],
+            "mota": "IRAK",
+            "legeMuga": 23,
+            "proposamena": 22,
+            "liberazioak": [
+              {
+                "orduak": 2,
+                "zergatik": "Kudeaketa aurreratua"
+              }
+            ],
+            "tutoretzaTaldeId": null,
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780229155958_hc6xgv",
+            "izena": "Iker Elorza",
+            "akronimoa": "IKE",
+            "etapak": [
+              "LH"
+            ],
+            "mota": "PT",
+            "legeMuga": 23,
+            "proposamena": 22,
+            "liberazioak": [],
+            "tutoretzaTaldeId": null,
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780229155958_i6k7ye",
+            "izena": "Nerea González",
+            "akronimoa": "NERG",
+            "etapak": [
+              "LH",
+              "DBH"
+            ],
+            "mota": "PT",
+            "legeMuga": 23,
+            "proposamena": 22,
+            "liberazioak": [
+              {
+                "orduak": 15,
+                "zergatik": "Titularra"
+              }
+            ],
+            "tutoretzaTaldeId": null,
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780229155958_47erp9",
+            "izena": "Ainara",
+            "akronimoa": "AINA",
+            "etapak": [
+              "DBH"
+            ],
+            "mota": "PT",
+            "legeMuga": 22,
+            "proposamena": 21,
+            "liberazioak": [
+              {
+                "orduak": 6,
+                "zergatik": "Etapako koordinatzailea"
+              }
+            ],
+            "tutoretzaTaldeId": null,
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780229155958_irb4jd",
+            "izena": "Unamuno",
+            "akronimoa": "UNA",
+            "etapak": [
+              "LH"
+            ],
+            "mota": "PT",
+            "legeMuga": 23,
+            "proposamena": 22,
+            "liberazioak": [],
+            "tutoretzaTaldeId": "tal_1780229155958_ylf839",
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780229155958_ophzne",
+            "izena": "Ander Zarrabeitia",
+            "akronimoa": "ZARR",
+            "etapak": [
+              "LH"
+            ],
+            "mota": "IRAK",
+            "legeMuga": 23,
+            "proposamena": 22,
+            "liberazioak": [
+              {
+                "orduak": 15,
+                "zergatik": "Zuzendari pedagogikoa"
+              }
+            ],
+            "tutoretzaTaldeId": null,
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780229155958_p8gkfw",
+            "izena": "Javi",
+            "akronimoa": "JAV",
+            "etapak": [
+              "DBH"
+            ],
+            "mota": "IRAK",
+            "legeMuga": 22,
+            "proposamena": 21,
+            "liberazioak": [],
+            "tutoretzaTaldeId": null,
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780229155958_zdm627",
+            "izena": "Imanol",
+            "akronimoa": "IMA",
+            "etapak": [
+              "DBH"
+            ],
+            "mota": "IRAK",
+            "legeMuga": 22,
+            "proposamena": 21,
+            "liberazioak": [],
+            "tutoretzaTaldeId": null,
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780229155958_b3l0v9",
+            "izena": "Irati",
+            "akronimoa": "IRAT",
+            "etapak": [
+              "DBH"
+            ],
+            "mota": "IRAK",
+            "legeMuga": 22,
+            "proposamena": 21,
+            "liberazioak": [],
+            "tutoretzaTaldeId": null,
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780229155958_zm0pqx",
+            "izena": "Marta",
+            "akronimoa": "MART",
+            "etapak": [
+              "DBH"
+            ],
+            "mota": "IRAK",
+            "legeMuga": 22,
+            "proposamena": 21,
+            "liberazioak": [
+              {
+                "orduak": 1,
+                "zergatik": "Elkarbizitza"
+              }
+            ],
+            "tutoretzaTaldeId": null,
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780229155958_n8fw9n",
+            "izena": "Tere",
+            "akronimoa": "TER",
+            "etapak": [
+              "DBH"
+            ],
+            "mota": "IRAK",
+            "legeMuga": 22,
+            "proposamena": 21,
+            "liberazioak": [
+              {
+                "orduak": 4,
+                "zergatik": "BAT taldea"
+              }
+            ],
+            "tutoretzaTaldeId": null,
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780229155958_uj7idw",
+            "izena": "Amaia",
+            "akronimoa": "AMAI",
+            "etapak": [
+              "DBH"
+            ],
+            "mota": "IRAK",
+            "legeMuga": 22,
+            "proposamena": 14,
+            "liberazioak": [],
+            "tutoretzaTaldeId": null,
+            "oharra": "Jornada: 0.66",
+            "behaketa": ""
+          }
+        ],
+        "esleipenak": []
+      }
     }
   ]
 }
