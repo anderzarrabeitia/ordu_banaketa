@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html lang="eu">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ordu-banaketa · EAMI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: #f0ebe3; color: #374151; font-family: 'Outfit', system-ui, sans-serif; font-size: 14px; }
+  #error-box { display:none; margin: 24px; padding: 18px; background: #fff5f5; border: 1px solid #ef4444; border-radius: 12px; color: #991b1b; font-family: monospace; font-size: 13px; white-space: pre-wrap; }
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-thumb { background: #d8cfc2; border-radius: 6px; }
+  .print-only { display: none; }
+  @media print {
+    .screen-only { display: none !important; }
+    .no-print { display: none !important; }
+    .print-only { display: block !important; }
+    body { background: #fff; }
+    body * { visibility: hidden; }
+    .print-area, .print-area * { visibility: visible; }
+    .print-area { position: absolute; left: 0; top: 0; width: 100%; }
+    .ficha { page-break-after: always; }
+    .ficha:last-child { page-break-after: auto; }
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+    @page { size: A4; margin: 13mm; }
+  }
+</style>
+</head>
+<body>
+<div id="error-box"></div>
+<div id="root"></div>
+
+<script type="text/plain" id="app-source">
+const { useState, useEffect, useRef } = React;
+
+const C = {
+  bg: "#f0ebe3", panel: "#f5f1eb", card: "#ffffff",
+  txt: "#374151", title: "#1e3a5f", sec: "#8b7e74", ter: "#9ca3af",
+  border: "#e5ddd3", blue: "#2B5EA7",
+  ok: "#10b981", danger: "#ef4444", warn: "#f59e0b", info: "#3b82f6", violet: "#8b5cf6"
+};
+const ETAPA_KOLORE = { HH: "#f59e0b", LH: "#10b981", DBH: "#3b82f6" };
+const tint = (hex, a) => {
+  const h = hex.replace("#","");
+  const r = parseInt(h.substring(0,2),16), g = parseInt(h.substring(2,4),16), b = parseInt(h.substring(4,6),16);
+  return "rgba(" + r + "," + g + "," + b + "," + a + ")";
+};
+
+const S = {
+  btnPri: { background: C.title, color: "#fff", border: "none", padding: "9px 18px", borderRadius: 8, fontWeight: 600, fontSize: 13, cursor: "pointer", fontFamily: "inherit" },
+  btnSec: { background: "#fff", color: "#6b7280", border: "1px solid #d1d5db", padding: "9px 18px", borderRadius: 8, fontSize: 13, cursor: "pointer", fontFamily: "inherit" },
+  btnSm: { background: "#f3f4f6", color: "#374151", border: "1px solid #e5e7eb", padding: "5px 12px", borderRadius: 6, fontSize: 12, cursor: "pointer", fontFamily: "inherit" },
+  btnIcon: { background: "none", border: "none", color: "#9ca3af", cursor: "pointer", fontSize: 15, padding: "3px 6px", borderRadius: 4 },
+  input: { width: "100%", background: "#fff", border: "1px solid #d1d5db", borderRadius: 8, padding: "8px 11px", color: "#1f2937", fontSize: 13, boxSizing: "border-box", outline: "none", fontFamily: "inherit" },
+  inputNum: { width: 64, background: "#fff", border: "1px solid #d1d5db", borderRadius: 8, padding: "6px 8px", color: "#1f2937", fontSize: 13, textAlign: "center", outline: "none", fontFamily: "inherit" },
+  select: { width: "100%", background: "#fff", border: "1px solid #d1d5db", borderRadius: 8, padding: "8px 11px", color: "#1f2937", fontSize: 13, boxSizing: "border-box", outline: "none", fontFamily: "inherit" },
+  label: { display: "block", color: "#6b7280", fontSize: 11, marginBottom: 4, fontWeight: 600, textTransform: "uppercase", letterSpacing: 0.5 },
+  card: { background: C.card, border: "1px solid " + C.border, borderRadius: 12, padding: "14px 16px", boxShadow: "0 2px 8px rgba(0,0,0,0.05)" },
+  overlay: { position: "fixed", inset: 0, background: "rgba(0,0,0,0.28)", display: "flex", alignItems: "flex-start", justifyContent: "center", paddingTop: 30, zIndex: 100, overflow: "auto" },
+  modal: { background: "#fff", border: "1px solid " + C.border, borderRadius: 16, padding: 24, maxWidth: 720, width: "94%", maxHeight: "90vh", overflow: "auto", boxShadow: "0 20px 60px rgba(0,0,0,0.18)" },
+  h1: { fontFamily: "'Source Serif 4', serif", fontSize: 24, fontWeight: 700, color: C.title, margin: 0 },
+  h2: { fontFamily: "'Source Serif 4', serif", fontSize: 21, fontWeight: 600, color: C.title, margin: "0 0 4px" },
+  h3: { fontFamily: "'Source Serif 4', serif", fontSize: 18, fontWeight: 600, color: C.title, margin: "0 0 14px" },
+  panelBox: { background: C.card, border: "1px solid " + C.border, borderRadius: 12, padding: "12px 14px", display: "flex", flexDirection: "column", minHeight: 0, boxShadow: "0 2px 8px rgba(0,0,0,0.04)" }
+};
+
+const mkId = (p) => p + "_" + Date.now() + "_" + Math.random().toString(36).substr(2, 6);
+const clone = (o) => JSON.parse(JSON.stringify(o));
+const LS_KEY = "eami_ordubanaketa_v1";
+const lsSave = (data) => { try { localStorage.setItem(LS_KEY, JSON.stringify(data)); return true; } catch(e) { return false; } };
+const lsLoad = () => { try { const s = localStorage.getItem(LS_KEY); return s ? JSON.parse(s) : null; } catch(e) { return null; } };
+const isTuto = (izena) => (izena || "").toLowerCase().indexOf("tutoretza") >= 0;
+
+// --- GitHub geruza ---
+const GH_KEY = "eami_ordubanaketa_github";
+const ghLoadCfg = () => { try { const s = localStorage.getItem(GH_KEY); return s ? JSON.parse(s) : { owner: "", repo: "", token: "", dir: "datuak" }; } catch(e) { return { owner: "", repo: "", token: "", dir: "datuak" }; } };
+const ghSaveCfg = (cfg) => { try { localStorage.setItem(GH_KEY, JSON.stringify(cfg)); return true; } catch(e) { return false; } };
+const ghDir = (cfg) => (cfg.dir || "datuak").replace(/^\/+|\/+$/g, "");
+const b64encode = (str) => { try { return btoa(unescape(encodeURIComponent(str))); } catch(e) { return btoa(str); } };
+const b64decode = (str) => { try { return decodeURIComponent(escape(atob(str.replace(/\s/g, "")))); } catch(e) { return atob(str.replace(/\s/g, "")); } };
+
+function ghHeaders(cfg, withAuth) {
+  const h = { "Accept": "application/vnd.github+json" };
+  if (withAuth && cfg.token) h["Authorization"] = "Bearer " + cfg.token;
+  return h;
+}
+// urteen zerrenda (irakurketa publikoa)
+function ghListYears(cfg) {
+  const url = "https://api.github.com/repos/" + cfg.owner + "/" + cfg.repo + "/contents/" + ghDir(cfg);
+  return fetch(url, { headers: ghHeaders(cfg, false) }).then(function (r) {
+    if (r.status === 404) return [];
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    return r.json();
+  }).then(function (arr) {
+    if (!Array.isArray(arr)) return [];
+    return arr.filter(function (f) { return f.type === "file" && /\.json$/.test(f.name); }).map(function (f) { return f.name.replace(/\.json$/, ""); }).sort();
+  });
+}
+// urte baten edukia + sha (irakurketa)
+function ghGetYear(cfg, izena) {
+  const url = "https://api.github.com/repos/" + cfg.owner + "/" + cfg.repo + "/contents/" + ghDir(cfg) + "/" + encodeURIComponent(izena) + ".json";
+  return fetch(url, { headers: ghHeaders(cfg, false), cache: "no-store" }).then(function (r) {
+    if (r.status === 404) return null;
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    return r.json();
+  }).then(function (j) {
+    if (!j) return null;
+    return { sha: j.sha, edukia: JSON.parse(b64decode(j.content)) };
+  });
+}
+// urte bat idatzi (token behar du)
+function ghPutYear(cfg, izena, obj, sha, mezua) {
+  const url = "https://api.github.com/repos/" + cfg.owner + "/" + cfg.repo + "/contents/" + ghDir(cfg) + "/" + encodeURIComponent(izena) + ".json";
+  const body = { message: mezua || ("Eguneratze: " + izena), content: b64encode(JSON.stringify(obj, null, 2)) };
+  if (sha) body.sha = sha;
+  return fetch(url, { method: "PUT", headers: Object.assign({ "Content-Type": "application/json" }, ghHeaders(cfg, true)), body: JSON.stringify(body) }).then(function (r) {
+    return r.json().then(function (j) {
+      if (!r.ok) { const e = new Error((j && j.message) ? j.message : ("HTTP " + r.status)); e.status = r.status; throw e; }
+      return j.content.sha;
+    });
+  });
+}
+
+function makeSeed() {
+  const ik = (arr) => arr.map(a => ({ id: mkId("ik"), izena: a[0], orduak: a[1] }));
+  const tal = (arr) => arr.map(t => ({ id: mkId("tal"), izena: t }));
+
+  const HH_OSOA = [["Errealitatea komunikatzeko",7],["Ingurunea deskribatzeko",6],["Harmonian hazten",2],["Erlijioa",2],["Psikomotrizitatea",2],["Ingelesa",3],["Irakurketa plana",1],["STEAM",1]];
+  const HH2 = [["Errealitatea komunikatzeko",7],["Ingurunea deskribatzeko",6],["Harmonian hazten",2],["Erlijioa",2],["Psikomotrizitatea",2],["Ingelesa",3],["STEAM",1]];
+  const LH_BE = [["Tutoretza",1],["Euskara",4],["Zientziak",2],["STEAM",1],["Soinketa",3],["Erlijioa eta balioak",1],["Matematika",3],["Gaztelania",3],["Ingelesa",3],["Arts",1],["Musika",1],["Irakurketa plana",1]];
+  const LH_GO = [["Tutoretza",1],["Euskara",4],["Zientziak",2],["STEAM",1],["Soinketa",2],["Erlijioa eta balioak",1],["Matematika",4],["Gaztelania",3],["Ingelesa",3],["Arts",1],["Musika",1],["Irakurketa plana",1]];
+  const LH6 = [["Tutoretza",1],["Euskara",3],["Zientziak",2],["STEAM",1],["Soinketa",2],["Erlijioa eta balioak",3],["Matematika",4],["Gaztelania",3],["Ingelesa",3],["Arts",1],["Musika",1],["Irakurketa plana",0]];
+  const DBH1 = [["Matematika",4],["Bio-geo",3],["Euskara",4],["Gaztelania",3],["Ingelesa",3],["Arts/Musika",2],["Gizarte",3],["Erlijioa",1],["Heziketa fisikoa",2],["Tutoretza",1]];
+  const DBH2 = [["Matematika",4],["Fisika-kimika",2],["Teknologia",3],["Euskara",4],["Gaztelania",3],["Ingelesa",3],["Arts/Musika",2],["Gizarte",3],["Erlijioa",1],["Heziketa fisikoa",2],["Tutoretza",1]];
+  const DBH3 = [["Matematika",3],["Bio-geo",2],["Fisika-kimika",3],["Teknologia",2],["Euskara",3],["Gaztelania",3],["Ingelesa",3],["Arts/Musika",2],["Gizarte",3],["Erlijioa",1],["Heziketa fisikoa",2],["Tutoretza",1]];
+  const DBH4 = [["Matematika",3],["Bio-geo",3],["Fisika-kimika",3],["Teknologia",3],["Euskara",4],["Gaztelania",3],["Ingelesa",3],["Gizarte",2],["Erlijioa",1],["Heziketa fisikoa",2],["Tutoretza",1]];
+  const DC = [["Esparru zientifiko-teknologikoa",10],["Esparru sozio-linguistikoa",12],["Heziketa fisikoa",2],["Erlijioa",1]];
+
+  const maila = (etapaId, izena, taldeIzenak, ikasgaiak) => ({ id: mkId("ma"), etapaId: etapaId, izena: izena, taldeak: tal(taldeIzenak), ikasgaiak: ik(ikasgaiak) });
+
+  const mailak = [
+    maila("HH","HH2",["HH2"],HH2), maila("HH","HH3",["HH3"],HH_OSOA), maila("HH","HH4",["HH4"],HH_OSOA), maila("HH","HH5",["HH5"],HH_OSOA),
+    maila("LH","LH1",["LH1"],LH_BE), maila("LH","LH2",["LH2"],LH_BE), maila("LH","LH3",["LH3"],LH_GO), maila("LH","LH4",["LH4"],LH_GO), maila("LH","LH5",["LH5"],LH_GO), maila("LH","LH6",["LH6A","LH6B"],LH6),
+    maila("DBH","DBH1",["DBH1A","DBH1B"],DBH1), maila("DBH","DBH2",["DBH2A","DBH2B"],DBH2), maila("DBH","DBH3",["DBH3"],DBH3), maila("DBH","DBH4",["DBH4A"],DBH4), maila("DBH","DBH DC",["DBH DC"],DC)
+  ];
+
+  const irak = (izena, etapak, mota, jornada) => ({
+    id: mkId("ir"), izena: izena, akronimoa: "", etapak: etapak, mota: mota,
+    legeMuga: etapak.indexOf("DBH") >= 0 ? 21 : 23, proposamena: etapak.indexOf("DBH") >= 0 ? 21 : 22,
+    liberazioak: [], tutoretzaTaldeId: null,
+    oharra: jornada < 1 ? ("Jornada: " + jornada) : ""
+  });
+
+  const irakasleak = [
+    irak("Maialen",["HH"],"IRAK",1), irak("Otxandiano",["HH"],"IRAK",1), irak("Maitane",["HH"],"IRAK",1),
+    irak("Urtzi",["HH","LH"],"IRAK",1), irak("Henar",["HH"],"IRAK",0.18), irak("Igor",["HH","LH"],"IRAK",1),
+    irak("Arantza",["HH"],"PT",1),
+    irak("Juncal",["LH"],"IRAK",1), irak("Oskotz",["LH"],"IRAK",1), irak("Bego",["LH"],"IRAK",1),
+    irak("Sergio",["LH"],"IRAK",1), irak("David",["LH"],"IRAK",1), irak("Ander Alvarez",["LH"],"IRAK",1),
+    irak("Txaro",["LH"],"IRAK",1), irak("Julian",["LH","DBH"],"IRAK",1),
+    irak("Elorza",["LH"],"PT",1), irak("Nerea",["LH"],"PT",1), irak("Ainara",["LH"],"PT",1), irak("Unamuno",["LH"],"PT",0.34),
+    irak("Ander Zarrabeitia",["LH"],"IRAK",1),
+    irak("Javi",["DBH"],"IRAK",1), irak("Imanol",["DBH"],"IRAK",1), irak("Helen",["DBH"],"IRAK",1), irak("Ixone",["DBH"],"IRAK",1),
+    irak("Marta",["DBH"],"IRAK",1), irak("Tere",["DBH"],"IRAK",1), irak("Iñigo",["DBH"],"IRAK",1), irak("Amaia",["DBH"],"IRAK",0.66),
+    irak("Patri",["DBH"],"PT",1)
+  ];
+
+  return {
+    ikasturtea: "2026-2027",
+    etapak: [
+      { id: "HH", izena: "Haur Hezkuntza", kolorea: ETAPA_KOLORE.HH, estandarra: 22, legezkoOrduak: 23 },
+      { id: "LH", izena: "Lehen Hezkuntza", kolorea: ETAPA_KOLORE.LH, estandarra: 22, legezkoOrduak: 23 },
+      { id: "DBH", izena: "DBH", kolorea: ETAPA_KOLORE.DBH, estandarra: 21, legezkoOrduak: 21 }
+    ],
+    mailak: mailak,
+    irakasleak: irakasleak,
+    esleipenak: []
+  };
+}
+
+function normalize(d) {
+  const s = d || {};
+  return {
+    ikasturtea: s.ikasturtea || "2026-2027",
+    etapak: (s.etapak || []).map(e => ({ id: e.id, izena: e.izena || e.id, kolorea: e.kolorea || (ETAPA_KOLORE[e.id] || C.blue), estandarra: e.estandarra || 22, legezkoOrduak: (typeof e.legezkoOrduak === "number") ? e.legezkoOrduak : ((typeof s.legezkoOrduak === "number") ? s.legezkoOrduak : 23) })),
+    mailak: (s.mailak || []).map(m => ({ id: m.id || mkId("ma"), etapaId: m.etapaId, izena: m.izena || "", taldeak: (m.taldeak || []).map(t => ({ id: t.id || mkId("tal"), izena: t.izena })), ikasgaiak: (m.ikasgaiak || []).map(k => ({ id: k.id || mkId("ik"), izena: k.izena, orduak: (typeof k.orduak === "number") ? k.orduak : 0 })) })),
+    irakasleak: (s.irakasleak || []).map(i => ({ id: i.id || mkId("ir"), izena: i.izena || "", akronimoa: i.akronimoa || "", etapak: i.etapak || [], mota: i.mota || "IRAK", legeMuga: (typeof i.legeMuga === "number") ? i.legeMuga : 23, proposamena: (typeof i.proposamena === "number") ? i.proposamena : 21, liberazioak: i.liberazioak || [], tutoretzaTaldeId: i.tutoretzaTaldeId || null, oharra: i.oharra || "", behaketa: i.behaketa || "" })),
+    esleipenak: (s.esleipenak || []).map(e => ({ id: e.id || mkId("es"), irakasleId: e.irakasleId, taldeId: e.taldeId, ikasgaiId: e.ikasgaiId, orduak: (typeof e.orduak === "number") ? e.orduak : 0, rola: e.rola || "TITULAR" }))
+  };
+}
+
+// --- kalkulu lagungarriak ---
+function taldeInfo(d, taldeId) {
+  let res = null;
+  d.mailak.forEach(m => m.taldeak.forEach(t => { if (t.id === taldeId) res = { talde: t, maila: m }; }));
+  return res;
+}
+function tutoIkasgaia(maila) {
+  const k = maila.ikasgaiak.filter(x => isTuto(x.izena))[0];
+  return k ? k : null;
+}
+function esleipenEfektiboak(d) {
+  const arr = d.esleipenak.map(e => Object.assign({}, e, { auto: false }));
+  d.irakasleak.forEach(i => {
+    if (i.tutoretzaTaldeId) {
+      const info = taldeInfo(d, i.tutoretzaTaldeId);
+      if (info) {
+        const tk = tutoIkasgaia(info.maila);
+        if (tk) arr.push({ id: "auto_" + i.id, irakasleId: i.id, taldeId: i.tutoretzaTaldeId, ikasgaiId: tk.id, orduak: tk.orduak, rola: "TITULAR", auto: true });
+      }
+    }
+  });
+  return arr;
+}
+function titularOrduak(eff, taldeId, ikasgaiId) {
+  let s = 0;
+  eff.forEach(e => { if (e.taldeId === taldeId && e.ikasgaiId === ikasgaiId && e.rola === "TITULAR") s += e.orduak; });
+  return s;
+}
+function esleipenakHemen(eff, taldeId, ikasgaiId) {
+  return eff.filter(e => e.taldeId === taldeId && e.ikasgaiId === ikasgaiId);
+}
+function irakKarga(eff, irId) {
+  let s = 0;
+  eff.forEach(e => { if (e.irakasleId === irId) s += e.orduak; });
+  return s;
+}
+function semaforoKolore(karga, irak) {
+  if (karga > irak.legeMuga) return C.danger;
+  if (karga > irak.proposamena) return C.warn;
+  return C.ok;
+}
+
+function Toast(props) {
+  if (!props.msg) return null;
+  return (
+    <div style={{ position: "fixed", bottom: 26, left: "50%", transform: "translateX(-50%)", background: C.title, color: "#fff", padding: "10px 20px", borderRadius: 10, fontSize: 13, fontWeight: 500, zIndex: 200, boxShadow: "0 6px 20px rgba(0,0,0,0.2)" }}>
+      {props.msg}
+    </div>
+  );
+}
+function EtapaTxartela(props) {
+  const e = props.etapa;
+  return <span style={{ display: "inline-block", fontSize: 11, fontWeight: 600, padding: "2px 9px", borderRadius: 20, background: tint(e.kolorea, 0.16), color: e.kolorea, border: "1px solid " + tint(e.kolorea, 0.4) }}>{e.id}</span>;
+}
+
+function App() {
+  const stored = lsLoad();
+  const [data, setData] = useState(normalize(stored || makeSeed()));
+  const [view, setView] = useState("konfig");
+  const [tab, setTab] = useState("etapak");
+  const [toast, setToast] = useState("");
+  const [aukMaila, setAukMaila] = useState(null);
+  const [editIrak, setEditIrak] = useState(null);
+  const fileRef = useRef(null);
+  // GitHub egoera
+  const [ghCfg, setGhCfg] = useState(ghLoadCfg());
+  const [ghOpen, setGhOpen] = useState(false);
+  const [ghYears, setGhYears] = useState([]);
+  const [ghCurrent, setGhCurrent] = useState(null);
+  const [ghSha, setGhSha] = useState(null);
+  const [ghBusy, setGhBusy] = useState(false);
+  const ghReady = ghCfg.owner && ghCfg.repo;
+
+  useEffect(function () {
+    const t = setTimeout(function () { lsSave(data); }, 400);
+    return function () { clearTimeout(t); };
+  }, [data]);
+
+  const flash = (m) => { setToast(m); setTimeout(function () { setToast(""); }, 2200); };
+  const update = (fn) => { const d = clone(data); fn(d); setData(d); };
+  const etapaById = (id) => data.etapak.filter(e => e.id === id)[0] || { id: id, kolorea: C.blue, izena: id, estandarra: 22, legezkoOrduak: 23 };
+
+  const esportatu = () => {
+    try {
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url; a.download = "ordu-banaketa-" + data.ikasturtea + ".json"; a.click();
+      URL.revokeObjectURL(url);
+      flash("Esportatuta");
+    } catch(e) { flash("Errorea esportatzean"); }
+  };
+  const inportatu = (ev) => {
+    const f = ev.target.files[0];
+    if (!f) return;
+    const r = new FileReader();
+    r.onload = function () { try { setData(normalize(JSON.parse(r.result))); flash("Inportatuta"); } catch(e) { flash("Fitxategi okerra"); } };
+    r.readAsText(f); ev.target.value = "";
+  };
+  const hutsetik = () => { if (confirm("Dena ezabatu eta hutsetik hasi?")) { setData(normalize({ etapak: makeSeed().etapak, mailak: [], irakasleak: [], esleipenak: [] })); flash("Garbituta"); } };
+  const berrezarri = () => { if (confirm("Aurreko ikasturteko oinarria berreskuratu? Aldaketak galduko dira.")) { setData(normalize(makeSeed())); flash("Oinarria kargatuta"); } };
+
+  // --- GitHub eragiketak ---
+  const ghKargatuZerrenda = () => {
+    if (!ghReady) return;
+    setGhBusy(true);
+    ghListYears(ghCfg).then(function (ys) { setGhYears(ys); setGhBusy(false); }).catch(function (e) { setGhBusy(false); flash("Errorea zerrenda kargatzean: " + e.message); });
+  };
+  useEffect(function () { if (ghReady) ghKargatuZerrenda(); }, [ghCfg.owner, ghCfg.repo, ghCfg.dir]);
+
+  const ghIreki = (izena) => {
+    setGhBusy(true);
+    ghGetYear(ghCfg, izena).then(function (res) {
+      setGhBusy(false);
+      if (!res) { flash("Ez da aurkitu"); return; }
+      const berts = (res.edukia.bertsioak || []);
+      const azkena = berts.length ? berts[berts.length - 1] : null;
+      if (!azkena) { flash("Urteak ez du bertsiorik"); return; }
+      setData(normalize(azkena.edukia));
+      setGhCurrent(izena); setGhSha(res.sha);
+      flash(izena + " · v" + azkena.v + " kargatuta");
+    }).catch(function (e) { setGhBusy(false); flash("Errorea: " + e.message); });
+  };
+
+  const ghBertsioBerria = (oharra) => {
+    if (!ghCfg.token) { flash("Token-a behar da gordetzeko"); setGhOpen(true); return; }
+    if (!ghCurrent) { flash("Lehenik ireki edo sortu ikasturte bat"); return; }
+    setGhBusy(true);
+    ghGetYear(ghCfg, ghCurrent).then(function (res) {
+      const obj = res ? res.edukia : { ikasturtea: ghCurrent, bertsioak: [] };
+      const sha = res ? res.sha : null;
+      const berts = obj.bertsioak || [];
+      const nextV = berts.length ? (berts[berts.length - 1].v + 1) : 1;
+      berts.push({ v: nextV, data: new Date().toISOString().substring(0, 16).replace("T", " "), oharra: oharra || "", edukia: clone(data) });
+      obj.bertsioak = berts; obj.ikasturtea = ghCurrent;
+      return ghPutYear(ghCfg, ghCurrent, obj, sha, "v" + nextV + " · " + ghCurrent + (oharra ? (" · " + oharra) : "")).then(function (newSha) {
+        setGhSha(newSha); setGhBusy(false); flash("v" + nextV + " gordeta online");
+      });
+    }).catch(function (e) { setGhBusy(false); flash("Errorea gordetzean: " + e.message); });
+  };
+
+  const ghBertsioIreki = (izena, v) => {
+    setGhBusy(true);
+    ghGetYear(ghCfg, izena).then(function (res) {
+      setGhBusy(false);
+      if (!res) return;
+      const b = (res.edukia.bertsioak || []).filter(function (x) { return x.v === v; })[0];
+      if (b) { setData(normalize(b.edukia)); setGhCurrent(izena); setGhSha(res.sha); flash(izena + " · v" + v + " kargatuta"); }
+    }).catch(function (e) { setGhBusy(false); flash("Errorea: " + e.message); });
+  };
+
+  const ghHurrengoUrtea = () => {
+    if (!ghCfg.token) { flash("Token-a behar da"); setGhOpen(true); return; }
+    if (!ghCurrent) { flash("Lehenik ireki uneko ikasturtea"); return; }
+    const parts = ghCurrent.split("-");
+    let nextIzena = ghCurrent + "-2";
+    if (parts.length === 2 && /^\d+$/.test(parts[0])) { nextIzena = (parseInt(parts[0], 10) + 1) + "-" + (parseInt(parts[1], 10) + 1); }
+    const erantzun = prompt("Sortu hurrengo ikasturtea egitura kopiatuz (banaketa hutsik). Izena:", nextIzena);
+    if (!erantzun) return;
+    const oinarria = clone(data);
+    oinarria.esleipenak = [];
+    oinarria.irakasleak.forEach(function (i) { i.behaketa = ""; });
+    oinarria.ikasturtea = erantzun;
+    const obj = { ikasturtea: erantzun, bertsioak: [{ v: 1, data: new Date().toISOString().substring(0, 16).replace("T", " "), oharra: "Egitura " + ghCurrent + "-tik heredatua", edukia: oinarria }] };
+    setGhBusy(true);
+    ghPutYear(ghCfg, erantzun, obj, null, "Sortu " + erantzun).then(function (newSha) {
+      setGhBusy(false); setData(normalize(oinarria)); setGhCurrent(erantzun); setGhSha(newSha);
+      ghKargatuZerrenda(); flash(erantzun + " sortuta (banaketa hutsik)");
+    }).catch(function (e) { setGhBusy(false); flash("Errorea sortzean: " + e.message); });
+  };
+
+  const mailaTaldeKop = (m) => m.taldeak.length;
+  const mailaOrduakTaldeko = (m) => m.ikasgaiak.reduce((a, k) => a + (k.orduak || 0), 0);
+  const etapaEskaria = (eId) => data.mailak.filter(m => m.etapaId === eId).reduce((a, m) => a + mailaOrduakTaldeko(m) * mailaTaldeKop(m), 0);
+
+  const tabs = [
+    { id: "etapak", izena: "Etapak" }, { id: "mailak", izena: "Mailak eta taldeak" },
+    { id: "ikasgaiak", izena: "Ikasgaiak eta orduak" }, { id: "irakasleak", izena: "Irakasleak" }, { id: "laburpena", izena: "Laburpena" }
+  ];
+
+  const segBtn = (id, izena) => (
+    <button onClick={() => setView(id)} style={{ background: view === id ? C.title : "transparent", color: view === id ? "#fff" : C.sec, border: "none", borderRadius: 8, padding: "7px 18px", fontSize: 13, fontWeight: 600, cursor: "pointer", fontFamily: "inherit" }}>{izena}</button>
+  );
+
+  const wide = view === "banaketa";
+
+  return (
+    <div style={{ maxWidth: wide ? 1280 : 1080, margin: "0 auto", padding: "22px 20px 80px" }}>
+      <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", flexWrap: "wrap", gap: 12, marginBottom: 14 }}>
+        <div>
+          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            <span style={{ fontFamily: "'Source Serif 4', serif", fontWeight: 700, color: C.blue, fontSize: 20, border: "2px solid " + C.blue, borderRadius: 8, padding: "1px 7px" }}>AM</span>
+            <h1 style={S.h1}>Ordu-banaketa</h1>
+          </div>
+          <div style={{ fontFamily: "'Outfit', sans-serif", fontStyle: "italic", fontSize: 12, color: C.sec, marginTop: 2 }}>El Ave María Ikastetxea</div>
+        </div>
+        <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>
+          <button style={S.btnSec} onClick={() => setGhOpen(true)}>{ghReady ? "☁ Online" : "☁ Konektatu"}</button>
+          <button style={S.btnSec} onClick={() => fileRef.current.click()}>Inportatu</button>
+          <button style={S.btnSec} onClick={esportatu}>Esportatu JSON</button>
+          <input ref={fileRef} type="file" accept=".json" style={{ display: "none" }} onChange={inportatu} />
+        </div>
+      </div>
+
+      {ghReady ? (
+        <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap", background: tint(C.info, 0.06), border: "1px solid " + tint(C.info, 0.25), borderRadius: 10, padding: "8px 12px", marginBottom: 14 }}>
+          <span style={{ fontSize: 12, color: C.info, fontWeight: 600 }}>☁ {ghCfg.owner}/{ghCfg.repo}</span>
+          <select value={ghCurrent || ""} onChange={(e) => { if (e.target.value) ghIreki(e.target.value); }} style={Object.assign({}, S.select, { width: 150, padding: "6px 9px" })}>
+            <option value="">— Ikasturtea ireki —</option>
+            {ghYears.map(y => <option key={y} value={y}>{y}</option>)}
+          </select>
+          {ghCurrent ? <span style={{ fontSize: 12, color: C.title, fontWeight: 600 }}>{ghCurrent}</span> : null}
+          <button style={Object.assign({}, S.btnSm, { background: C.title, color: "#fff", border: "none" })} disabled={ghBusy} onClick={() => { const o = prompt("Bertsio berriaren oharra (aukeran):", ""); if (o !== null) ghBertsioBerria(o); }}>+ Gorde bertsio berria</button>
+          <button style={S.btnSm} disabled={ghBusy} onClick={() => setGhOpen(true)}>Bertsioak / Ezarpenak</button>
+          <button style={S.btnSm} disabled={ghBusy} onClick={ghHurrengoUrtea}>Sortu hurrengo ikasturtea</button>
+          {ghBusy ? <span style={{ fontSize: 11, color: C.sec }}>⏳ lanean…</span> : null}
+        </div>
+      ) : null}
+
+      <div style={{ display: "inline-flex", gap: 4, background: "#e8e1d6", borderRadius: 10, padding: 4, marginBottom: 18 }}>
+        {segBtn("konfig", "Konfigurazioa")}
+        {segBtn("banaketa", "Banaketa")}
+        {segBtn("inprimaketa", "Inprimaketa")}
+      </div>
+
+      {view === "konfig" ? (
+        <div>
+          <div style={{ display: "flex", gap: 6, flexWrap: "wrap", margin: "0 0 18px", borderBottom: "1px solid " + C.border }}>
+            {tabs.map(t => (
+              <button key={t.id} onClick={() => setTab(t.id)} style={{ background: "none", border: "none", borderBottom: tab === t.id ? "2px solid " + C.blue : "2px solid transparent", color: tab === t.id ? C.title : C.sec, fontWeight: tab === t.id ? 600 : 400, fontSize: 14, padding: "8px 12px", cursor: "pointer", fontFamily: "inherit" }}>{t.izena}</button>
+            ))}
+          </div>
+          {tab === "etapak" ? <EtapakTab data={data} update={update} flash={flash} /> : null}
+          {tab === "mailak" ? <MailakTab data={data} update={update} etapaById={etapaById} mailaTaldeKop={mailaTaldeKop} mailaOrduakTaldeko={mailaOrduakTaldeko} goIkasgaiak={(id) => { setAukMaila(id); setTab("ikasgaiak"); }} flash={flash} /> : null}
+          {tab === "ikasgaiak" ? <IkasgaiakTab data={data} update={update} etapaById={etapaById} aukMaila={aukMaila} setAukMaila={setAukMaila} mailaOrduakTaldeko={mailaOrduakTaldeko} flash={flash} /> : null}
+          {tab === "irakasleak" ? <IrakasleakTab data={data} update={update} etapaById={etapaById} openEdit={(i) => setEditIrak(i)} flash={flash} /> : null}
+          {tab === "laburpena" ? <LaburpenaTab data={data} etapaById={etapaById} etapaEskaria={etapaEskaria} berrezarri={berrezarri} hutsetik={hutsetik} /> : null}
+        </div>
+      ) : view === "banaketa" ? <BanaketaView data={data} update={update} etapaById={etapaById} flash={flash} /> : <InprimaketaView data={data} update={update} etapaById={etapaById} flash={flash} />}
+
+      {editIrak ? <IrakModal data={data} irak={editIrak} etapaById={etapaById} onClose={() => setEditIrak(null)} onSave={(ni) => { update(d => { const idx = d.irakasleak.findIndex(x => x.id === ni.id); if (idx >= 0) d.irakasleak[idx] = ni; else d.irakasleak.push(ni); }); setEditIrak(null); flash("Gordeta"); }} /> : null}
+      {ghOpen ? <GitHubModal cfg={ghCfg} onClose={() => setGhOpen(false)} onSave={(c) => { ghSaveCfg(c); setGhCfg(c); flash("Ezarpenak gordeta"); }} ghCurrent={ghCurrent} onProba={(c) => { setGhBusy(true); return ghListYears(c).then(function (ys) { setGhBusy(false); return ys; }).catch(function (e) { setGhBusy(false); throw e; }); }} onOpenVersion={(izena, v) => { ghBertsioIreki(izena, v); setGhOpen(false); }} getYear={(izena) => ghGetYear(ghCfg, izena)} /> : null}
+      <Toast msg={toast} />
+    </div>
+  );
+}
+
+function EtapakTab(props) {
+  const data = props.data, update = props.update, flash = props.flash;
+  const aplikatuDenei = () => {
+    if (!confirm("Etapa bakoitzaren legezko muga irakasle GUZTIEI ezarriko zaie (etapa anitzeko irakasleei, mugarik txikiena). Jornada partzialak gero doitu beharko dituzu. Jarraitu?")) return;
+    update(d => {
+      d.irakasleak.forEach(i => {
+        if (!i.etapak.length) return;
+        let mn = 999;
+        i.etapak.forEach(eid => { const e = d.etapak.filter(z => z.id === eid)[0]; if (e && e.legezkoOrduak < mn) mn = e.legezkoOrduak; });
+        if (mn < 999) i.legeMuga = mn;
+      });
+    });
+    if (flash) flash("Lege-mugak ezarrita");
+  };
+  return (
+    <div>
+      <h2 style={S.h2}>Etapak: ordu estandarra eta legezko muga</h2>
+      <div style={{ fontSize: 12, color: C.sec, marginBottom: 16 }}>Etapa bakoitzak bere lektibo estandarra (erreferentzia) eta bere legezko gehienezko ordua dauka. Legea aldatzen bada, hemen aldatu behar duzu.</div>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))", gap: 12, marginBottom: 16 }}>
+        {data.etapak.map(e => (
+          <div key={e.id} style={Object.assign({}, S.card, { borderTop: "3px solid " + e.kolorea })}>
+            <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12 }}>
+              <span style={{ width: 12, height: 12, borderRadius: 3, background: e.kolorea, display: "inline-block" }}></span>
+              <div style={{ fontWeight: 600, color: C.title }}>{e.izena}</div>
+              <span style={{ marginLeft: "auto", fontSize: 11, color: C.ter }}>{e.id}</span>
+            </div>
+            <div style={{ display: "flex", gap: 14 }}>
+              <div>
+                <label style={S.label}>Estandarra</label>
+                <input type="number" value={e.estandarra} onChange={(ev) => update(d => { d.etapak.filter(z => z.id === e.id)[0].estandarra = parseInt(ev.target.value || 0, 10); })} style={S.inputNum} />
+              </div>
+              <div>
+                <label style={Object.assign({}, S.label, { color: C.danger })}>Legezko muga</label>
+                <input type="number" value={e.legezkoOrduak} onChange={(ev) => update(d => { d.etapak.filter(z => z.id === e.id)[0].legezkoOrduak = parseInt(ev.target.value || 0, 10); })} style={Object.assign({}, S.inputNum, { borderColor: tint(C.danger, 0.5) })} />
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <button style={S.btnSm} onClick={aplikatuDenei}>Ezarri legezko muga irakasle guztiei</button>
+    </div>
+  );
+}
+
+function MailakTab(props) {
+  const data = props.data, update = props.update;
+  const [berriMaila, setBerriMaila] = useState({});
+  const addMaila = (etapaId) => {
+    const izena = (berriMaila[etapaId] || "").trim();
+    if (!izena) return;
+    update(d => { d.mailak.push({ id: mkId("ma"), etapaId: etapaId, izena: izena, taldeak: [{ id: mkId("tal"), izena: izena + "A" }], ikasgaiak: [] }); });
+    setBerriMaila(Object.assign({}, berriMaila, { [etapaId]: "" }));
+  };
+  const addTalde = (mId) => { update(d => { d.mailak.filter(x => x.id === mId)[0].taldeak.push({ id: mkId("tal"), izena: "Talde berria" }); }); };
+  const renameTalde = (mId, tId, v) => { update(d => { const m = d.mailak.filter(x => x.id === mId)[0]; m.taldeak.filter(z => z.id === tId)[0].izena = v; }); };
+  const delTalde = (mId, tId) => { update(d => { const m = d.mailak.filter(x => x.id === mId)[0]; m.taldeak = m.taldeak.filter(z => z.id !== tId); }); };
+  const delMaila = (mId) => { if (confirm("Maila hau ezabatu?")) update(d => { d.mailak = d.mailak.filter(x => x.id !== mId); }); };
+
+  return (
+    <div>
+      <h2 style={S.h2}>Mailak eta talde-klaseak</h2>
+      <div style={{ fontSize: 12, color: C.sec, marginBottom: 16 }}>Maila bakoitzak talde bat edo gehiago izan ditzake (adib. LH6 → LH6A, LH6B).</div>
+      {data.etapak.map(e => {
+        const mm = data.mailak.filter(m => m.etapaId === e.id);
+        return (
+          <div key={e.id} style={{ marginBottom: 22 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 10 }}>
+              <span style={{ width: 10, height: 10, borderRadius: 3, background: e.kolorea }}></span>
+              <span style={{ fontWeight: 600, color: C.title, fontSize: 15 }}>{e.izena}</span>
+            </div>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 12 }}>
+              {mm.map(m => (
+                <div key={m.id} style={Object.assign({}, S.card, { borderLeft: "3px solid " + e.kolorea })}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
+                    <input value={m.izena} onChange={(ev) => update(d => { d.mailak.filter(x => x.id === m.id)[0].izena = ev.target.value; })} style={Object.assign({}, S.input, { fontWeight: 600, color: C.title, flex: 1 })} />
+                    <button style={S.btnIcon} onClick={() => delMaila(m.id)}>✕</button>
+                  </div>
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 8 }}>
+                    {m.taldeak.map(t => (
+                      <span key={t.id} style={{ display: "inline-flex", alignItems: "center", gap: 4, background: tint(e.kolorea, 0.12), border: "1px solid " + tint(e.kolorea, 0.35), borderRadius: 7, padding: "3px 6px" }}>
+                        <input value={t.izena} onChange={(ev) => renameTalde(m.id, t.id, ev.target.value)} style={{ border: "none", background: "transparent", fontSize: 12, color: C.title, width: Math.max(40, t.izena.length * 8), outline: "none", fontFamily: "inherit" }} />
+                        <button style={{ background: "none", border: "none", color: e.kolorea, cursor: "pointer", fontSize: 12 }} onClick={() => delTalde(m.id, t.id)}>✕</button>
+                      </span>
+                    ))}
+                    <button style={S.btnSm} onClick={() => addTalde(m.id)}>+ Taldea</button>
+                  </div>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                    <span style={{ fontSize: 11, color: C.sec }}>{m.ikasgaiak.length} ikasgai · {m.taldeak.length} talde</span>
+                    <button style={S.btnSm} onClick={() => props.goIkasgaiak(m.id)}>Ikasgaiak →</button>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div style={{ display: "flex", gap: 8, marginTop: 10, maxWidth: 360 }}>
+              <input placeholder="Maila berria" value={berriMaila[e.id] || ""} onChange={(ev) => setBerriMaila(Object.assign({}, berriMaila, { [e.id]: ev.target.value }))} style={S.input} />
+              <button style={S.btnSec} onClick={() => addMaila(e.id)}>Gehitu</button>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+function IkasgaiakTab(props) {
+  const data = props.data, update = props.update, etapaById = props.etapaById;
+  const aukMaila = props.aukMaila, setAukMaila = props.setAukMaila;
+  const sel = data.mailak.filter(m => m.id === aukMaila)[0] || null;
+  const [berria, setBerria] = useState({ izena: "", orduak: "" });
+  const katalogoa = [];
+  data.mailak.forEach(m => m.ikasgaiak.forEach(k => { if (katalogoa.indexOf(k.izena) < 0) katalogoa.push(k.izena); }));
+
+  const setOrdu = (kId, v) => { update(d => { d.mailak.filter(x => x.id === aukMaila)[0].ikasgaiak.filter(z => z.id === kId)[0].orduak = parseInt(v || 0, 10); }); };
+  const renameIk = (kId, v) => { update(d => { d.mailak.filter(x => x.id === aukMaila)[0].ikasgaiak.filter(z => z.id === kId)[0].izena = v; }); };
+  const delIk = (kId) => { update(d => { const m = d.mailak.filter(x => x.id === aukMaila)[0]; m.ikasgaiak = m.ikasgaiak.filter(z => z.id !== kId); }); };
+  const addIk = () => {
+    const izena = berria.izena.trim();
+    if (!izena) return;
+    update(d => { d.mailak.filter(x => x.id === aukMaila)[0].ikasgaiak.push({ id: mkId("ik"), izena: izena, orduak: parseInt(berria.orduak || 0, 10) }); });
+    setBerria({ izena: "", orduak: "" });
+  };
+
+  return (
+    <div>
+      <h2 style={S.h2}>Ikasgaiak eta orduak</h2>
+      <div style={{ fontSize: 12, color: C.sec, marginBottom: 14 }}>Orduak maila osorako dira eta bere talde guztiei aplikatzen zaizkie.</div>
+      <div style={{ maxWidth: 380, marginBottom: 16 }}>
+        <label style={S.label}>Maila</label>
+        <select value={aukMaila || ""} onChange={(e) => setAukMaila(e.target.value)} style={S.select}>
+          <option value="">— Hautatu maila bat —</option>
+          {data.etapak.map(et => (
+            <optgroup key={et.id} label={et.izena}>
+              {data.mailak.filter(m => m.etapaId === et.id).map(m => <option key={m.id} value={m.id}>{m.izena}</option>)}
+            </optgroup>
+          ))}
+        </select>
+      </div>
+      {sel ? (
+        <div style={Object.assign({}, S.card, { maxWidth: 640, borderTop: "3px solid " + etapaById(sel.etapaId).kolorea })}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 12 }}>
+            <h3 style={Object.assign({}, S.h3, { margin: 0 })}>{sel.izena}</h3>
+            <span style={{ fontSize: 12, color: C.sec }}>{props.mailaOrduakTaldeko(sel)} ordu / talde · {sel.taldeak.length} talde</span>
+          </div>
+          <datalist id="ik-katalogoa">{katalogoa.map(n => <option key={n} value={n} />)}</datalist>
+          {sel.ikasgaiak.map(k => (
+            <div key={k.id} style={{ display: "flex", alignItems: "center", gap: 8, padding: "5px 0", borderBottom: "1px solid #f0ece5" }}>
+              <input value={k.izena} onChange={(e) => renameIk(k.id, e.target.value)} style={Object.assign({}, S.input, { flex: 1 })} />
+              <input type="number" value={k.orduak} onChange={(e) => setOrdu(k.id, e.target.value)} style={S.inputNum} />
+              <span style={{ fontSize: 11, color: C.ter }}>ord.</span>
+              <button style={S.btnIcon} onClick={() => delIk(k.id)}>✕</button>
+            </div>
+          ))}
+          <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 12 }}>
+            <input list="ik-katalogoa" placeholder="Ikasgai berria" value={berria.izena} onChange={(e) => setBerria(Object.assign({}, berria, { izena: e.target.value }))} style={Object.assign({}, S.input, { flex: 1 })} />
+            <input type="number" placeholder="ord." value={berria.orduak} onChange={(e) => setBerria(Object.assign({}, berria, { orduak: e.target.value }))} style={S.inputNum} />
+            <button style={S.btnSec} onClick={addIk}>Gehitu</button>
+          </div>
+        </div>
+      ) : <div style={{ color: C.ter, fontSize: 13 }}>Hautatu maila bat.</div>}
+    </div>
+  );
+}
+
+function IrakasleakTab(props) {
+  const data = props.data, update = props.update, etapaById = props.etapaById;
+  const [iragazki, setIragazki] = useState("DENA");
+  const lista = data.irakasleak.filter(i => iragazki === "DENA" || i.etapak.indexOf(iragazki) >= 0);
+  const berria = () => props.openEdit({ id: mkId("ir"), izena: "", akronimoa: "", etapak: [], mota: "IRAK", legeMuga: 23, proposamena: 21, liberazioak: [], tutoretzaTaldeId: null, oharra: "" });
+  const del = (id) => { if (confirm("Irakasle hau ezabatu?")) update(d => { d.irakasleak = d.irakasleak.filter(x => x.id !== id); }); };
+  const taldeIzena = (tId) => { let r = ""; data.mailak.forEach(m => m.taldeak.forEach(t => { if (t.id === tId) r = t.izena; })); return r; };
+  return (
+    <div>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 10, marginBottom: 12 }}>
+        <h2 style={S.h2}>Irakasleak</h2>
+        <button style={S.btnPri} onClick={berria}>+ Irakaslea</button>
+      </div>
+      <div style={{ display: "flex", gap: 6, marginBottom: 14, flexWrap: "wrap" }}>
+        {["DENA", "HH", "LH", "DBH"].map(f => (
+          <button key={f} onClick={() => setIragazki(f)} style={{ background: iragazki === f ? C.title : "#fff", color: iragazki === f ? "#fff" : C.sec, border: "1px solid " + (iragazki === f ? C.title : "#d1d5db"), borderRadius: 7, padding: "5px 13px", fontSize: 12, cursor: "pointer", fontFamily: "inherit" }}>{f === "DENA" ? "Denak" : f}</button>
+        ))}
+        <span style={{ marginLeft: "auto", fontSize: 12, color: C.sec, alignSelf: "center" }}>{lista.length} irakasle</span>
+      </div>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 10 }}>
+        {lista.map(i => (
+          <div key={i.id} style={Object.assign({}, S.card, { padding: "11px 14px" })}>
+            <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 6 }}>
+              <span style={{ fontWeight: 600, color: C.title, flex: 1 }}>{i.izena || "(izenik gabe)"}</span>
+              {i.akronimoa ? <span style={{ fontSize: 10, fontWeight: 700, color: C.blue, background: tint(C.blue, 0.1), borderRadius: 5, padding: "1px 6px", letterSpacing: 0.5 }}>{i.akronimoa}</span> : null}
+              {i.mota === "PT" ? <span style={{ fontSize: 10, fontWeight: 600, color: C.violet, background: tint(C.violet, 0.12), borderRadius: 5, padding: "1px 6px" }}>PT</span> : null}
+              <button style={S.btnIcon} onClick={() => props.openEdit(i)}>✎</button>
+              <button style={S.btnIcon} onClick={() => del(i.id)}>✕</button>
+            </div>
+            <div style={{ display: "flex", gap: 4, flexWrap: "wrap", marginBottom: 6 }}>
+              {i.etapak.length ? i.etapak.map(eid => <EtapaTxartela key={eid} etapa={etapaById(eid)} />) : <span style={{ fontSize: 11, color: C.ter }}>etaparik gabe</span>}
+            </div>
+            <div style={{ fontSize: 11, color: C.sec }}>Proposamena {i.proposamena} · Lege-muga {i.legeMuga}</div>
+            {i.tutoretzaTaldeId ? <div style={{ fontSize: 11, color: C.info, marginTop: 2 }}>Tutorea: {taldeIzena(i.tutoretzaTaldeId)}</div> : null}
+            {i.oharra ? <div style={{ fontSize: 11, color: C.ter, marginTop: 2, fontStyle: "italic" }}>{i.oharra}</div> : null}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function IrakModal(props) {
+  const [m, setM] = useState(clone(props.irak));
+  const data = props.data;
+  const set = (k, v) => setM(Object.assign({}, m, { [k]: v }));
+  const toggleEtapa = (eid) => { const has = m.etapak.indexOf(eid) >= 0; set("etapak", has ? m.etapak.filter(x => x !== eid) : m.etapak.concat([eid])); };
+  const addLib = () => set("liberazioak", m.liberazioak.concat([{ orduak: 0, zergatik: "" }]));
+  const setLib = (idx, k, v) => { const l = clone(m.liberazioak); l[idx][k] = (k === "orduak") ? parseInt(v || 0, 10) : v; set("liberazioak", l); };
+  const delLib = (idx) => set("liberazioak", m.liberazioak.filter((x, j) => j !== idx));
+  const libBatura = m.liberazioak.reduce((a, l) => a + (l.orduak || 0), 0);
+  let etapaLegala = 0;
+  if (m.etapak.length) { let mn = 999; m.etapak.forEach(eid => { const e = data.etapak.filter(z => z.id === eid)[0]; if (e && e.legezkoOrduak < mn) mn = e.legezkoOrduak; }); etapaLegala = (mn < 999) ? mn : 0; }
+  const taldeAukerak = [];
+  data.mailak.forEach(ma => { if (m.etapak.indexOf(ma.etapaId) >= 0) ma.taldeak.forEach(t => taldeAukerak.push({ id: t.id, izena: t.izena })); });
+
+  return (
+    <div style={S.overlay} onClick={props.onClose}>
+      <div style={S.modal} onClick={(e) => e.stopPropagation()}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
+          <h3 style={Object.assign({}, S.h3, { margin: 0 })}>Irakaslearen fitxa</h3>
+          <button style={S.btnIcon} onClick={props.onClose}>✕</button>
+        </div>
+        <div style={{ display: "flex", gap: 10, marginBottom: 12, flexWrap: "wrap" }}>
+          <div style={{ flex: 1, minWidth: 180 }}>
+            <label style={S.label}>Izena</label>
+            <input value={m.izena} onChange={(e) => set("izena", e.target.value)} style={S.input} />
+          </div>
+          <div style={{ width: 120 }}>
+            <label style={S.label}>Akronimoa</label>
+            <input value={m.akronimoa} onChange={(e) => set("akronimoa", e.target.value)} maxLength={6} style={Object.assign({}, S.input, { textAlign: "center", textTransform: "uppercase", fontWeight: 600 })} />
+          </div>
+        </div>
+        <div style={{ marginBottom: 12 }}>
+          <label style={S.label}>Etapak</label>
+          <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+            {data.etapak.map(e => {
+              const on = m.etapak.indexOf(e.id) >= 0;
+              return <button key={e.id} onClick={() => toggleEtapa(e.id)} style={{ background: on ? tint(e.kolorea, 0.16) : "#fff", color: on ? e.kolorea : C.sec, border: "1px solid " + (on ? e.kolorea : "#d1d5db"), borderRadius: 7, padding: "6px 14px", fontSize: 13, fontWeight: on ? 600 : 400, cursor: "pointer", fontFamily: "inherit" }}>{e.id}</button>;
+            })}
+          </div>
+        </div>
+        <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 12 }}>
+          <div>
+            <label style={S.label}>Mota</label>
+            <select value={m.mota} onChange={(e) => set("mota", e.target.value)} style={Object.assign({}, S.select, { width: 150 })}>
+              <option value="IRAK">Irakaslea</option>
+              <option value="PT">PT</option>
+            </select>
+          </div>
+          <div>
+            <label style={S.label}>Proposamena</label>
+            <input type="number" value={m.proposamena} onChange={(e) => set("proposamena", parseInt(e.target.value || 0, 10))} style={S.inputNum} />
+          </div>
+          <div>
+            <label style={S.label}>Lege-muga</label>
+            <input type="number" value={m.legeMuga} onChange={(e) => set("legeMuga", parseInt(e.target.value || 0, 10))} style={S.inputNum} />
+            {etapaLegala ? <div style={{ fontSize: 10, color: C.ter, marginTop: 3 }}>Etaparen muga: {etapaLegala}</div> : null}
+          </div>
+        </div>
+        <div style={{ marginBottom: 12 }}>
+          <label style={S.label}>Tutoretza</label>
+          <select value={m.tutoretzaTaldeId || ""} onChange={(e) => set("tutoretzaTaldeId", e.target.value || null)} style={Object.assign({}, S.select, { maxWidth: 280 })}>
+            <option value="">— Tutoretzarik gabe —</option>
+            {taldeAukerak.map(t => <option key={t.id} value={t.id}>{t.izena}</option>)}
+          </select>
+        </div>
+        <div style={{ marginBottom: 12 }}>
+          <label style={S.label}>Liberazioak (erantzukizunengatik)</label>
+          {m.liberazioak.map((l, idx) => (
+            <div key={idx} style={{ display: "flex", gap: 8, alignItems: "center", marginBottom: 6 }}>
+              <input type="number" value={l.orduak} onChange={(e) => setLib(idx, "orduak", e.target.value)} style={S.inputNum} />
+              <input placeholder="Zergatik" value={l.zergatik} onChange={(e) => setLib(idx, "zergatik", e.target.value)} style={Object.assign({}, S.input, { flex: 1 })} />
+              <button style={S.btnIcon} onClick={() => delLib(idx)}>✕</button>
+            </div>
+          ))}
+          <button style={S.btnSm} onClick={addLib}>+ Liberazioa</button>
+          {libBatura > 0 ? <span style={{ fontSize: 11, color: C.sec, marginLeft: 10 }}>Guztira: {libBatura} ordu</span> : null}
+        </div>
+        <div style={{ marginBottom: 18 }}>
+          <label style={S.label}>Oharra (adib. jornada)</label>
+          <input value={m.oharra} onChange={(e) => set("oharra", e.target.value)} style={S.input} />
+        </div>
+        <div style={{ display: "flex", justifyContent: "flex-end", gap: 8 }}>
+          <button style={S.btnSec} onClick={props.onClose}>Utzi</button>
+          <button style={S.btnPri} onClick={() => props.onSave(m)}>Gorde</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function LaburpenaTab(props) {
+  const data = props.data, etapaEskaria = props.etapaEskaria;
+  const irakKop = (eid) => data.irakasleak.filter(i => i.etapak.indexOf(eid) >= 0).length;
+  return (
+    <div>
+      <h2 style={S.h2}>Laburpena</h2>
+      <div style={{ fontSize: 12, color: C.sec, marginBottom: 16 }}>Eskaria eta eskaintza etapaka.</div>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 12, marginBottom: 22 }}>
+        {data.etapak.map(e => {
+          const mm = data.mailak.filter(m => m.etapaId === e.id);
+          const taldeak = mm.reduce((a, m) => a + m.taldeak.length, 0);
+          return (
+            <div key={e.id} style={Object.assign({}, S.card, { borderTop: "3px solid " + e.kolorea })}>
+              <div style={{ fontWeight: 600, color: C.title, marginBottom: 8 }}>{e.izena}</div>
+              <div style={{ fontSize: 13, color: C.txt, lineHeight: 1.9 }}>
+                <div>{mm.length} maila · {taldeak} talde</div>
+                <div><b style={{ color: e.kolorea }}>{etapaEskaria(e.id)}</b> ordu (eskaria)</div>
+                <div>{irakKop(e.id)} irakasle</div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+      <div style={Object.assign({}, S.card, { maxWidth: 520 })}>
+        <div style={{ fontSize: 12, color: C.sec, marginBottom: 10 }}>Datuak kudeatu</div>
+        <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+          <button style={S.btnSec} onClick={props.berrezarri}>Aurreko ikasturteko oinarria kargatu</button>
+          <button style={Object.assign({}, S.btnSec, { color: C.danger, borderColor: tint(C.danger, 0.5) })} onClick={props.hutsetik}>Dena garbitu</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function BanaketaView(props) {
+  const data = props.data, update = props.update, etapaById = props.etapaById, flash = props.flash;
+  const [banModua, setBanModua] = useState("irakasle");
+  const [selIrak, setSelIrak] = useState(data.irakasleak.length ? data.irakasleak[0].id : null);
+  const [selTalde, setSelTalde] = useState(null);
+  const [selIkas, setSelIkas] = useState(null);
+  const [propOrduak, setPropOrduak] = useState(1);
+  const [propRola, setPropRola] = useState("TITULAR");
+  // hutsune modua
+  const [hKey, setHKey] = useState(null);
+  const [hTarget, setHTarget] = useState(null);
+  const [hOrduak, setHOrduak] = useState(1);
+  const [hRola, setHRola] = useState("TITULAR");
+  // matrize modua: gelaxka modala
+  const [mxCell, setMxCell] = useState(null);
+
+  const eff = esleipenEfektiboak(data);
+  const irak = data.irakasleak.filter(i => i.id === selIrak)[0] || null;
+  const irakIzena = (id) => { const x = data.irakasleak.filter(z => z.id === id)[0]; return x ? (x.izena || "?") : "?"; };
+  const akr = (id) => { const x = data.irakasleak.filter(z => z.id === id)[0]; if (!x) return "?"; if (x.akronimoa) return x.akronimoa; return (x.izena || "").trim().substring(0, 3).toUpperCase(); };
+
+  const irakTaldeak = [];
+  if (irak) data.mailak.forEach(m => { if (irak.etapak.indexOf(m.etapaId) >= 0) m.taldeak.forEach(t => irakTaldeak.push({ talde: t, maila: m })); });
+  const selT = selTalde ? taldeInfo(data, selTalde) : null;
+
+  // bete gabe, etapaka
+  const etHuts = {};
+  data.etapak.forEach(e => { etHuts[e.id] = { ordu: 0, kop: 0 }; });
+  data.mailak.forEach(m => m.taldeak.forEach(t => m.ikasgaiak.forEach(k => {
+    const pend = k.orduak - titularOrduak(eff, t.id, k.id);
+    if (pend > 0 && etHuts[m.etapaId]) { etHuts[m.etapaId].ordu += pend; etHuts[m.etapaId].kop++; }
+  })));
+  const guztiraHuts = data.etapak.reduce((a, e) => a + etHuts[e.id].ordu, 0);
+
+  // esleipen partekatua
+  const eginEsleipena = (irId, taldeId, ikasgaiId, orduak, rola) => {
+    const info = taldeInfo(data, taldeId);
+    if (!info) return;
+    const k = info.maila.ikasgaiak.filter(z => z.id === ikasgaiId)[0];
+    if (!k) return;
+    const o = parseInt(orduak || 0, 10);
+    if (o <= 0) { flash("Sartu ordu kopurua"); return; }
+    if (rola === "TITULAR") {
+      const dagoeneko = titularOrduak(eff, taldeId, ikasgaiId);
+      if (dagoeneko + o > k.orduak) { flash("Ezin da gainditu: " + k.orduak + " ordu titular gehienez"); return; }
+    }
+    update(d => { d.esleipenak.push({ id: mkId("es"), irakasleId: irId, taldeId: taldeId, ikasgaiId: ikasgaiId, orduak: o, rola: rola }); });
+    flash("Esleituta");
+  };
+  const kendu = (esId) => { update(d => { d.esleipenak = d.esleipenak.filter(e => e.id !== esId); }); };
+
+  const hautatuIkasgaia = (kId) => {
+    setSelIkas(kId);
+    if (selT) {
+      const k = selT.maila.ikasgaiak.filter(z => z.id === kId)[0];
+      const pend = k ? (k.orduak - titularOrduak(eff, selT.talde.id, kId)) : 1;
+      setPropOrduak(pend > 0 ? pend : 1);
+      setPropRola("TITULAR");
+    }
+  };
+  const esleitu = () => {
+    if (!irak || !selT || !selIkas) return;
+    eginEsleipena(irak.id, selT.talde.id, selIkas, propOrduak, propRola);
+  };
+
+  const moduBtn = (id, izena) => (
+    <button onClick={() => setBanModua(id)} style={{ background: banModua === id ? C.title : "#fff", color: banModua === id ? "#fff" : C.sec, border: "1px solid " + (banModua === id ? C.title : "#d8cfc2"), borderRadius: 8, padding: "6px 14px", fontSize: 12, fontWeight: 600, cursor: "pointer", fontFamily: "inherit" }}>{izena}</button>
+  );
+
+  return (
+    <div>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 10, marginBottom: 14 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
+          {moduBtn("irakasle", "Irakasleka")}
+          {moduBtn("hutsune", "Hutsuneak")}
+          {moduBtn("matrize", "Matrizea")}
+        </div>
+        <div style={{ display: "flex", alignItems: "center", gap: 6, flexWrap: "wrap" }}>
+          {guztiraHuts === 0 ? (
+            <span style={{ fontSize: 12, fontWeight: 600, background: tint(C.ok, 0.12), color: C.ok, padding: "6px 12px", borderRadius: 9 }}>Dena beteta</span>
+          ) : data.etapak.map(e => (
+            <span key={e.id} style={{ fontSize: 11, fontWeight: 600, padding: "5px 10px", borderRadius: 8, background: etHuts[e.id].ordu > 0 ? tint(e.kolorea, 0.14) : tint(C.ok, 0.1), color: etHuts[e.id].ordu > 0 ? e.kolorea : C.ok, border: "1px solid " + (etHuts[e.id].ordu > 0 ? tint(e.kolorea, 0.4) : tint(C.ok, 0.3)) }}>
+              {e.id}: {etHuts[e.id].ordu > 0 ? (etHuts[e.id].ordu + "h · " + etHuts[e.id].kop) : "✓"}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {banModua === "irakasle" ? (
+        <div style={{ display: "grid", gridTemplateColumns: "minmax(220px, 1fr) minmax(0, 2fr)", gap: 12, alignItems: "stretch" }}>
+          <div style={Object.assign({}, S.panelBox, { maxHeight: 620, overflow: "auto" })}>
+            <div style={{ fontSize: 12, color: C.ter, marginBottom: 8, fontWeight: 600 }}>IRAKASLEAK</div>
+            {data.irakasleak.map(i => {
+              const karga = irakKarga(eff, i.id);
+              const kol = semaforoKolore(karga, i);
+              const on = i.id === selIrak;
+              return (
+                <div key={i.id} onClick={() => { setSelIrak(i.id); setSelTalde(null); setSelIkas(null); }} style={{ display: "flex", alignItems: "center", gap: 8, padding: "7px 8px", borderRadius: 8, cursor: "pointer", marginBottom: 2, background: on ? tint(C.info, 0.1) : "transparent", border: "1px solid " + (on ? tint(C.info, 0.4) : "transparent") }}>
+                  <div style={{ minWidth: 0, flex: 1 }}>
+                    <div style={{ fontSize: 13, fontWeight: on ? 600 : 500, color: C.title, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{i.izena}{i.akronimoa ? " · " + i.akronimoa : ""}</div>
+                    <div style={{ fontSize: 10, color: C.sec }}>{i.etapak.join(" · ")}{i.mota === "PT" ? " · PT" : ""}</div>
+                  </div>
+                  <div style={{ textAlign: "right" }}>
+                    <div style={{ fontSize: 12, fontWeight: 700, color: kol }}>{karga}/{i.proposamena}</div>
+                    <div style={{ fontSize: 9, color: C.ter, marginTop: 1 }}>lege {i.legeMuga}</div>
+                    <div style={{ height: 5, width: 54, background: "#eee6da", borderRadius: 5, overflow: "hidden", marginTop: 3 }}>
+                      <div style={{ height: "100%", width: Math.min(100, i.legeMuga ? (karga / i.legeMuga * 100) : 0) + "%", background: kol }}></div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <div style={{ display: "grid", gridTemplateRows: "auto auto", gap: 12, minWidth: 0 }}>
+            <div style={S.panelBox}>
+              <div style={{ fontSize: 12, color: C.ter, marginBottom: 10, fontWeight: 600 }}>{irak ? (irak.izena.toUpperCase() + " · EMAN DITZAKEEN TALDEAK") : "HAUTATU IRAKASLE BAT"}</div>
+              {irak ? (
+                <div>
+                  <div style={{ display: "flex", gap: 7, flexWrap: "wrap", marginBottom: selT ? 12 : 0 }}>
+                    {irakTaldeak.length ? irakTaldeak.map(it => {
+                      const on = selTalde === it.talde.id;
+                      const kol = etapaById(it.maila.etapaId).kolorea;
+                      return <button key={it.talde.id} onClick={() => { setSelTalde(it.talde.id); setSelIkas(null); }} style={{ fontSize: 12, padding: "5px 12px", borderRadius: 8, cursor: "pointer", fontFamily: "inherit", border: on ? "2px solid " + kol : "1px solid #d8cfc2", background: on ? tint(kol, 0.14) : "#fff", color: on ? kol : C.sec, fontWeight: on ? 600 : 400 }}>{it.talde.izena}</button>;
+                    }) : <span style={{ fontSize: 12, color: C.ter }}>Etaparik gabe konfigurazioan.</span>}
+                  </div>
+                  {selT ? (
+                    <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+                      {selT.maila.ikasgaiak.map(k => {
+                        const cov = titularOrduak(eff, selT.talde.id, k.id);
+                        const pend = k.orduak - cov;
+                        const hemen = esleipenakHemen(eff, selT.talde.id, k.id);
+                        const tuto = isTuto(k.izena);
+                        const on = selIkas === k.id;
+                        let azpia, kol;
+                        if (tuto && hemen.length) { azpia = "tutorea"; kol = C.ter; }
+                        else if (pend <= 0 && cov > 0) { azpia = hemen.filter(e => e.rola === "TITULAR").map(e => irakIzena(e.irakasleId)).join(", "); kol = C.ok; }
+                        else if (cov > 0) { azpia = pend + " ordu falta"; kol = C.warn; }
+                        else { azpia = "esleitu gabe"; kol = C.danger; }
+                        return (
+                          <div key={k.id} onClick={() => hautatuIkasgaia(k.id)} style={{ flex: "1 1 92px", minWidth: 88, border: on ? "2px solid " + C.info : "1px solid " + C.border, borderRadius: 9, padding: "7px 8px", cursor: "pointer", background: on ? tint(C.info, 0.05) : "#fff" }}>
+                            <div style={{ fontSize: 12, fontWeight: 600, color: C.title, marginBottom: 3, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{k.izena}</div>
+                            <div style={{ fontSize: 10, color: kol, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{azpia}</div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  ) : <div style={{ fontSize: 12, color: C.ter }}>Hautatu talde bat ikasgaiak ikusteko.</div>}
+
+                  {selT && selIkas ? (function () {
+                    const k = selT.maila.ikasgaiak.filter(z => z.id === selIkas)[0];
+                    if (!k) return null;
+                    const hemen = esleipenakHemen(eff, selT.talde.id, selIkas);
+                    const cov = titularOrduak(eff, selT.talde.id, selIkas);
+                    return (
+                      <div style={{ marginTop: 12, padding: "11px 12px", background: tint(C.info, 0.06), borderRadius: 10, border: "1px solid " + tint(C.info, 0.25) }}>
+                        <div style={{ fontSize: 12, fontWeight: 600, color: C.info, marginBottom: 8 }}>{k.izena} · {selT.talde.izena} <span style={{ color: C.sec, fontWeight: 400 }}>({cov}/{k.orduak} titular beteta)</span></div>
+                        {hemen.map(e => (
+                          <div key={e.id} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 12, marginBottom: 5 }}>
+                            <span style={{ width: 8, height: 8, borderRadius: 2, background: e.rola === "TITULAR" ? C.info : C.violet }}></span>
+                            <span style={{ flex: 1, color: C.txt }}>{irakIzena(e.irakasleId)} · {e.orduak} ordu · {e.rola === "TITULAR" ? "Titularra" : "Errefortzua"}{e.auto ? " (auto)" : ""}</span>
+                            {e.auto ? <span style={{ fontSize: 10, color: C.ter }}>tutoretzatik</span> : <button style={S.btnIcon} onClick={() => kendu(e.id)}>✕</button>}
+                          </div>
+                        ))}
+                        <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginTop: 8 }}>
+                          <span style={{ fontSize: 12, color: C.sec }}>{irak.izena}:</span>
+                          <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                            <button style={{ width: 24, height: 24, borderRadius: 6, border: "1px solid #d8cfc2", background: "#fff", cursor: "pointer" }} onClick={() => setPropOrduak(Math.max(1, propOrduak - 1))}>−</button>
+                            <span style={{ minWidth: 16, textAlign: "center", fontWeight: 600 }}>{propOrduak}</span>
+                            <button style={{ width: 24, height: 24, borderRadius: 6, border: "1px solid #d8cfc2", background: "#fff", cursor: "pointer" }} onClick={() => setPropOrduak(propOrduak + 1)}>+</button>
+                          </div>
+                          <button onClick={() => setPropRola("TITULAR")} style={{ fontSize: 11, padding: "4px 10px", borderRadius: 7, cursor: "pointer", fontFamily: "inherit", border: "1px solid " + (propRola === "TITULAR" ? C.info : "#d8cfc2"), background: propRola === "TITULAR" ? tint(C.info, 0.14) : "#fff", color: propRola === "TITULAR" ? C.info : C.sec, fontWeight: propRola === "TITULAR" ? 600 : 400 }}>Titularra</button>
+                          <button onClick={() => setPropRola("ERREFORTZU")} style={{ fontSize: 11, padding: "4px 10px", borderRadius: 7, cursor: "pointer", fontFamily: "inherit", border: "1px solid " + (propRola === "ERREFORTZU" ? C.violet : "#d8cfc2"), background: propRola === "ERREFORTZU" ? tint(C.violet, 0.14) : "#fff", color: propRola === "ERREFORTZU" ? C.violet : C.sec, fontWeight: propRola === "ERREFORTZU" ? 600 : 400 }}>Errefortzua</button>
+                          <button style={Object.assign({}, S.btnPri, { marginLeft: "auto", padding: "6px 16px" })} onClick={esleitu}>Esleitu</button>
+                        </div>
+                      </div>
+                    );
+                  })() : null}
+                </div>
+              ) : <div style={{ fontSize: 12, color: C.ter }}>Hautatu irakasle bat ezkerreko zerrendan.</div>}
+            </div>
+
+            <div style={S.panelBox}>
+              {selT && selIkas ? (function () {
+                const k = selT.maila.ikasgaiak.filter(z => z.id === selIkas)[0];
+                if (!k) return <div style={{ fontSize: 12, color: C.ter }}>—</div>;
+                const etapaId = selT.maila.etapaId;
+                const zerrenda = [];
+                data.mailak.forEach(m => { if (m.etapaId === etapaId) m.taldeak.forEach(t => { const kk = m.ikasgaiak.filter(x => x.izena === k.izena)[0]; if (kk) zerrenda.push({ talde: t, ik: kk }); }); });
+                let irakOrduGuzti = 0;
+                eff.forEach(e => { if (e.irakasleId === selIrak) { const inf = taldeInfo(data, e.taldeId); if (inf && inf.maila.etapaId === etapaId) { const kk = inf.maila.ikasgaiak.filter(x => x.id === e.ikasgaiId)[0]; if (kk && kk.izena === k.izena) irakOrduGuzti += e.orduak; } } });
+                return (
+                  <div>
+                    <div style={{ fontSize: 12, color: C.ter, marginBottom: 10, fontWeight: 600 }}>{k.izena.toUpperCase()} · {etapaId} · OREKA</div>
+                    <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+                      {zerrenda.map((z, idx) => {
+                        const cov = titularOrduak(eff, z.talde.id, z.ik.id);
+                        const pend = z.ik.orduak - cov;
+                        const titZerr = esleipenakHemen(eff, z.talde.id, z.ik.id).filter(e => e.rola === "TITULAR");
+                        const izenak = titZerr.map(e => irakIzena(e.irakasleId)).join(", ");
+                        const beteta = pend <= 0 && cov > 0;
+                        return (
+                          <div key={idx} style={{ flex: "1 1 80px", minWidth: 78, border: "1px solid " + (pend > 0 ? tint(C.danger, 0.45) : C.border), borderRadius: 8, padding: "6px 7px", textAlign: "center", background: "#fff" }}>
+                            <div style={{ fontSize: 11, color: C.ter }}>{z.talde.izena}</div>
+                            <div style={{ fontSize: 12, color: izenak ? C.title : C.danger, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{izenak || "hutsik"}</div>
+                            <div style={{ fontSize: 10, color: beteta ? C.ok : C.danger }}>{cov}/{z.ik.orduak}</div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                    {irakOrduGuzti > 0 ? <div style={{ marginTop: 10, fontSize: 11, color: C.sec }}>⚠️ {irak.izena}-(e)k {irakOrduGuzti} ordu {k.izena} dauzka {etapaId}-n</div> : null}
+                  </div>
+                );
+              })() : <div style={{ fontSize: 12, color: C.ter, alignSelf: "center", margin: "auto" }}>Hautatu ikasgai bat goian, etapa osoko oreka ikusteko.</div>}
+            </div>
+          </div>
+        </div>
+      ) : null}
+
+      {banModua === "hutsune" ? (function () {
+        const hutsuneak = [];
+        data.etapak.forEach(e => {
+          data.mailak.forEach(m => { if (m.etapaId === e.id) m.taldeak.forEach(t => m.ikasgaiak.forEach(k => {
+            const cov = titularOrduak(eff, t.id, k.id);
+            const pend = k.orduak - cov;
+            if (pend > 0) hutsuneak.push({ key: t.id + "_" + k.id, etapaId: e.id, etapaKol: e.kolorea, taldeId: t.id, taldeIzena: t.izena, ikasgaiId: k.id, ikasIzena: k.izena, req: k.orduak, cov: cov, pend: pend });
+          })); });
+        });
+        const selH = hutsuneak.filter(h => h.key === hKey)[0] || null;
+        const hautagaiak = selH ? data.irakasleak.filter(i => i.etapak.indexOf(selH.etapaId) >= 0) : [];
+        const hemenH = selH ? esleipenakHemen(eff, selH.taldeId, selH.ikasgaiId) : [];
+        return (
+          <div style={{ display: "grid", gridTemplateColumns: "minmax(240px, 1fr) minmax(0, 1.7fr)", gap: 12, alignItems: "stretch" }}>
+            <div style={Object.assign({}, S.panelBox, { maxHeight: 620, overflow: "auto" })}>
+              <div style={{ fontSize: 12, color: C.ter, marginBottom: 8, fontWeight: 600 }}>HUTSUNEAK ({hutsuneak.length})</div>
+              {hutsuneak.length === 0 ? <div style={{ fontSize: 12, color: C.ok }}>Dena beteta 🎉</div> : null}
+              {data.etapak.map(e => {
+                const hh = hutsuneak.filter(h => h.etapaId === e.id);
+                if (!hh.length) return null;
+                return (
+                  <div key={e.id} style={{ marginBottom: 10 }}>
+                    <div style={{ fontSize: 11, fontWeight: 600, color: e.kolorea, margin: "6px 0 4px" }}>{e.izena}</div>
+                    {hh.map(h => {
+                      const on = h.key === hKey;
+                      return (
+                        <div key={h.key} onClick={() => { setHKey(h.key); setHTarget(null); setHOrduak(h.pend); setHRola("TITULAR"); }} style={{ display: "flex", alignItems: "center", gap: 8, padding: "6px 8px", borderRadius: 8, cursor: "pointer", marginBottom: 2, background: on ? tint(C.info, 0.1) : "transparent", border: "1px solid " + (on ? tint(C.info, 0.4) : "transparent"), borderLeft: "3px solid " + e.kolorea }}>
+                          <div style={{ flex: 1, minWidth: 0 }}>
+                            <div style={{ fontSize: 12, fontWeight: 600, color: C.title }}>{h.taldeIzena} · {h.ikasIzena}</div>
+                          </div>
+                          <span style={{ fontSize: 11, fontWeight: 700, color: C.danger }}>{h.cov}/{h.req}</span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                );
+              })}
+            </div>
+
+            <div style={S.panelBox}>
+              {selH ? (
+                <div>
+                  <div style={{ fontSize: 13, fontWeight: 600, color: C.title, marginBottom: 2 }}>{selH.taldeIzena} · {selH.ikasIzena}</div>
+                  <div style={{ fontSize: 11, color: C.danger, marginBottom: 12 }}>{selH.pend} ordu falta ({selH.cov}/{selH.req} beteta)</div>
+                  {hemenH.length ? (
+                    <div style={{ marginBottom: 12 }}>
+                      {hemenH.map(e => (
+                        <div key={e.id} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 12, marginBottom: 4 }}>
+                          <span style={{ width: 8, height: 8, borderRadius: 2, background: e.rola === "TITULAR" ? C.info : C.violet }}></span>
+                          <span style={{ flex: 1, color: C.txt }}>{irakIzena(e.irakasleId)} · {e.orduak}h · {e.rola === "TITULAR" ? "Titularra" : "Errefortzua"}{e.auto ? " (auto)" : ""}</span>
+                          {e.auto ? <span style={{ fontSize: 10, color: C.ter }}>tutoretzatik</span> : <button style={S.btnIcon} onClick={() => kendu(e.id)}>✕</button>}
+                        </div>
+                      ))}
+                    </div>
+                  ) : null}
+                  <div style={{ fontSize: 11, color: C.ter, fontWeight: 600, marginBottom: 6 }}>HAUTAGAIAK</div>
+                  <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 12 }}>
+                    {hautagaiak.map(i => {
+                      const karga = irakKarga(eff, i.id);
+                      const kol = semaforoKolore(karga, i);
+                      const on = hTarget === i.id;
+                      return (
+                        <button key={i.id} onClick={() => setHTarget(i.id)} style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 12, padding: "5px 10px", borderRadius: 8, cursor: "pointer", fontFamily: "inherit", border: on ? "2px solid " + C.info : "1px solid #d8cfc2", background: on ? tint(C.info, 0.1) : "#fff", color: C.title }}>
+                          {i.izena}
+                          <span style={{ fontSize: 10, fontWeight: 700, color: kol }}>{karga}/{i.proposamena}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                  {hTarget ? (
+                    <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", padding: "10px 12px", background: tint(C.info, 0.06), borderRadius: 10, border: "1px solid " + tint(C.info, 0.25) }}>
+                      <span style={{ fontSize: 12, color: C.sec }}>{irakIzena(hTarget)}:</span>
+                      <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                        <button style={{ width: 24, height: 24, borderRadius: 6, border: "1px solid #d8cfc2", background: "#fff", cursor: "pointer" }} onClick={() => setHOrduak(Math.max(1, hOrduak - 1))}>−</button>
+                        <span style={{ minWidth: 16, textAlign: "center", fontWeight: 600 }}>{hOrduak}</span>
+                        <button style={{ width: 24, height: 24, borderRadius: 6, border: "1px solid #d8cfc2", background: "#fff", cursor: "pointer" }} onClick={() => setHOrduak(hOrduak + 1)}>+</button>
+                      </div>
+                      <button onClick={() => setHRola("TITULAR")} style={{ fontSize: 11, padding: "4px 10px", borderRadius: 7, cursor: "pointer", fontFamily: "inherit", border: "1px solid " + (hRola === "TITULAR" ? C.info : "#d8cfc2"), background: hRola === "TITULAR" ? tint(C.info, 0.14) : "#fff", color: hRola === "TITULAR" ? C.info : C.sec, fontWeight: hRola === "TITULAR" ? 600 : 400 }}>Titularra</button>
+                      <button onClick={() => setHRola("ERREFORTZU")} style={{ fontSize: 11, padding: "4px 10px", borderRadius: 7, cursor: "pointer", fontFamily: "inherit", border: "1px solid " + (hRola === "ERREFORTZU" ? C.violet : "#d8cfc2"), background: hRola === "ERREFORTZU" ? tint(C.violet, 0.14) : "#fff", color: hRola === "ERREFORTZU" ? C.violet : C.sec, fontWeight: hRola === "ERREFORTZU" ? 600 : 400 }}>Errefortzua</button>
+                      <button style={Object.assign({}, S.btnPri, { marginLeft: "auto", padding: "6px 16px" })} onClick={() => eginEsleipena(hTarget, selH.taldeId, selH.ikasgaiId, hOrduak, hRola)}>Esleitu</button>
+                    </div>
+                  ) : <div style={{ fontSize: 11, color: C.ter }}>Hautatu hautagai bat orduak esleitzeko.</div>}
+                </div>
+              ) : <div style={{ fontSize: 12, color: C.ter, alignSelf: "center", margin: "auto" }}>Hautatu hutsune bat ezkerrean.</div>}
+            </div>
+          </div>
+        );
+      })() : null}
+
+      {banModua === "matrize" ? (function () {
+        return (
+          <div>
+            <div style={{ fontSize: 11, color: C.sec, marginBottom: 12 }}>Talde-klaseak errenkadetan, ikasgaiak zutabeetan. Gelaxkek titularraren akronimoa erakusten dute (konfiguratu gabe, izenaren 3 hizki). Kolorea: berdea osatua, laranja erdizka, gorria hutsik. <b>Egin klik gelaxka batean esleitzeko.</b></div>
+            {data.etapak.map(e => {
+              const mm = data.mailak.filter(m => m.etapaId === e.id);
+              const izenZerr = [];
+              mm.forEach(m => m.ikasgaiak.forEach(k => { if (izenZerr.indexOf(k.izena) < 0) izenZerr.push(k.izena); }));
+              const errenk = [];
+              mm.forEach(m => m.taldeak.forEach(t => errenk.push({ talde: t, maila: m })));
+              if (!errenk.length) return null;
+              return (
+                <div key={e.id} style={{ marginBottom: 26 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
+                    <span style={{ width: 10, height: 10, borderRadius: 3, background: e.kolorea }}></span>
+                    <span style={{ fontWeight: 600, color: C.title, fontSize: 15 }}>{e.izena}</span>
+                  </div>
+                  <div style={{ overflowX: "auto", border: "1px solid " + C.border, borderRadius: 10 }}>
+                    <table style={{ borderCollapse: "collapse", fontSize: 11, minWidth: "100%" }}>
+                      <thead>
+                        <tr>
+                          <th style={{ position: "sticky", left: 0, background: tint(e.kolorea, 0.1), color: C.title, textAlign: "left", padding: "7px 9px", borderBottom: "1px solid " + C.border, fontSize: 11 }}>Taldea</th>
+                          {izenZerr.map(nm => <th key={nm} style={{ padding: "7px 6px", borderBottom: "1px solid " + C.border, color: C.sec, fontWeight: 600, whiteSpace: "nowrap", fontSize: 10 }}>{nm}</th>)}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {errenk.map(r => (
+                          <tr key={r.talde.id}>
+                            <td style={{ position: "sticky", left: 0, background: "#fff", fontWeight: 600, color: C.title, padding: "6px 9px", borderBottom: "1px solid #f0ece5", whiteSpace: "nowrap" }}>{r.talde.izena}</td>
+                            {izenZerr.map(nm => {
+                              const k = r.maila.ikasgaiak.filter(x => x.izena === nm)[0];
+                              if (!k) return <td key={nm} style={{ borderBottom: "1px solid #f0ece5", background: "#faf7f2" }}></td>;
+                              const cov = titularOrduak(eff, r.talde.id, k.id);
+                              const pend = k.orduak - cov;
+                              const tit = esleipenakHemen(eff, r.talde.id, k.id).filter(x => x.rola === "TITULAR");
+                              const ref = esleipenakHemen(eff, r.talde.id, k.id).filter(x => x.rola === "ERREFORTZU");
+                              const lab = tit.map(x => akr(x.irakasleId)).join("·");
+                              let bg, fg;
+                              if (pend <= 0 && cov > 0) { bg = tint(C.ok, 0.14); fg = "#0f7a52"; }
+                              else if (cov > 0) { bg = tint(C.warn, 0.16); fg = "#9a6700"; }
+                              else { bg = tint(C.danger, 0.1); fg = C.danger; }
+                              return (
+                                <td key={nm} onClick={() => setMxCell({ taldeId: r.talde.id, ikasgaiId: k.id })} title={k.izena + " · " + r.talde.izena + " (" + cov + "/" + k.orduak + ")"} style={{ textAlign: "center", padding: "5px 6px", borderBottom: "1px solid #f0ece5", background: bg, color: fg, fontWeight: 600, whiteSpace: "nowrap", cursor: "pointer" }}>
+                                  {lab || (k.orduak > 0 ? "—" : "")}{ref.length ? <span style={{ color: C.violet, fontWeight: 700 }}>+</span> : null}
+                                </td>
+                              );
+                            })}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        );
+      })() : null}
+
+      {mxCell ? (function () {
+        const info = taldeInfo(data, mxCell.taldeId);
+        if (!info) return null;
+        const k = info.maila.ikasgaiak.filter(z => z.id === mxCell.ikasgaiId)[0];
+        if (!k) return null;
+        const cov = titularOrduak(eff, mxCell.taldeId, mxCell.ikasgaiId);
+        const pend = k.orduak - cov;
+        const hemen = esleipenakHemen(eff, mxCell.taldeId, mxCell.ikasgaiId);
+        const hautagaiak = data.irakasleak.filter(i => i.etapak.indexOf(info.maila.etapaId) >= 0);
+        return (
+          <div style={S.overlay} onClick={() => { setMxCell(null); setHTarget(null); }}>
+            <div style={Object.assign({}, S.modal, { maxWidth: 560 })} onClick={(ev) => ev.stopPropagation()}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
+                <h3 style={Object.assign({}, S.h3, { margin: 0 })}>{info.talde.izena} · {k.izena}</h3>
+                <button style={S.btnIcon} onClick={() => { setMxCell(null); setHTarget(null); }}>✕</button>
+              </div>
+              <div style={{ fontSize: 12, color: pend > 0 ? C.danger : C.ok, marginBottom: 14 }}>{cov}/{k.orduak} titular beteta{pend > 0 ? (" · " + pend + " ordu falta") : " · osatua"}</div>
+
+              {hemen.length ? (
+                <div style={{ marginBottom: 14 }}>
+                  {hemen.map(e => (
+                    <div key={e.id} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 12, marginBottom: 5 }}>
+                      <span style={{ width: 8, height: 8, borderRadius: 2, background: e.rola === "TITULAR" ? C.info : C.violet }}></span>
+                      <span style={{ flex: 1, color: C.txt }}>{irakIzena(e.irakasleId)} · {e.orduak} ordu · {e.rola === "TITULAR" ? "Titularra" : "Errefortzua"}{e.auto ? " (auto)" : ""}</span>
+                      {e.auto ? <span style={{ fontSize: 10, color: C.ter }}>tutoretzatik</span> : <button style={S.btnIcon} onClick={() => kendu(e.id)}>✕</button>}
+                    </div>
+                  ))}
+                </div>
+              ) : null}
+
+              <div style={{ fontSize: 11, color: C.ter, fontWeight: 600, marginBottom: 6 }}>HAUTAGAIAK</div>
+              <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 12 }}>
+                {hautagaiak.map(i => {
+                  const karga = irakKarga(eff, i.id);
+                  const kol = semaforoKolore(karga, i);
+                  const on = hTarget === i.id;
+                  return (
+                    <button key={i.id} onClick={() => { setHTarget(i.id); setHOrduak(pend > 0 ? pend : 1); setHRola("TITULAR"); }} style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 12, padding: "5px 10px", borderRadius: 8, cursor: "pointer", fontFamily: "inherit", border: on ? "2px solid " + C.info : "1px solid #d8cfc2", background: on ? tint(C.info, 0.1) : "#fff", color: C.title }}>
+                      {i.izena}<span style={{ fontSize: 10, fontWeight: 700, color: kol }}>{karga}/{i.proposamena}</span>
+                    </button>
+                  );
+                })}
+              </div>
+
+              {hTarget ? (
+                <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", padding: "10px 12px", background: tint(C.info, 0.06), borderRadius: 10, border: "1px solid " + tint(C.info, 0.25) }}>
+                  <span style={{ fontSize: 12, color: C.sec }}>{irakIzena(hTarget)}:</span>
+                  <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                    <button style={{ width: 24, height: 24, borderRadius: 6, border: "1px solid #d8cfc2", background: "#fff", cursor: "pointer" }} onClick={() => setHOrduak(Math.max(1, hOrduak - 1))}>−</button>
+                    <span style={{ minWidth: 16, textAlign: "center", fontWeight: 600 }}>{hOrduak}</span>
+                    <button style={{ width: 24, height: 24, borderRadius: 6, border: "1px solid #d8cfc2", background: "#fff", cursor: "pointer" }} onClick={() => setHOrduak(hOrduak + 1)}>+</button>
+                  </div>
+                  <button onClick={() => setHRola("TITULAR")} style={{ fontSize: 11, padding: "4px 10px", borderRadius: 7, cursor: "pointer", fontFamily: "inherit", border: "1px solid " + (hRola === "TITULAR" ? C.info : "#d8cfc2"), background: hRola === "TITULAR" ? tint(C.info, 0.14) : "#fff", color: hRola === "TITULAR" ? C.info : C.sec, fontWeight: hRola === "TITULAR" ? 600 : 400 }}>Titularra</button>
+                  <button onClick={() => setHRola("ERREFORTZU")} style={{ fontSize: 11, padding: "4px 10px", borderRadius: 7, cursor: "pointer", fontFamily: "inherit", border: "1px solid " + (hRola === "ERREFORTZU" ? C.violet : "#d8cfc2"), background: hRola === "ERREFORTZU" ? tint(C.violet, 0.14) : "#fff", color: hRola === "ERREFORTZU" ? C.violet : C.sec, fontWeight: hRola === "ERREFORTZU" ? 600 : 400 }}>Errefortzua</button>
+                  <button style={Object.assign({}, S.btnPri, { marginLeft: "auto", padding: "6px 16px" })} onClick={() => { eginEsleipena(hTarget, mxCell.taldeId, mxCell.ikasgaiId, hOrduak, hRola); setHTarget(null); }}>Esleitu</button>
+                </div>
+              ) : <div style={{ fontSize: 11, color: C.ter }}>Hautatu irakasle bat orduak esleitzeko.</div>}
+            </div>
+          </div>
+        );
+      })() : null}
+
+    </div>
+  );
+}
+
+function BehaketaBox(props) {
+  const [txt, setTxt] = useState(props.value || "");
+  useEffect(function () { setTxt(props.value || ""); }, [props.id]);
+  return (
+    <textarea value={txt} onChange={(e) => setTxt(e.target.value)} onBlur={() => props.onCommit(txt)} placeholder="Idatzi hemen oharrak, inprimatu aurretik…" style={{ width: "100%", minHeight: 70, background: "#fff", border: "1px solid #d1d5db", borderRadius: 8, padding: "8px 11px", color: "#1f2937", fontSize: 13, boxSizing: "border-box", outline: "none", fontFamily: "inherit", resize: "vertical" }} />
+  );
+}
+
+function InprimaketaView(props) {
+  const data = props.data, update = props.update, etapaById = props.etapaById, flash = props.flash;
+  const [denak, setDenak] = useState(false);
+  const [selId, setSelId] = useState(data.irakasleak.length ? data.irakasleak[0].id : null);
+
+  const eff = esleipenEfektiboak(data);
+  const irakIzena = (id) => { const x = data.irakasleak.filter(z => z.id === id)[0]; return x ? (x.izena || "?") : "?"; };
+  const akr = (id) => { const x = data.irakasleak.filter(z => z.id === id)[0]; if (!x) return "?"; if (x.akronimoa) return x.akronimoa; return (x.izena || "").trim().substring(0, 3).toUpperCase(); };
+
+  const setBehaketa = (irId, v) => { update(d => { const x = d.irakasleak.filter(z => z.id === irId)[0]; if (x) x.behaketa = v; }); };
+
+  const irakEsleipenak = (irId) => {
+    const arr = [];
+    eff.forEach(e => {
+      if (e.irakasleId === irId) {
+        const info = taldeInfo(data, e.taldeId);
+        if (info) {
+          const kk = info.maila.ikasgaiak.filter(x => x.id === e.ikasgaiId)[0];
+          if (kk) arr.push({ etapaId: info.maila.etapaId, grupo: info.talde.izena, taldeId: e.taldeId, subject: kk.izena, hours: e.orduak, rola: e.rola, auto: e.auto });
+        }
+      }
+    });
+    arr.sort((a, b) => { if (a.etapaId !== b.etapaId) return a.etapaId < b.etapaId ? -1 : 1; if (a.grupo !== b.grupo) return a.grupo < b.grupo ? -1 : 1; return a.subject < b.subject ? -1 : 1; });
+    return arr;
+  };
+
+  const subjectStrip = (etapaId, subjectName, taldeIdAktiboa) => {
+    const out = [];
+    data.mailak.forEach(m => { if (m.etapaId === etapaId) m.taldeak.forEach(t => {
+      const kk = m.ikasgaiak.filter(x => x.izena === subjectName)[0];
+      if (kk) { const tit = esleipenakHemen(eff, t.id, kk.id).filter(e => e.rola === "TITULAR"); out.push({ grupo: t.izena, taldeId: t.id, acrs: tit.map(e => akr(e.irakasleId)), aktiboa: t.id === taldeIdAktiboa }); }
+    }); });
+    return out;
+  };
+
+  const taldeOsoa = (taldeId) => {
+    const info = taldeInfo(data, taldeId);
+    if (!info) return [];
+    return info.maila.ikasgaiak.map(k => {
+      const tit = esleipenakHemen(eff, taldeId, k.id).filter(e => e.rola === "TITULAR");
+      const ref = esleipenakHemen(eff, taldeId, k.id).filter(e => e.rola === "ERREFORTZU");
+      return { subject: k.izena, hours: k.orduak, titulars: tit.map(e => irakIzena(e.irakasleId)), refs: ref.map(e => irakIzena(e.irakasleId)) };
+    });
+  };
+
+  const Ficha = function (fp) {
+    const i = fp.irak;
+    const esl = irakEsleipenak(i.id);
+    const karga = irakKarga(eff, i.id);
+    const libBatura = i.liberazioak.reduce((a, l) => a + (l.orduak || 0), 0);
+    const kol = semaforoKolore(karga, i);
+    const txtMuted = "#555", line = "#d8cfc2";
+    return (
+      <div className="ficha" style={{ background: "#fff", border: "1px solid " + line, borderRadius: 10, padding: "20px 22px", marginBottom: 18, color: "#222", fontFamily: "'Outfit', sans-serif" }}>
+        <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", borderBottom: "2px solid " + C.title, paddingBottom: 10, marginBottom: 14 }}>
+          <div>
+            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+              <span style={{ fontFamily: "'Source Serif 4', serif", fontSize: 22, fontWeight: 700, color: C.title }}>{i.izena}</span>
+              {i.akronimoa ? <span style={{ fontSize: 12, fontWeight: 700, color: C.blue, border: "1px solid " + tint(C.blue, 0.4), borderRadius: 5, padding: "1px 7px" }}>{i.akronimoa}</span> : null}
+              {i.mota === "PT" ? <span style={{ fontSize: 11, fontWeight: 600, color: C.violet }}>PT</span> : null}
+            </div>
+            <div style={{ fontSize: 12, color: txtMuted, marginTop: 3 }}>
+              {i.etapak.join(" · ")}
+              {i.tutoretzaTaldeId ? (function () { const inf = taldeInfo(data, i.tutoretzaTaldeId); return inf ? (" · Tutorea: " + inf.talde.izena) : ""; })() : ""}
+            </div>
+          </div>
+          <div style={{ textAlign: "right" }}>
+            <span style={{ fontFamily: "'Source Serif 4', serif", fontWeight: 700, color: C.blue, fontSize: 16, border: "2px solid " + C.blue, borderRadius: 7, padding: "1px 6px" }}>AM</span>
+            <div style={{ fontSize: 10, color: txtMuted, marginTop: 4 }}>{data.ikasturtea}</div>
+          </div>
+        </div>
+
+        <div style={{ display: "flex", gap: 18, flexWrap: "wrap", fontSize: 12, marginBottom: 16, color: "#333" }}>
+          <div style={{ background: "#faf7f2", border: "1px solid " + line, borderRadius: 8, padding: "8px 12px" }}>
+            <div style={{ fontSize: 10, color: txtMuted, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 3 }}>Ordu-kontaketa</div>
+            <div>Estandarra: <b>{i.etapak.map(eid => etapaById(eid).id + " " + etapaById(eid).estandarra).join(" · ")}</b></div>
+            <div>Liberazioak: <b>{libBatura > 0 ? ("−" + libBatura) : "0"}</b>{i.liberazioak.length ? (" (" + i.liberazioak.map(l => (l.zergatik || "?") + " " + l.orduak).join(", ") + ")") : ""}</div>
+            <div>Proposamena (topea): <b>{i.proposamena}</b> · Lege-muga: <b>{i.legeMuga}</b></div>
+          </div>
+          <div style={{ background: tint(kol, 0.1), border: "1px solid " + tint(kol, 0.4), borderRadius: 8, padding: "8px 12px", minWidth: 120 }}>
+            <div style={{ fontSize: 10, color: txtMuted, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 3 }}>Esleitutako orduak</div>
+            <div style={{ fontSize: 24, fontWeight: 700, color: kol, lineHeight: 1 }}>{karga}</div>
+            <div style={{ fontSize: 11, color: txtMuted, marginTop: 2 }}>{karga < i.proposamena ? (i.proposamena - karga) + "h proposamenera" : (karga > i.legeMuga ? "Lege-muga gainditua" : (karga > i.proposamena ? "Proposamenetik gora" : "Proposamenean"))}</div>
+          </div>
+        </div>
+
+        <div style={{ fontSize: 11, fontWeight: 700, color: C.title, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 6 }}>Esleipenak</div>
+        {esl.length ? esl.map((a, idx) => {
+          const strip = subjectStrip(a.etapaId, a.subject, a.taldeId);
+          return (
+            <div key={idx} style={{ display: "flex", alignItems: "flex-start", gap: 12, padding: "6px 0", borderBottom: "1px solid #f0ece5" }}>
+              <div style={{ flex: "0 0 230px", display: "flex", alignItems: "baseline", gap: 6 }}>
+                <span style={{ fontWeight: 700, color: etapaById(a.etapaId).kolorea, fontSize: 12, minWidth: 52 }}>{a.grupo}</span>
+                <span style={{ fontSize: 13, color: "#222" }}>{a.subject}</span>
+                <span style={{ fontSize: 12, color: "#222", fontWeight: 600 }}>· {a.hours}h</span>
+                {a.rola === "ERREFORTZU" ? <span style={{ fontSize: 10, color: C.violet, fontWeight: 600 }}>errefortzua</span> : null}
+                {a.auto ? <span style={{ fontSize: 10, color: txtMuted }}>(tutoretza)</span> : null}
+              </div>
+              <div style={{ flex: 1, display: "flex", gap: 5, flexWrap: "wrap" }}>
+                {strip.map((s, j) => (
+                  <span key={j} style={{ fontSize: 10, padding: "1px 6px", borderRadius: 4, border: "1px solid " + (s.aktiboa ? C.title : "#e3dccf"), background: s.aktiboa ? tint(C.title, 0.08) : "#fff", color: s.acrs.length ? "#333" : "#bbb", fontWeight: s.aktiboa ? 700 : 400 }}>
+                    {s.grupo} <b>{s.acrs.length ? s.acrs.join("·") : "—"}</b>
+                  </span>
+                ))}
+              </div>
+            </div>
+          );
+        }) : <div style={{ fontSize: 12, color: txtMuted, fontStyle: "italic" }}>Esleipenik gabe.</div>}
+
+        {i.tutoretzaTaldeId ? (function () {
+          const inf = taldeInfo(data, i.tutoretzaTaldeId);
+          if (!inf) return null;
+          const osoa = taldeOsoa(i.tutoretzaTaldeId);
+          return (
+            <div style={{ marginTop: 16 }}>
+              <div style={{ fontSize: 11, fontWeight: 700, color: C.title, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 6 }}>Nire taldea · {inf.talde.izena}</div>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(180px, 1fr))", gap: "2px 16px" }}>
+                {osoa.map((s, j) => (
+                  <div key={j} style={{ fontSize: 11.5, display: "flex", gap: 5, padding: "2px 0", borderBottom: "1px dotted #eee" }}>
+                    <span style={{ flex: 1, color: "#333" }}>{s.subject}</span>
+                    <span style={{ color: "#222", fontWeight: 600 }}>{s.titulars.join(", ") || "—"}{s.refs.length ? (" (+" + s.refs.join(", ") + ")") : ""}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        })() : null}
+
+        <div style={{ marginTop: 16 }}>
+          <div style={{ fontSize: 11, fontWeight: 700, color: C.title, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 6 }}>Oharrak</div>
+          <div className="screen-only"><BehaketaBox id={i.id} value={i.behaketa} onCommit={(v) => setBehaketa(i.id, v)} /></div>
+          <div className="print-only" style={{ border: "1px solid " + line, borderRadius: 8, padding: "10px 12px", minHeight: 56, fontSize: 12.5, color: "#222", whiteSpace: "pre-wrap" }}>{i.behaketa || ""}</div>
+        </div>
+      </div>
+    );
+  };
+
+  const inpDenak = denak;
+  const zerrenda = inpDenak ? data.irakasleak : data.irakasleak.filter(i => i.id === selId);
+
+  return (
+    <div>
+      <div className="no-print" style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap", marginBottom: 16 }}>
+        <h2 style={Object.assign({}, S.h2, { margin: 0 })}>Inprimaketa</h2>
+        <div style={{ display: "inline-flex", gap: 4, background: "#e8e1d6", borderRadius: 9, padding: 3 }}>
+          <button onClick={() => setDenak(false)} style={{ background: !denak ? C.title : "transparent", color: !denak ? "#fff" : C.sec, border: "none", borderRadius: 7, padding: "6px 14px", fontSize: 12, fontWeight: 600, cursor: "pointer", fontFamily: "inherit" }}>Irakasle bat</button>
+          <button onClick={() => setDenak(true)} style={{ background: denak ? C.title : "transparent", color: denak ? "#fff" : C.sec, border: "none", borderRadius: 7, padding: "6px 14px", fontSize: 12, fontWeight: 600, cursor: "pointer", fontFamily: "inherit" }}>Denak</button>
+        </div>
+        {!denak ? (
+          <select value={selId || ""} onChange={(e) => setSelId(e.target.value)} style={Object.assign({}, S.select, { width: 220 })}>
+            {data.irakasleak.map(i => <option key={i.id} value={i.id}>{i.izena}</option>)}
+          </select>
+        ) : null}
+        <button style={Object.assign({}, S.btnPri, { marginLeft: "auto" })} onClick={() => window.print()}>Inprimatu / PDF gisa gorde</button>
+      </div>
+      <div className="no-print" style={{ fontSize: 11, color: C.sec, marginBottom: 12 }}>Idatzi oharrak fitxetan eta sakatu "Inprimatu". Inprimatze-leihoan "PDF gisa gorde" aukeratu dezakezu.</div>
+
+      <div className="print-area">
+        {zerrenda.map(i => <Ficha key={i.id} irak={i} />)}
+      </div>
+    </div>
+  );
+}
+
+function GitHubModal(props) {
+  const [c, setC] = useState(Object.assign({ owner: "", repo: "", token: "", dir: "datuak" }, props.cfg));
+  const [proba, setProba] = useState(null);
+  const [berts, setBerts] = useState([]);
+  const set = (k, v) => setC(Object.assign({}, c, { [k]: v }));
+  const probatu = () => {
+    setProba("⏳");
+    props.onProba(c).then(function (ys) { setProba("✓ Konexioa ondo · " + ys.length + " ikasturte"); }).catch(function (e) { setProba("✕ " + e.message); });
+  };
+  const ikusiBertsioak = () => {
+    if (!props.ghCurrent) { setBerts([]); return; }
+    props.getYear(props.ghCurrent).then(function (res) { setBerts(res ? (res.edukia.bertsioak || []) : []); }).catch(function (e) { setBerts([]); });
+  };
+  useEffect(function () { ikusiBertsioak(); }, [props.ghCurrent]);
+
+  return (
+    <div style={S.overlay} onClick={props.onClose}>
+      <div style={Object.assign({}, S.modal, { maxWidth: 580 })} onClick={(e) => e.stopPropagation()}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
+          <h3 style={Object.assign({}, S.h3, { margin: 0 })}>☁ GitHub konexioa</h3>
+          <button style={S.btnIcon} onClick={props.onClose}>✕</button>
+        </div>
+        <div style={{ fontSize: 12, color: C.sec, marginBottom: 14 }}>Datuak GitHub biltegi publiko batean gordetzen dira. Token-a nabigatzaile honetan bakarrik gordetzen da, ez kodean. Token-ak idazteko baimena behar du (Contents: Read and write).</div>
+        <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginBottom: 10 }}>
+          <div style={{ flex: 1, minWidth: 150 }}>
+            <label style={S.label}>Owner (erabiltzailea)</label>
+            <input value={c.owner} onChange={(e) => set("owner", e.target.value.trim())} placeholder="adib. anderzarra" style={S.input} />
+          </div>
+          <div style={{ flex: 1, minWidth: 150 }}>
+            <label style={S.label}>Repo</label>
+            <input value={c.repo} onChange={(e) => set("repo", e.target.value.trim())} placeholder="adib. ordu-banaketa" style={S.input} />
+          </div>
+        </div>
+        <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginBottom: 10 }}>
+          <div style={{ width: 130 }}>
+            <label style={S.label}>Karpeta</label>
+            <input value={c.dir} onChange={(e) => set("dir", e.target.value.trim())} style={S.input} />
+          </div>
+          <div style={{ flex: 1, minWidth: 180 }}>
+            <label style={S.label}>Token (idazteko)</label>
+            <input type="password" value={c.token} onChange={(e) => set("token", e.target.value.trim())} placeholder="ghp_… edo github_pat_…" style={S.input} />
+          </div>
+        </div>
+        <div style={{ display: "flex", gap: 8, alignItems: "center", marginBottom: 16, flexWrap: "wrap" }}>
+          <button style={S.btnSec} onClick={probatu}>Probatu konexioa</button>
+          <button style={S.btnPri} onClick={() => props.onSave(c)}>Gorde ezarpenak</button>
+          {c.token ? <button style={Object.assign({}, S.btnSm, { color: C.danger, borderColor: tint(C.danger, 0.5) })} onClick={() => { const n = Object.assign({}, c, { token: "" }); setC(n); props.onSave(n); }}>Token-a ahaztu</button> : null}
+          {proba ? <span style={{ fontSize: 12, color: (proba.indexOf("✓") >= 0) ? C.ok : (proba === "⏳" ? C.sec : C.danger) }}>{proba}</span> : null}
+        </div>
+
+        {props.ghCurrent ? (
+          <div style={{ borderTop: "1px solid " + C.border, paddingTop: 14 }}>
+            <div style={{ fontSize: 12, fontWeight: 600, color: C.title, marginBottom: 8 }}>{props.ghCurrent} · bertsioak</div>
+            {berts.length ? berts.slice().reverse().map(b => (
+              <div key={b.v} style={{ display: "flex", alignItems: "center", gap: 8, padding: "6px 0", borderBottom: "1px solid #f0ece5", fontSize: 12 }}>
+                <span style={{ fontWeight: 700, color: C.info, minWidth: 28 }}>v{b.v}</span>
+                <span style={{ color: C.ter, minWidth: 110 }}>{b.data}</span>
+                <span style={{ flex: 1, color: C.txt }}>{b.oharra || "—"}</span>
+                <button style={S.btnSm} onClick={() => props.onOpenVersion(props.ghCurrent, b.v)}>Ireki</button>
+              </div>
+            )) : <div style={{ fontSize: 12, color: C.ter }}>Oraindik bertsiorik ez.</div>}
+          </div>
+        ) : <div style={{ fontSize: 12, color: C.ter, borderTop: "1px solid " + C.border, paddingTop: 14 }}>Ireki ikasturte bat bere bertsioak ikusteko.</div>}
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+
+<script>
+  var errBox = document.getElementById("error-box");
+  try {
+    if (typeof Babel === "undefined") throw new Error("Babel ez da kargatu. Egiaztatu konexioa.");
+    if (typeof React === "undefined") throw new Error("React ez da kargatu.");
+    if (typeof ReactDOM === "undefined") throw new Error("ReactDOM ez da kargatu.");
+    var code = document.getElementById("app-source").textContent;
+    var output = Babel.transform(code, { presets: ["react"] });
+    new Function(output.code)();
+  } catch (e) {
+    errBox.style.display = "block";
+    var loc = "";
+    if (e.loc && e.loc.line) loc = "\nLerroa: " + e.loc.line + ", zutabea: " + e.loc.column;
+    errBox.innerHTML = "<b>ERROREA:</b><br><br>" + e.message + loc + "<br><br>" + (e.stack || "");
+    document.getElementById("root").innerHTML = "";
+  }
+</script>
+</body>
+</html>
