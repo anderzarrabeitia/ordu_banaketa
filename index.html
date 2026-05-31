@@ -347,6 +347,21 @@ function App() {
     }).catch(function (e) { setGhBusy(false); flash("Errorea: " + e.message); });
   };
 
+  const ghSortuBerria = () => {
+    if (!ghCfg.token) { flash("Token-a behar da gordetzeko"); setGhOpen(true); return; }
+    const erantzun = prompt("Sortu ikasturte berria uneko datuekin online. Izena:", data.ikasturtea || "2026-2027");
+    if (!erantzun) return;
+    if (ghYears.indexOf(erantzun) >= 0) { if (!confirm("'" + erantzun + "' badago lehendik. Ireki nahi duzu horren ordez?")) return; ghIreki(erantzun); return; }
+    const oinarria = clone(data);
+    oinarria.ikasturtea = erantzun;
+    const obj = { ikasturtea: erantzun, bertsioak: [{ v: 1, data: new Date().toISOString().substring(0, 16).replace("T", " "), oharra: "Hasierako bertsioa", edukia: oinarria }] };
+    setGhBusy(true);
+    ghPutYear(ghCfg, erantzun, obj, null, "Sortu " + erantzun).then(function (newSha) {
+      setGhBusy(false); setData(normalize(oinarria)); setGhCurrent(erantzun); setGhSha(newSha);
+      ghKargatuZerrenda(); flash(erantzun + " sortuta · v1 online");
+    }).catch(function (e) { setGhBusy(false); flash("Errorea sortzean: " + e.message); });
+  };
+
   const ghHurrengoUrtea = () => {
     if (!ghCfg.token) { flash("Token-a behar da"); setGhOpen(true); return; }
     if (!ghCurrent) { flash("Lehenik ireki uneko ikasturtea"); return; }
@@ -408,9 +423,9 @@ function App() {
             {ghYears.map(y => <option key={y} value={y}>{y}</option>)}
           </select>
           {ghCurrent ? <span style={{ fontSize: 12, color: C.title, fontWeight: 600 }}>{ghCurrent}</span> : null}
-          <button style={Object.assign({}, S.btnSm, { background: C.title, color: "#fff", border: "none" })} disabled={ghBusy} onClick={() => { const o = prompt("Bertsio berriaren oharra (aukeran):", ""); if (o !== null) ghBertsioBerria(o); }}>+ Gorde bertsio berria</button>
+          <button style={Object.assign({}, S.btnSm, { background: ghCurrent ? C.title : C.ok, color: "#fff", border: "none" })} disabled={ghBusy} onClick={() => { if (!ghCurrent) { ghSortuBerria(); } else { const o = prompt("Bertsio berriaren oharra (aukeran):", ""); if (o !== null) ghBertsioBerria(o); } }}>{ghCurrent ? "+ Gorde bertsio berria" : "+ Sortu ikasturtea"}</button>
           <button style={S.btnSm} disabled={ghBusy} onClick={() => setGhOpen(true)}>Bertsioak / Ezarpenak</button>
-          <button style={S.btnSm} disabled={ghBusy} onClick={ghHurrengoUrtea}>Sortu hurrengo ikasturtea</button>
+          {ghCurrent ? <button style={S.btnSm} disabled={ghBusy} onClick={ghHurrengoUrtea}>Sortu hurrengo ikasturtea</button> : null}
           {ghBusy ? <span style={{ fontSize: 11, color: C.sec }}>⏳ lanean…</span> : null}
         </div>
       ) : null}
