@@ -18025,6 +18025,3097 @@
           }
         ]
       }
+    },
+    {
+      "v": 11,
+      "data": "2026-06-10 14:33",
+      "oharra": "DBH1.froga",
+      "edukia": {
+        "ikasturtea": "2026-2027",
+        "etapak": [
+          {
+            "id": "HH",
+            "izena": "Haur Hezkuntza",
+            "kolorea": "#f59e0b",
+            "estandarra": 22,
+            "legezkoOrduak": 23
+          },
+          {
+            "id": "LH",
+            "izena": "Lehen Hezkuntza",
+            "kolorea": "#10b981",
+            "estandarra": 22,
+            "legezkoOrduak": 23
+          },
+          {
+            "id": "DBH",
+            "izena": "DBH",
+            "kolorea": "#3b82f6",
+            "estandarra": 21,
+            "legezkoOrduak": 22
+          }
+        ],
+        "mailak": [
+          {
+            "id": "ma_1780229155958_vxi7d2",
+            "etapaId": "HH",
+            "izena": "HH2",
+            "taldeak": [
+              {
+                "id": "tal_1780229155958_kjijph",
+                "izena": "HH2"
+              }
+            ],
+            "ikasgaiak": [
+              {
+                "id": "ik_1780229155958_r208ve",
+                "izena": "Errealitatea komunikatzeko",
+                "orduak": 7
+              },
+              {
+                "id": "ik_1780229155958_ghkzhk",
+                "izena": "Ingurunea deskribatzeko",
+                "orduak": 6
+              },
+              {
+                "id": "ik_1780229155958_dyn3oy",
+                "izena": "Harmonian hazten",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_md81bo",
+                "izena": "Erlijioa",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_8csk8f",
+                "izena": "Psikomotrizitatea",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_bxit8e",
+                "izena": "Ingelesa",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_8h3s8v",
+                "izena": "STEAM",
+                "orduak": 1
+              }
+            ]
+          },
+          {
+            "id": "ma_1780229155958_cij6e6",
+            "etapaId": "HH",
+            "izena": "HH3",
+            "taldeak": [
+              {
+                "id": "tal_1780229155958_hbrh73",
+                "izena": "HH3"
+              }
+            ],
+            "ikasgaiak": [
+              {
+                "id": "ik_1780229155958_uosv45",
+                "izena": "Errealitatea komunikatzeko",
+                "orduak": 7
+              },
+              {
+                "id": "ik_1780229155958_wleaud",
+                "izena": "Ingurunea deskribatzeko",
+                "orduak": 6
+              },
+              {
+                "id": "ik_1780229155958_6rm9pq",
+                "izena": "Harmonian hazten",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_zxno09",
+                "izena": "Erlijioa",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_1whq9o",
+                "izena": "Psikomotrizitatea",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_ccqyty",
+                "izena": "Ingelesa",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_kgoes6",
+                "izena": "Irakurketa plana",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_0s83ly",
+                "izena": "STEAM",
+                "orduak": 1
+              }
+            ]
+          },
+          {
+            "id": "ma_1780229155958_naxapw",
+            "etapaId": "HH",
+            "izena": "HH4",
+            "taldeak": [
+              {
+                "id": "tal_1780229155958_frmuw2",
+                "izena": "HH4"
+              }
+            ],
+            "ikasgaiak": [
+              {
+                "id": "ik_1780229155958_dxxp1b",
+                "izena": "Errealitatea komunikatzeko",
+                "orduak": 7
+              },
+              {
+                "id": "ik_1780229155958_rqzl7t",
+                "izena": "Ingurunea deskribatzeko",
+                "orduak": 6
+              },
+              {
+                "id": "ik_1780229155958_4f40it",
+                "izena": "Harmonian hazten",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_boxje7",
+                "izena": "Erlijioa",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_cz51ue",
+                "izena": "Psikomotrizitatea",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_f9owdl",
+                "izena": "Ingelesa",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_ttfoum",
+                "izena": "Irakurketa plana",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_ffk18m",
+                "izena": "STEAM",
+                "orduak": 1
+              }
+            ]
+          },
+          {
+            "id": "ma_1780229155958_9vg2ys",
+            "etapaId": "HH",
+            "izena": "HH5",
+            "taldeak": [
+              {
+                "id": "tal_1780229155958_3vjcsx",
+                "izena": "HH5"
+              }
+            ],
+            "ikasgaiak": [
+              {
+                "id": "ik_1780229155958_z34job",
+                "izena": "Errealitatea komunikatzeko",
+                "orduak": 7
+              },
+              {
+                "id": "ik_1780229155958_kvo8mu",
+                "izena": "Ingurunea deskribatzeko",
+                "orduak": 6
+              },
+              {
+                "id": "ik_1780229155958_ikl2h0",
+                "izena": "Harmonian hazten",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_xyuy2c",
+                "izena": "Erlijioa",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_fpmpma",
+                "izena": "Psikomotrizitatea",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_antn0g",
+                "izena": "Ingelesa",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_35m746",
+                "izena": "Irakurketa plana",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_hwjmks",
+                "izena": "STEAM",
+                "orduak": 1
+              }
+            ]
+          },
+          {
+            "id": "ma_1780229155958_h41s3y",
+            "etapaId": "LH",
+            "izena": "LH1",
+            "taldeak": [
+              {
+                "id": "tal_1780229155958_ffoyk1",
+                "izena": "LH1"
+              }
+            ],
+            "ikasgaiak": [
+              {
+                "id": "ik_1780229155958_ztzxt6",
+                "izena": "Tutoretza",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_dyer69",
+                "izena": "Euskara",
+                "orduak": 4
+              },
+              {
+                "id": "ik_1780229155958_azpadh",
+                "izena": "Zientziak",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_wl7o9z",
+                "izena": "STEAM",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_3xm655",
+                "izena": "Soinketa",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_0h2f5a",
+                "izena": "Erlijioa",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_r32l24",
+                "izena": "Matematika",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_xwymyd",
+                "izena": "Gaztelania",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_bhs23w",
+                "izena": "Ingelesa",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_stvgkp",
+                "izena": "Arts",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_eezjm3",
+                "izena": "Musika",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_7jhwz9",
+                "izena": "Irakurketa plana",
+                "orduak": 1
+              }
+            ]
+          },
+          {
+            "id": "ma_1780229155958_7lga6w",
+            "etapaId": "LH",
+            "izena": "LH2",
+            "taldeak": [
+              {
+                "id": "tal_1780229155958_xopygb",
+                "izena": "LH2"
+              }
+            ],
+            "ikasgaiak": [
+              {
+                "id": "ik_1780229155958_t2hnwi",
+                "izena": "Tutoretza",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_wh86uk",
+                "izena": "Euskara",
+                "orduak": 4
+              },
+              {
+                "id": "ik_1780229155958_ccf2x3",
+                "izena": "Zientziak",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_mtzj4x",
+                "izena": "STEAM",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_hy9iyy",
+                "izena": "Soinketa",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_g9a524",
+                "izena": "Erlijioa",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_97qmz2",
+                "izena": "Matematika",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_yvhrtw",
+                "izena": "Gaztelania",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_qbcv8e",
+                "izena": "Ingelesa",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_3l591j",
+                "izena": "Arts",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_r62kyb",
+                "izena": "Musika",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_5z64wr",
+                "izena": "Irakurketa plana",
+                "orduak": 1
+              }
+            ]
+          },
+          {
+            "id": "ma_1780229155958_rlilae",
+            "etapaId": "LH",
+            "izena": "LH3",
+            "taldeak": [
+              {
+                "id": "tal_1780229155958_s01ab2",
+                "izena": "LH3"
+              }
+            ],
+            "ikasgaiak": [
+              {
+                "id": "ik_1780229155958_kqjey7",
+                "izena": "Tutoretza",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_cz9l80",
+                "izena": "Euskara",
+                "orduak": 4
+              },
+              {
+                "id": "ik_1780229155958_td8kmb",
+                "izena": "Zientziak",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_i1e68w",
+                "izena": "STEAM",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_hm9v67",
+                "izena": "Soinketa",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_fdwxl3",
+                "izena": "Erlijioa",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_krp2ty",
+                "izena": "Matematika",
+                "orduak": 4
+              },
+              {
+                "id": "ik_1780229155958_f5hthc",
+                "izena": "Gaztelania",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_kaaa5s",
+                "izena": "Ingelesa",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_9hwdb2",
+                "izena": "Arts",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_9hoejx",
+                "izena": "Musika",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_lis7ud",
+                "izena": "Irakurketa plana",
+                "orduak": 1
+              }
+            ]
+          },
+          {
+            "id": "ma_1780229155958_i7mh7s",
+            "etapaId": "LH",
+            "izena": "LH4",
+            "taldeak": [
+              {
+                "id": "tal_1780229155958_da0xss",
+                "izena": "LH4"
+              }
+            ],
+            "ikasgaiak": [
+              {
+                "id": "ik_1780229155958_c15lgp",
+                "izena": "Tutoretza",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_ep2p8p",
+                "izena": "Euskara",
+                "orduak": 4
+              },
+              {
+                "id": "ik_1780229155958_34jgc5",
+                "izena": "Zientziak",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_inbvap",
+                "izena": "STEAM",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_nh8trc",
+                "izena": "Soinketa",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_72qpdj",
+                "izena": "Erlijioa",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_9szv5b",
+                "izena": "Matematika",
+                "orduak": 4
+              },
+              {
+                "id": "ik_1780229155958_f5rls9",
+                "izena": "Gaztelania",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_bx3nbp",
+                "izena": "Ingelesa",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_czzryg",
+                "izena": "Arts",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_3wa4gu",
+                "izena": "Musika",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_1noc38",
+                "izena": "Irakurketa plana",
+                "orduak": 1
+              }
+            ]
+          },
+          {
+            "id": "ma_1780229155958_wktoce",
+            "etapaId": "LH",
+            "izena": "LH5",
+            "taldeak": [
+              {
+                "id": "tal_1780229155958_ylf839",
+                "izena": "LH5"
+              }
+            ],
+            "ikasgaiak": [
+              {
+                "id": "ik_1780229155958_38yara",
+                "izena": "Tutoretza",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_fjs5d0",
+                "izena": "Euskara",
+                "orduak": 4
+              },
+              {
+                "id": "ik_1780229155958_kcc299",
+                "izena": "Zientziak",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_1sz0rg",
+                "izena": "STEAM",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_9hffne",
+                "izena": "Soinketa",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_5hchr0",
+                "izena": "Erlijioa",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_0oa05w",
+                "izena": "Matematika",
+                "orduak": 4
+              },
+              {
+                "id": "ik_1780229155958_g5qm7h",
+                "izena": "Gaztelania",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_2orzca",
+                "izena": "Ingelesa",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_o5zl8t",
+                "izena": "Arts",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_aw6i94",
+                "izena": "Musika",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_zbjwac",
+                "izena": "Irakurketa plana",
+                "orduak": 1
+              }
+            ]
+          },
+          {
+            "id": "ma_1780229155958_86o08d",
+            "etapaId": "LH",
+            "izena": "LH6",
+            "taldeak": [
+              {
+                "id": "tal_1780229155958_ud6zrr",
+                "izena": "LH6"
+              }
+            ],
+            "ikasgaiak": [
+              {
+                "id": "ik_1780229155958_akkprf",
+                "izena": "Tutoretza",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_d37j5d",
+                "izena": "Euskara",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_tu7ay0",
+                "izena": "Zientziak",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_ggcm1v",
+                "izena": "STEAM",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_00tlq7",
+                "izena": "Soinketa",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_kwou05",
+                "izena": "Erlijioa",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_295f4g",
+                "izena": "Matematika",
+                "orduak": 4
+              },
+              {
+                "id": "ik_1780229155958_hestt8",
+                "izena": "Gaztelania",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_yhxaoi",
+                "izena": "Ingelesa",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_cnhfrg",
+                "izena": "Arts",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_si1jvj",
+                "izena": "Musika",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_5rt2ax",
+                "izena": "Balioak",
+                "orduak": 2
+              }
+            ]
+          },
+          {
+            "id": "ma_1780229155958_dguh27",
+            "etapaId": "DBH",
+            "izena": "DBH1",
+            "taldeak": [
+              {
+                "id": "tal_1780229155958_urhmds",
+                "izena": "DBH1A"
+              },
+              {
+                "id": "tal_1780229155958_u12fzf",
+                "izena": "DBH1B"
+              }
+            ],
+            "ikasgaiak": [
+              {
+                "id": "ik_1780229155958_0j09tm",
+                "izena": "Matematika",
+                "orduak": 4
+              },
+              {
+                "id": "ik_1780229155958_ell8t4",
+                "izena": "Bio-geo",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_1wyn34",
+                "izena": "Euskara",
+                "orduak": 4
+              },
+              {
+                "id": "ik_1780229155958_yryexx",
+                "izena": "Gaztelania",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_nk32qr",
+                "izena": "Ingelesa",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_or6nug",
+                "izena": "Arts/Musika",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_s6spxm",
+                "izena": "Gizarte",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_kqjcth",
+                "izena": "Erlijioa",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_22axvn",
+                "izena": "Heziketa fisikoa",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_419fu2",
+                "izena": "Tutoretza",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780646444423_zuzbuj",
+                "izena": "Balioak",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780646496339_atb0p6",
+                "izena": "Hautazkoa",
+                "orduak": 2
+              }
+            ]
+          },
+          {
+            "id": "ma_1780229155958_2mld2j",
+            "etapaId": "DBH",
+            "izena": "DBH2",
+            "taldeak": [
+              {
+                "id": "tal_1780229155958_daigio",
+                "izena": "DBH2A"
+              },
+              {
+                "id": "tal_1780229155958_fmjl43",
+                "izena": "DBH2B"
+              }
+            ],
+            "ikasgaiak": [
+              {
+                "id": "ik_1780229155958_wc9h7a",
+                "izena": "Matematika",
+                "orduak": 4
+              },
+              {
+                "id": "ik_1780229155958_ax6i2u",
+                "izena": "Fisika-kimika",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_9l4i2a",
+                "izena": "Teknologia",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_afnwyz",
+                "izena": "Euskara",
+                "orduak": 4
+              },
+              {
+                "id": "ik_1780229155958_1sn7am",
+                "izena": "Gaztelania",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_ms23hd",
+                "izena": "Ingelesa",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_6qz2gp",
+                "izena": "Arts/Musika",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_ga2av4",
+                "izena": "Gizarte",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_o4xic1",
+                "izena": "Erlijioa",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_liwfjn",
+                "izena": "Heziketa fisikoa",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_4dmcfm",
+                "izena": "Tutoretza",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780646544757_jf2iwb",
+                "izena": "Hautazkoa",
+                "orduak": 2
+              }
+            ]
+          },
+          {
+            "id": "ma_1780229155958_8tlds3",
+            "etapaId": "DBH",
+            "izena": "DBH3",
+            "taldeak": [
+              {
+                "id": "tal_1780229155958_10ywvb",
+                "izena": "DBH3A"
+              },
+              {
+                "id": "tal_1780229852037_fqv1n0",
+                "izena": "DBH3B"
+              }
+            ],
+            "ikasgaiak": [
+              {
+                "id": "ik_1780229155958_69wdmb",
+                "izena": "Matematika",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_9yik4y",
+                "izena": "Bio-geo",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_2ap66g",
+                "izena": "Fisika-kimika",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_30zhrd",
+                "izena": "Teknologia",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_x42594",
+                "izena": "Euskara",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_mkvrab",
+                "izena": "Gaztelania",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_d4jmjt",
+                "izena": "Ingelesa",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_k8egtc",
+                "izena": "Arts/Musika",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_7pftx4",
+                "izena": "Gizarte",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_9c8fog",
+                "izena": "Erlijioa",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_e5r8c6",
+                "izena": "Heziketa fisikoa",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_7edx76",
+                "izena": "Tutoretza",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780646697471_lwij2u",
+                "izena": "Hautazkoa",
+                "orduak": 2
+              }
+            ]
+          },
+          {
+            "id": "ma_1780229155958_4c8vg9",
+            "etapaId": "DBH",
+            "izena": "DBH4",
+            "taldeak": [
+              {
+                "id": "tal_1780229155958_xgnefd",
+                "izena": "DBH4"
+              }
+            ],
+            "ikasgaiak": [
+              {
+                "id": "ik_1780229155958_qkqicn",
+                "izena": "Matematika",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_jetxh0",
+                "izena": "Bio-geo",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_vvd7wl",
+                "izena": "Fisika-kimika",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_uveviv",
+                "izena": "Teknologia",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_m46e4g",
+                "izena": "Euskara",
+                "orduak": 4
+              },
+              {
+                "id": "ik_1780229155958_f5yqac",
+                "izena": "Gaztelania",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_o2b3zb",
+                "izena": "Ingelesa",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780229155958_y2a24k",
+                "izena": "Gizarte",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_dywvyv",
+                "izena": "Erlijioa",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780229155958_rawk05",
+                "izena": "Heziketa fisikoa",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780229155958_bcdiit",
+                "izena": "Tutoretza",
+                "orduak": 1
+              },
+              {
+                "id": "ik_1780646747071_ngoqw8",
+                "izena": "Hautazkoa",
+                "orduak": 2
+              }
+            ]
+          },
+          {
+            "id": "ma_1780229155958_b1z4ay",
+            "etapaId": "DBH",
+            "izena": "DBH DC",
+            "taldeak": [
+              {
+                "id": "tal_1780229155958_a45j5w",
+                "izena": "DBH DC"
+              }
+            ],
+            "ikasgaiak": [
+              {
+                "id": "ik_1780647033597_k0trs2",
+                "izena": "Matematika",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780647046224_3csw5o",
+                "izena": "Bio-geo",
+                "orduak": 2
+              },
+              {
+                "id": "ik_1780647057759_2upsnr",
+                "izena": "Fisika-kimika",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780647065402_jl7k55",
+                "izena": "Euskara",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780647078542_iclv83",
+                "izena": "Gaztelania",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780647085766_mpgjro",
+                "izena": "Ingelesa",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780647095058_lbuca6",
+                "izena": "Gizarte",
+                "orduak": 3
+              },
+              {
+                "id": "ik_1780647105733_jfnmn3",
+                "izena": "Tutoretza",
+                "orduak": 1
+              }
+            ]
+          },
+          {
+            "id": "ma_1780645771146_mqfy36",
+            "etapaId": "DBH",
+            "izena": "PREE",
+            "taldeak": [
+              {
+                "id": "tal_1780645771146_ghnfmk",
+                "izena": "PREEA"
+              }
+            ],
+            "ikasgaiak": [
+              {
+                "id": "ik_1780646606026_koop23",
+                "izena": "Matematika",
+                "orduak": 4
+              },
+              {
+                "id": "ik_1780646628087_ospkj7",
+                "izena": "Euskara",
+                "orduak": 4
+              },
+              {
+                "id": "ik_1780646652449_rz4c88",
+                "izena": "Gaztelania",
+                "orduak": 3
+              }
+            ]
+          }
+        ],
+        "irakasleak": [
+          {
+            "id": "ir_1780229155958_852kpa",
+            "izena": "Maialen",
+            "akronimoa": "MAIA",
+            "etapak": [
+              "HH"
+            ],
+            "mota": "IRAK",
+            "legeMuga": 23,
+            "proposamena": 22,
+            "liberazioak": [],
+            "tutoretzaTaldeId": "tal_1780229155958_kjijph",
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780229155958_667gcb",
+            "izena": "Otxandiano",
+            "akronimoa": "OTX",
+            "etapak": [
+              "HH"
+            ],
+            "mota": "IRAK",
+            "legeMuga": 23,
+            "proposamena": 20,
+            "liberazioak": [
+              {
+                "orduak": 1,
+                "zergatik": "Irakurketa-idazketa"
+              }
+            ],
+            "tutoretzaTaldeId": "tal_1780229155958_3vjcsx",
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780229155958_nxdnn9",
+            "izena": "Maitane",
+            "akronimoa": "MAIT",
+            "etapak": [
+              "HH"
+            ],
+            "mota": "IRAK",
+            "legeMuga": 23,
+            "proposamena": 19,
+            "liberazioak": [
+              {
+                "orduak": 2,
+                "zergatik": "Kudeaketa Aurreratua"
+              },
+              {
+                "orduak": 2,
+                "zergatik": "AG2030"
+              }
+            ],
+            "tutoretzaTaldeId": "tal_1780229155958_hbrh73",
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780229155958_8uzx8j",
+            "izena": "Urtzi",
+            "akronimoa": "URTZ",
+            "etapak": [
+              "HH",
+              "LH"
+            ],
+            "mota": "IRAK",
+            "legeMuga": 23,
+            "proposamena": 16,
+            "liberazioak": [
+              {
+                "orduak": 5,
+                "zergatik": "Etapako koordinatzailea"
+              },
+              {
+                "orduak": 1,
+                "zergatik": "ERALDATZEN"
+              }
+            ],
+            "tutoretzaTaldeId": null,
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780229155958_sw9319",
+            "izena": "Bego",
+            "akronimoa": "BEG",
+            "etapak": [
+              "HH"
+            ],
+            "mota": "IRAK",
+            "legeMuga": 23,
+            "proposamena": 16,
+            "liberazioak": [
+              {
+                "orduak": 4,
+                "zergatik": "Etapako koordinatzaile"
+              },
+              {
+                "orduak": 2,
+                "zergatik": "Gurasoak + Pastoral"
+              }
+            ],
+            "tutoretzaTaldeId": "tal_1780229155958_frmuw2",
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780229155958_14p8hm",
+            "izena": "Igor",
+            "akronimoa": "IGO",
+            "etapak": [
+              "LH",
+              "HH"
+            ],
+            "mota": "IRAK",
+            "legeMuga": 23,
+            "proposamena": 22,
+            "liberazioak": [],
+            "tutoretzaTaldeId": "tal_1780229155958_da0xss",
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780229155958_e4pj6l",
+            "izena": "Lorea",
+            "akronimoa": "LOR",
+            "etapak": [
+              "HH"
+            ],
+            "mota": "PT",
+            "legeMuga": 23,
+            "proposamena": 22,
+            "liberazioak": [],
+            "tutoretzaTaldeId": null,
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780229155958_nz74e2",
+            "izena": "Nerea Fournier",
+            "akronimoa": "FOUR",
+            "etapak": [
+              "LH",
+              "HH"
+            ],
+            "mota": "IRAK",
+            "legeMuga": 23,
+            "proposamena": 22,
+            "liberazioak": [],
+            "tutoretzaTaldeId": "tal_1780229155958_ffoyk1",
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780229155958_t7h1da",
+            "izena": "Nerea Oskotz",
+            "akronimoa": "OSK",
+            "etapak": [
+              "DBH"
+            ],
+            "mota": "PT",
+            "legeMuga": 22,
+            "proposamena": 19,
+            "liberazioak": [
+              {
+                "orduak": 2,
+                "zergatik": "Normalkuntza"
+              }
+            ],
+            "tutoretzaTaldeId": null,
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780229155958_r8qe18",
+            "izena": "Sergio",
+            "akronimoa": "SER",
+            "etapak": [
+              "LH"
+            ],
+            "mota": "IRAK",
+            "legeMuga": 23,
+            "proposamena": 20,
+            "liberazioak": [
+              {
+                "orduak": 2,
+                "zergatik": "Sindikatua"
+              }
+            ],
+            "tutoretzaTaldeId": "tal_1780229155958_ud6zrr",
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780229155958_yaq4pu",
+            "izena": "David",
+            "akronimoa": "DAV",
+            "etapak": [
+              "DBH"
+            ],
+            "mota": "IRAK",
+            "legeMuga": 22,
+            "proposamena": 20,
+            "liberazioak": [
+              {
+                "orduak": 1,
+                "zergatik": "Berrikuntza arduraduna"
+              }
+            ],
+            "tutoretzaTaldeId": null,
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780229155958_tuvjk1",
+            "izena": "Ander Alvarez",
+            "akronimoa": "ALVR",
+            "etapak": [
+              "LH"
+            ],
+            "mota": "IRAK",
+            "legeMuga": 23,
+            "proposamena": 22,
+            "liberazioak": [],
+            "tutoretzaTaldeId": "tal_1780229155958_s01ab2",
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780229155958_103h6s",
+            "izena": "Txaro",
+            "akronimoa": "TXA",
+            "etapak": [
+              "LH"
+            ],
+            "mota": "IRAK",
+            "legeMuga": 23,
+            "proposamena": 20,
+            "liberazioak": [
+              {
+                "orduak": 2,
+                "zergatik": "Kudeaketa aurreratua"
+              }
+            ],
+            "tutoretzaTaldeId": null,
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780229155958_hc6xgv",
+            "izena": "Iker Elorza",
+            "akronimoa": "IKE",
+            "etapak": [
+              "LH"
+            ],
+            "mota": "PT",
+            "legeMuga": 23,
+            "proposamena": 22,
+            "liberazioak": [],
+            "tutoretzaTaldeId": null,
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780229155958_i6k7ye",
+            "izena": "Nerea González",
+            "akronimoa": "NERG",
+            "etapak": [
+              "LH",
+              "DBH"
+            ],
+            "mota": "PT",
+            "legeMuga": 23,
+            "proposamena": 7,
+            "liberazioak": [
+              {
+                "orduak": 15,
+                "zergatik": "Titularra"
+              }
+            ],
+            "tutoretzaTaldeId": null,
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780229155958_47erp9",
+            "izena": "Ainara",
+            "akronimoa": "AINA",
+            "etapak": [
+              "DBH"
+            ],
+            "mota": "PT",
+            "legeMuga": 22,
+            "proposamena": 16,
+            "liberazioak": [
+              {
+                "orduak": 6,
+                "zergatik": "Etapako koordinatzailea"
+              }
+            ],
+            "tutoretzaTaldeId": null,
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780229155958_irb4jd",
+            "izena": "Unamuno",
+            "akronimoa": "UNA",
+            "etapak": [
+              "LH",
+              "HH"
+            ],
+            "mota": "PT",
+            "legeMuga": 23,
+            "proposamena": 22,
+            "liberazioak": [],
+            "tutoretzaTaldeId": "tal_1780229155958_ylf839",
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780229155958_p8gkfw",
+            "izena": "Javi Baldazo",
+            "akronimoa": "JAV",
+            "etapak": [
+              "DBH"
+            ],
+            "mota": "IRAK",
+            "legeMuga": 22,
+            "proposamena": 21,
+            "liberazioak": [],
+            "tutoretzaTaldeId": "tal_1780229155958_daigio",
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780229155958_zdm627",
+            "izena": "Imanol",
+            "akronimoa": "IMA",
+            "etapak": [
+              "DBH"
+            ],
+            "mota": "IRAK",
+            "legeMuga": 22,
+            "proposamena": 21,
+            "liberazioak": [],
+            "tutoretzaTaldeId": "tal_1780229852037_fqv1n0",
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780229155958_b3l0v9",
+            "izena": "Irati",
+            "akronimoa": "IRAT",
+            "etapak": [
+              "DBH"
+            ],
+            "mota": "IRAK",
+            "legeMuga": 22,
+            "proposamena": 21,
+            "liberazioak": [],
+            "tutoretzaTaldeId": "tal_1780229155958_fmjl43",
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780229155958_zm0pqx",
+            "izena": "Marta",
+            "akronimoa": "MART",
+            "etapak": [
+              "DBH"
+            ],
+            "mota": "IRAK",
+            "legeMuga": 22,
+            "proposamena": 20,
+            "liberazioak": [
+              {
+                "orduak": 1,
+                "zergatik": "Elkarbizitza"
+              }
+            ],
+            "tutoretzaTaldeId": "tal_1780229155958_urhmds",
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780229155958_n8fw9n",
+            "izena": "Tere",
+            "akronimoa": "TER",
+            "etapak": [
+              "DBH"
+            ],
+            "mota": "IRAK",
+            "legeMuga": 22,
+            "proposamena": 18,
+            "liberazioak": [
+              {
+                "orduak": 3,
+                "zergatik": "BAT taldea"
+              }
+            ],
+            "tutoretzaTaldeId": "tal_1780229155958_xgnefd",
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780229155958_uj7idw",
+            "izena": "Amaia",
+            "akronimoa": "AMAI",
+            "etapak": [
+              "DBH"
+            ],
+            "mota": "IRAK",
+            "legeMuga": 22,
+            "proposamena": 14,
+            "liberazioak": [
+              {
+                "orduak": 1,
+                "zergatik": "Barnekotasuna"
+              }
+            ],
+            "tutoretzaTaldeId": null,
+            "oharra": "Jornada: 0.66",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780337298830_ne35lx",
+            "izena": "Alva",
+            "akronimoa": "Alv",
+            "etapak": [
+              "DBH"
+            ],
+            "mota": "IRAK",
+            "legeMuga": 22,
+            "proposamena": 11,
+            "liberazioak": [],
+            "tutoretzaTaldeId": null,
+            "oharra": "Jardunaldi murriztua %17 + Amaiaren %33 + PRL",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780337373294_8vz799",
+            "izena": "Naia",
+            "akronimoa": "NAI",
+            "etapak": [
+              "DBH"
+            ],
+            "mota": "IRAK",
+            "legeMuga": 22,
+            "proposamena": 21,
+            "liberazioak": [],
+            "tutoretzaTaldeId": "tal_1780229155958_10ywvb",
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780337389446_9mw7u8",
+            "izena": "Asier",
+            "akronimoa": "ASI",
+            "etapak": [
+              "DBH"
+            ],
+            "mota": "IRAK",
+            "legeMuga": 22,
+            "proposamena": 21,
+            "liberazioak": [],
+            "tutoretzaTaldeId": "tal_1780229155958_u12fzf",
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780337427134_x72sc3",
+            "izena": "Gemma",
+            "akronimoa": "GEM",
+            "etapak": [
+              "DBH"
+            ],
+            "mota": "IRAK",
+            "legeMuga": 22,
+            "proposamena": 21,
+            "liberazioak": [],
+            "tutoretzaTaldeId": null,
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780647368964_htvsd9",
+            "izena": "Alba Gonzalez",
+            "akronimoa": "ALBA",
+            "etapak": [
+              "LH"
+            ],
+            "mota": "IRAK",
+            "legeMuga": 23,
+            "proposamena": 22,
+            "liberazioak": [],
+            "tutoretzaTaldeId": "tal_1780229155958_xopygb",
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780647610682_qumc6b",
+            "izena": "Iratxe Varela",
+            "akronimoa": "VARE",
+            "etapak": [
+              "LH"
+            ],
+            "mota": "IRAK",
+            "legeMuga": 23,
+            "proposamena": 11,
+            "liberazioak": [],
+            "tutoretzaTaldeId": null,
+            "oharra": "11 ordu lektibo (ordu murrizketa)",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780647712482_mnu6al",
+            "izena": "Lorea",
+            "akronimoa": "LORE",
+            "etapak": [],
+            "mota": "PT",
+            "legeMuga": 23,
+            "proposamena": 11,
+            "liberazioak": [],
+            "tutoretzaTaldeId": null,
+            "oharra": "%50",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780647746110_610e6z",
+            "izena": "Zarrabeitia",
+            "akronimoa": "ZARR",
+            "etapak": [
+              "LH"
+            ],
+            "mota": "IRAK",
+            "legeMuga": 23,
+            "proposamena": 21,
+            "liberazioak": [
+              {
+                "orduak": 15,
+                "zergatik": "Zuzendaritza"
+              }
+            ],
+            "tutoretzaTaldeId": null,
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780647798763_j9fr0l",
+            "izena": "Elena",
+            "akronimoa": "ELE",
+            "etapak": [
+              "LH"
+            ],
+            "mota": "IRAK",
+            "legeMuga": 23,
+            "proposamena": 11,
+            "liberazioak": [],
+            "tutoretzaTaldeId": null,
+            "oharra": "%50",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780647956592_oau24w",
+            "izena": "Pello",
+            "akronimoa": "PELL",
+            "etapak": [
+              "DBH"
+            ],
+            "mota": "IRAK",
+            "legeMuga": 23,
+            "proposamena": 21,
+            "liberazioak": [],
+            "tutoretzaTaldeId": null,
+            "oharra": "",
+            "behaketa": ""
+          },
+          {
+            "id": "ir_1780648144603_gal3si",
+            "izena": "Maddi",
+            "akronimoa": "MADD",
+            "etapak": [
+              "DBH"
+            ],
+            "mota": "IRAK",
+            "legeMuga": 22,
+            "proposamena": 21,
+            "liberazioak": [],
+            "tutoretzaTaldeId": "tal_1780229155958_a45j5w",
+            "oharra": "",
+            "behaketa": ""
+          }
+        ],
+        "esleipenak": [
+          {
+            "id": "es_1780230672035_uk16pj",
+            "irakasleId": "ir_1780229155958_852kpa",
+            "taldeId": "tal_1780229155958_kjijph",
+            "ikasgaiId": "ik_1780229155958_r208ve",
+            "orduak": 7,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780230674252_hwlkjd",
+            "irakasleId": "ir_1780229155958_852kpa",
+            "taldeId": "tal_1780229155958_kjijph",
+            "ikasgaiId": "ik_1780229155958_ghkzhk",
+            "orduak": 6,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780230675987_4gii68",
+            "irakasleId": "ir_1780229155958_852kpa",
+            "taldeId": "tal_1780229155958_kjijph",
+            "ikasgaiId": "ik_1780229155958_dyn3oy",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780230694083_02bxvl",
+            "irakasleId": "ir_1780229155958_nxdnn9",
+            "taldeId": "tal_1780229155958_hbrh73",
+            "ikasgaiId": "ik_1780229155958_uosv45",
+            "orduak": 7,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780230695675_fj5grv",
+            "irakasleId": "ir_1780229155958_nxdnn9",
+            "taldeId": "tal_1780229155958_hbrh73",
+            "ikasgaiId": "ik_1780229155958_wleaud",
+            "orduak": 6,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780230697106_dgcm87",
+            "irakasleId": "ir_1780229155958_nxdnn9",
+            "taldeId": "tal_1780229155958_hbrh73",
+            "ikasgaiId": "ik_1780229155958_6rm9pq",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780230717882_meck02",
+            "irakasleId": "ir_1780229155958_sw9319",
+            "taldeId": "tal_1780229155958_frmuw2",
+            "ikasgaiId": "ik_1780229155958_rqzl7t",
+            "orduak": 6,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780230719914_lin87m",
+            "irakasleId": "ir_1780229155958_sw9319",
+            "taldeId": "tal_1780229155958_frmuw2",
+            "ikasgaiId": "ik_1780229155958_dxxp1b",
+            "orduak": 7,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780230728730_lsofpj",
+            "irakasleId": "ir_1780229155958_sw9319",
+            "taldeId": "tal_1780229155958_frmuw2",
+            "ikasgaiId": "ik_1780229155958_4f40it",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780230738290_q3n3n9",
+            "irakasleId": "ir_1780229155958_667gcb",
+            "taldeId": "tal_1780229155958_3vjcsx",
+            "ikasgaiId": "ik_1780229155958_z34job",
+            "orduak": 7,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780230740026_rhsdks",
+            "irakasleId": "ir_1780229155958_667gcb",
+            "taldeId": "tal_1780229155958_3vjcsx",
+            "ikasgaiId": "ik_1780229155958_kvo8mu",
+            "orduak": 6,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780230741634_15uv9u",
+            "irakasleId": "ir_1780229155958_667gcb",
+            "taldeId": "tal_1780229155958_3vjcsx",
+            "ikasgaiId": "ik_1780229155958_ikl2h0",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780230826896_r7u09b",
+            "irakasleId": "ir_1780229155958_nz74e2",
+            "taldeId": "tal_1780229155958_ffoyk1",
+            "ikasgaiId": "ik_1780229155958_dyer69",
+            "orduak": 4,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780230829704_ihzxke",
+            "irakasleId": "ir_1780229155958_nz74e2",
+            "taldeId": "tal_1780229155958_ffoyk1",
+            "ikasgaiId": "ik_1780229155958_azpadh",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780648390473_5vavnh",
+            "irakasleId": "ir_1780229155958_852kpa",
+            "taldeId": "tal_1780229155958_hbrh73",
+            "ikasgaiId": "ik_1780229155958_kgoes6",
+            "orduak": 1,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780648395884_tkvni0",
+            "irakasleId": "ir_1780229155958_852kpa",
+            "taldeId": "tal_1780229155958_frmuw2",
+            "ikasgaiId": "ik_1780229155958_ttfoum",
+            "orduak": 1,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780648403196_begthh",
+            "irakasleId": "ir_1780229155958_852kpa",
+            "taldeId": "tal_1780229155958_3vjcsx",
+            "ikasgaiId": "ik_1780229155958_35m746",
+            "orduak": 1,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780648553776_06714v",
+            "irakasleId": "ir_1780229155958_667gcb",
+            "taldeId": "tal_1780229155958_frmuw2",
+            "ikasgaiId": "ik_1780229155958_ffk18m",
+            "orduak": 1,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780648558426_nsj6ic",
+            "irakasleId": "ir_1780229155958_667gcb",
+            "taldeId": "tal_1780229155958_hbrh73",
+            "ikasgaiId": "ik_1780229155958_0s83ly",
+            "orduak": 1,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780648661972_pt7so9",
+            "irakasleId": "ir_1780229155958_667gcb",
+            "taldeId": "tal_1780229155958_kjijph",
+            "ikasgaiId": "ik_1780229155958_8h3s8v",
+            "orduak": 1,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780648674372_p7l57d",
+            "irakasleId": "ir_1780229155958_852kpa",
+            "taldeId": "tal_1780229155958_kjijph",
+            "ikasgaiId": "ik_1780229155958_8csk8f",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780648873126_ktm6o4",
+            "irakasleId": "ir_1780229155958_nxdnn9",
+            "taldeId": "tal_1780229155958_hbrh73",
+            "ikasgaiId": "ik_1780229155958_zxno09",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780648878921_qire1p",
+            "irakasleId": "ir_1780229155958_nxdnn9",
+            "taldeId": "tal_1780229155958_frmuw2",
+            "ikasgaiId": "ik_1780229155958_boxje7",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780648924906_05puhe",
+            "irakasleId": "ir_1780229155958_nz74e2",
+            "taldeId": "tal_1780229155958_kjijph",
+            "ikasgaiId": "ik_1780229155958_bxit8e",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780648930452_g2i9dq",
+            "irakasleId": "ir_1780229155958_nz74e2",
+            "taldeId": "tal_1780229155958_hbrh73",
+            "ikasgaiId": "ik_1780229155958_ccqyty",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780648937529_9gbkx7",
+            "irakasleId": "ir_1780229155958_nz74e2",
+            "taldeId": "tal_1780229155958_frmuw2",
+            "ikasgaiId": "ik_1780229155958_f9owdl",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780648942358_2ntgif",
+            "irakasleId": "ir_1780229155958_nz74e2",
+            "taldeId": "tal_1780229155958_3vjcsx",
+            "ikasgaiId": "ik_1780229155958_antn0g",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780649038373_8nfb3s",
+            "irakasleId": "ir_1780229155958_667gcb",
+            "taldeId": "tal_1780229155958_3vjcsx",
+            "ikasgaiId": "ik_1780229155958_xyuy2c",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780649093740_3krkxj",
+            "irakasleId": "ir_1780229155958_852kpa",
+            "taldeId": "tal_1780229155958_kjijph",
+            "ikasgaiId": "ik_1780229155958_md81bo",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780649187263_mwxpvh",
+            "irakasleId": "ir_1780229155958_8uzx8j",
+            "taldeId": "tal_1780229155958_hbrh73",
+            "ikasgaiId": "ik_1780229155958_1whq9o",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780649195222_fnn8dj",
+            "irakasleId": "ir_1780229155958_8uzx8j",
+            "taldeId": "tal_1780229155958_frmuw2",
+            "ikasgaiId": "ik_1780229155958_cz51ue",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780649201482_wvo4ml",
+            "irakasleId": "ir_1780229155958_8uzx8j",
+            "taldeId": "tal_1780229155958_3vjcsx",
+            "ikasgaiId": "ik_1780229155958_fpmpma",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780649382287_idwppm",
+            "irakasleId": "ir_1780229155958_r8qe18",
+            "taldeId": "tal_1780229155958_ylf839",
+            "ikasgaiId": "ik_1780229155958_g5qm7h",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780649389363_read23",
+            "irakasleId": "ir_1780229155958_r8qe18",
+            "taldeId": "tal_1780229155958_da0xss",
+            "ikasgaiId": "ik_1780229155958_f5rls9",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780649405028_j3xipn",
+            "irakasleId": "ir_1780229155958_103h6s",
+            "taldeId": "tal_1780229155958_ylf839",
+            "ikasgaiId": "ik_1780229155958_0oa05w",
+            "orduak": 4,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780649410541_kyzv5t",
+            "irakasleId": "ir_1780229155958_103h6s",
+            "taldeId": "tal_1780229155958_da0xss",
+            "ikasgaiId": "ik_1780229155958_9szv5b",
+            "orduak": 4,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780649442527_246prk",
+            "irakasleId": "ir_1780647610682_qumc6b",
+            "taldeId": "tal_1780229155958_ffoyk1",
+            "ikasgaiId": "ik_1780229155958_eezjm3",
+            "orduak": 1,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780649447987_uwm5qn",
+            "irakasleId": "ir_1780647610682_qumc6b",
+            "taldeId": "tal_1780229155958_xopygb",
+            "ikasgaiId": "ik_1780229155958_r62kyb",
+            "orduak": 1,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780649453415_gcdqf8",
+            "irakasleId": "ir_1780647610682_qumc6b",
+            "taldeId": "tal_1780229155958_s01ab2",
+            "ikasgaiId": "ik_1780229155958_9hoejx",
+            "orduak": 1,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780649458311_ylnaim",
+            "irakasleId": "ir_1780647610682_qumc6b",
+            "taldeId": "tal_1780229155958_da0xss",
+            "ikasgaiId": "ik_1780229155958_3wa4gu",
+            "orduak": 1,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780649463475_44wlxf",
+            "irakasleId": "ir_1780647610682_qumc6b",
+            "taldeId": "tal_1780229155958_ylf839",
+            "ikasgaiId": "ik_1780229155958_aw6i94",
+            "orduak": 1,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780649470814_8jxcq1",
+            "irakasleId": "ir_1780647610682_qumc6b",
+            "taldeId": "tal_1780229155958_ud6zrr",
+            "ikasgaiId": "ik_1780229155958_si1jvj",
+            "orduak": 1,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780649476165_mo1c1t",
+            "irakasleId": "ir_1780647610682_qumc6b",
+            "taldeId": "tal_1780229155958_ffoyk1",
+            "ikasgaiId": "ik_1780229155958_stvgkp",
+            "orduak": 1,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780649529986_n57xd5",
+            "irakasleId": "ir_1780647610682_qumc6b",
+            "taldeId": "tal_1780229155958_ffoyk1",
+            "ikasgaiId": "ik_1780229155958_bhs23w",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780649575728_0ngs02",
+            "irakasleId": "ir_1780229155958_14p8hm",
+            "taldeId": "tal_1780229155958_xopygb",
+            "ikasgaiId": "ik_1780229155958_qbcv8e",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780649583299_ge946i",
+            "irakasleId": "ir_1780229155958_14p8hm",
+            "taldeId": "tal_1780229155958_xopygb",
+            "ikasgaiId": "ik_1780229155958_3l591j",
+            "orduak": 1,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780649617872_8r7vmm",
+            "irakasleId": "ir_1780229155958_r8qe18",
+            "taldeId": "tal_1780229155958_ud6zrr",
+            "ikasgaiId": "ik_1780229155958_d37j5d",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780649622160_f6o01y",
+            "irakasleId": "ir_1780229155958_r8qe18",
+            "taldeId": "tal_1780229155958_ud6zrr",
+            "ikasgaiId": "ik_1780229155958_tu7ay0",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780649627700_7roj1i",
+            "irakasleId": "ir_1780229155958_irb4jd",
+            "taldeId": "tal_1780229155958_ylf839",
+            "ikasgaiId": "ik_1780229155958_fjs5d0",
+            "orduak": 4,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780649631759_k4ch5p",
+            "irakasleId": "ir_1780229155958_irb4jd",
+            "taldeId": "tal_1780229155958_ylf839",
+            "ikasgaiId": "ik_1780229155958_kcc299",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780649641176_3b1luz",
+            "irakasleId": "ir_1780229155958_14p8hm",
+            "taldeId": "tal_1780229155958_da0xss",
+            "ikasgaiId": "ik_1780229155958_ep2p8p",
+            "orduak": 4,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780649645020_z91g9x",
+            "irakasleId": "ir_1780229155958_14p8hm",
+            "taldeId": "tal_1780229155958_da0xss",
+            "ikasgaiId": "ik_1780229155958_34jgc5",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780649650095_viu37s",
+            "irakasleId": "ir_1780229155958_tuvjk1",
+            "taldeId": "tal_1780229155958_s01ab2",
+            "ikasgaiId": "ik_1780229155958_cz9l80",
+            "orduak": 4,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780649654241_odknf1",
+            "irakasleId": "ir_1780229155958_tuvjk1",
+            "taldeId": "tal_1780229155958_s01ab2",
+            "ikasgaiId": "ik_1780229155958_td8kmb",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780649661637_18r18x",
+            "irakasleId": "ir_1780647368964_htvsd9",
+            "taldeId": "tal_1780229155958_xopygb",
+            "ikasgaiId": "ik_1780229155958_wh86uk",
+            "orduak": 4,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780649668526_scnr8m",
+            "irakasleId": "ir_1780647368964_htvsd9",
+            "taldeId": "tal_1780229155958_xopygb",
+            "ikasgaiId": "ik_1780229155958_ccf2x3",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780865612812_gxn5e5",
+            "irakasleId": "ir_1780229155958_tuvjk1",
+            "taldeId": "tal_1780229155958_ffoyk1",
+            "ikasgaiId": "ik_1780229155958_wl7o9z",
+            "orduak": 1,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780865620958_zjn5bk",
+            "irakasleId": "ir_1780229155958_tuvjk1",
+            "taldeId": "tal_1780229155958_xopygb",
+            "ikasgaiId": "ik_1780229155958_mtzj4x",
+            "orduak": 1,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780865625723_nt14iv",
+            "irakasleId": "ir_1780229155958_tuvjk1",
+            "taldeId": "tal_1780229155958_s01ab2",
+            "ikasgaiId": "ik_1780229155958_i1e68w",
+            "orduak": 1,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780865631448_q3i2wv",
+            "irakasleId": "ir_1780229155958_tuvjk1",
+            "taldeId": "tal_1780229155958_da0xss",
+            "ikasgaiId": "ik_1780229155958_inbvap",
+            "orduak": 1,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780865639222_e20aki",
+            "irakasleId": "ir_1780229155958_tuvjk1",
+            "taldeId": "tal_1780229155958_ylf839",
+            "ikasgaiId": "ik_1780229155958_1sz0rg",
+            "orduak": 1,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780865650030_gh1oj8",
+            "irakasleId": "ir_1780229155958_tuvjk1",
+            "taldeId": "tal_1780229155958_ud6zrr",
+            "ikasgaiId": "ik_1780229155958_ggcm1v",
+            "orduak": 1,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780865676940_c25d56",
+            "irakasleId": "ir_1780229155958_103h6s",
+            "taldeId": "tal_1780229155958_s01ab2",
+            "ikasgaiId": "ik_1780229155958_krp2ty",
+            "orduak": 4,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780865702665_k2xct6",
+            "irakasleId": "ir_1780229155958_103h6s",
+            "taldeId": "tal_1780229155958_ylf839",
+            "ikasgaiId": "ik_1780229155958_5hchr0",
+            "orduak": 1,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780865742084_cdel1q",
+            "irakasleId": "ir_1780229155958_8uzx8j",
+            "taldeId": "tal_1780229155958_ffoyk1",
+            "ikasgaiId": "ik_1780229155958_7jhwz9",
+            "orduak": 1,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780865748668_e32yiw",
+            "irakasleId": "ir_1780229155958_8uzx8j",
+            "taldeId": "tal_1780229155958_xopygb",
+            "ikasgaiId": "ik_1780229155958_5z64wr",
+            "orduak": 1,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780865753902_gdgtcx",
+            "irakasleId": "ir_1780229155958_8uzx8j",
+            "taldeId": "tal_1780229155958_s01ab2",
+            "ikasgaiId": "ik_1780229155958_lis7ud",
+            "orduak": 1,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780865760996_vqdnwy",
+            "irakasleId": "ir_1780229155958_8uzx8j",
+            "taldeId": "tal_1780229155958_da0xss",
+            "ikasgaiId": "ik_1780229155958_1noc38",
+            "orduak": 1,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780865848005_37re5v",
+            "irakasleId": "ir_1780229155958_irb4jd",
+            "taldeId": "tal_1780229155958_ud6zrr",
+            "ikasgaiId": "ik_1780229155958_00tlq7",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780865855463_gp8vih",
+            "irakasleId": "ir_1780229155958_irb4jd",
+            "taldeId": "tal_1780229155958_ylf839",
+            "ikasgaiId": "ik_1780229155958_9hffne",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780865862986_gqk4cd",
+            "irakasleId": "ir_1780229155958_irb4jd",
+            "taldeId": "tal_1780229155958_da0xss",
+            "ikasgaiId": "ik_1780229155958_nh8trc",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780865869036_pfeg3w",
+            "irakasleId": "ir_1780229155958_irb4jd",
+            "taldeId": "tal_1780229155958_s01ab2",
+            "ikasgaiId": "ik_1780229155958_hm9v67",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780865875646_3fz2ir",
+            "irakasleId": "ir_1780229155958_irb4jd",
+            "taldeId": "tal_1780229155958_xopygb",
+            "ikasgaiId": "ik_1780229155958_hy9iyy",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780865928965_bbphif",
+            "irakasleId": "ir_1780229155958_irb4jd",
+            "taldeId": "tal_1780229155958_ffoyk1",
+            "ikasgaiId": "ik_1780229155958_3xm655",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780866048107_4udo6r",
+            "irakasleId": "ir_1780229155958_r8qe18",
+            "taldeId": "tal_1780229155958_s01ab2",
+            "ikasgaiId": "ik_1780229155958_f5hthc",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780866103553_82f3hu",
+            "irakasleId": "ir_1780647368964_htvsd9",
+            "taldeId": "tal_1780229155958_ffoyk1",
+            "ikasgaiId": "ik_1780229155958_xwymyd",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780866112547_mhq43p",
+            "irakasleId": "ir_1780647368964_htvsd9",
+            "taldeId": "tal_1780229155958_ffoyk1",
+            "ikasgaiId": "ik_1780229155958_r32l24",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780866209547_obzs7k",
+            "irakasleId": "ir_1780229155958_14p8hm",
+            "taldeId": "tal_1780229155958_s01ab2",
+            "ikasgaiId": "ik_1780229155958_kaaa5s",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780866225920_bufsif",
+            "irakasleId": "ir_1780229155958_14p8hm",
+            "taldeId": "tal_1780229155958_s01ab2",
+            "ikasgaiId": "ik_1780229155958_9hwdb2",
+            "orduak": 1,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780866263905_s5khe5",
+            "irakasleId": "ir_1780647368964_htvsd9",
+            "taldeId": "tal_1780229155958_ud6zrr",
+            "ikasgaiId": "ik_1780229155958_yhxaoi",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780866275332_zocp3b",
+            "irakasleId": "ir_1780647368964_htvsd9",
+            "taldeId": "tal_1780229155958_ud6zrr",
+            "ikasgaiId": "ik_1780229155958_cnhfrg",
+            "orduak": 1,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780866287697_n5fak3",
+            "irakasleId": "ir_1780647368964_htvsd9",
+            "taldeId": "tal_1780229155958_ylf839",
+            "ikasgaiId": "ik_1780229155958_2orzca",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780866292819_s4kfxg",
+            "irakasleId": "ir_1780647368964_htvsd9",
+            "taldeId": "tal_1780229155958_ylf839",
+            "ikasgaiId": "ik_1780229155958_o5zl8t",
+            "orduak": 1,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780866305034_zk3qe6",
+            "irakasleId": "ir_1780229155958_14p8hm",
+            "taldeId": "tal_1780229155958_da0xss",
+            "ikasgaiId": "ik_1780229155958_bx3nbp",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780866310573_y4gzch",
+            "irakasleId": "ir_1780229155958_14p8hm",
+            "taldeId": "tal_1780229155958_da0xss",
+            "ikasgaiId": "ik_1780229155958_czzryg",
+            "orduak": 1,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780866401215_41uoxl",
+            "irakasleId": "ir_1780229155958_r8qe18",
+            "taldeId": "tal_1780229155958_ud6zrr",
+            "ikasgaiId": "ik_1780229155958_hestt8",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1780866562803_9umsjq",
+            "irakasleId": "ir_1780229155958_8uzx8j",
+            "taldeId": "tal_1780229155958_ylf839",
+            "ikasgaiId": "ik_1780229155958_zbjwac",
+            "orduak": 1,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781087730315_qepx89",
+            "irakasleId": "ir_1780229155958_tuvjk1",
+            "taldeId": "tal_1780229155958_xopygb",
+            "ikasgaiId": "ik_1780229155958_97qmz2",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781087735383_8z4jvm",
+            "irakasleId": "ir_1780229155958_tuvjk1",
+            "taldeId": "tal_1780229155958_xopygb",
+            "ikasgaiId": "ik_1780229155958_yvhrtw",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781087791605_lqfo2u",
+            "irakasleId": "ir_1780229155958_tuvjk1",
+            "taldeId": "tal_1780229155958_s01ab2",
+            "ikasgaiId": "ik_1780229155958_fdwxl3",
+            "orduak": 1,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781087833560_601bpt",
+            "irakasleId": "ir_1780229155958_14p8hm",
+            "taldeId": "tal_1780229155958_da0xss",
+            "ikasgaiId": "ik_1780229155958_72qpdj",
+            "orduak": 1,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781087869089_fz3sub",
+            "irakasleId": "ir_1780229155958_103h6s",
+            "taldeId": "tal_1780229155958_ud6zrr",
+            "ikasgaiId": "ik_1780229155958_295f4g",
+            "orduak": 4,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781087876505_asz9le",
+            "irakasleId": "ir_1780229155958_r8qe18",
+            "taldeId": "tal_1780229155958_ud6zrr",
+            "ikasgaiId": "ik_1780229155958_kwou05",
+            "orduak": 1,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781087881417_v8cd36",
+            "irakasleId": "ir_1780229155958_103h6s",
+            "taldeId": "tal_1780229155958_ud6zrr",
+            "ikasgaiId": "ik_1780229155958_5rt2ax",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781087950388_kdbnmd",
+            "irakasleId": "ir_1780229155958_nz74e2",
+            "taldeId": "tal_1780229155958_ffoyk1",
+            "ikasgaiId": "ik_1780229155958_0h2f5a",
+            "orduak": 1,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781088147264_oj40s6",
+            "irakasleId": "ir_1780229155958_tuvjk1",
+            "taldeId": "tal_1780229155958_xopygb",
+            "ikasgaiId": "ik_1780229155958_g9a524",
+            "orduak": 1,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781088336026_0gv6rz",
+            "irakasleId": "ir_1780229155958_14p8hm",
+            "taldeId": "tal_1780229155958_3vjcsx",
+            "ikasgaiId": "ik_1780229155958_hwjmks",
+            "orduak": 1,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781097868238_twl87p",
+            "irakasleId": "ir_1780648144603_gal3si",
+            "taldeId": "tal_1780229155958_a45j5w",
+            "ikasgaiId": "ik_1780647095058_lbuca6",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781097881783_xht3df",
+            "irakasleId": "ir_1780648144603_gal3si",
+            "taldeId": "tal_1780229155958_a45j5w",
+            "ikasgaiId": "ik_1780647078542_iclv83",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781097899829_2zjwfj",
+            "irakasleId": "ir_1780648144603_gal3si",
+            "taldeId": "tal_1780229155958_a45j5w",
+            "ikasgaiId": "ik_1780647065402_jl7k55",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781097988589_ydzneq",
+            "irakasleId": "ir_1780229155958_zm0pqx",
+            "taldeId": "tal_1780229155958_urhmds",
+            "ikasgaiId": "ik_1780229155958_s6spxm",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781098030738_eu989u",
+            "irakasleId": "ir_1780229155958_p8gkfw",
+            "taldeId": "tal_1780229155958_daigio",
+            "ikasgaiId": "ik_1780229155958_wc9h7a",
+            "orduak": 4,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781098110440_tclnyw",
+            "irakasleId": "ir_1780229155958_b3l0v9",
+            "taldeId": "tal_1780229155958_fmjl43",
+            "ikasgaiId": "ik_1780229155958_ms23hd",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781098365413_o9aduc",
+            "irakasleId": "ir_1780229155958_zdm627",
+            "taldeId": "tal_1780229852037_fqv1n0",
+            "ikasgaiId": "ik_1780229155958_e5r8c6",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781098374237_sq8mwa",
+            "irakasleId": "ir_1780229155958_zdm627",
+            "taldeId": "tal_1780229852037_fqv1n0",
+            "ikasgaiId": "ik_1780229155958_x42594",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781098850999_6e74m5",
+            "irakasleId": "ir_1780229155958_b3l0v9",
+            "taldeId": "tal_1780229155958_daigio",
+            "ikasgaiId": "ik_1780229155958_ms23hd",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781098883678_kk93bd",
+            "irakasleId": "ir_1780229155958_p8gkfw",
+            "taldeId": "tal_1780229155958_fmjl43",
+            "ikasgaiId": "ik_1780229155958_wc9h7a",
+            "orduak": 4,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781098894478_z12v1n",
+            "irakasleId": "ir_1780229155958_zdm627",
+            "taldeId": "tal_1780229155958_xgnefd",
+            "ikasgaiId": "ik_1780229155958_rawk05",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781098901591_kitapc",
+            "irakasleId": "ir_1780229155958_zdm627",
+            "taldeId": "tal_1780229155958_10ywvb",
+            "ikasgaiId": "ik_1780229155958_e5r8c6",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781099136432_kz0yvq",
+            "irakasleId": "ir_1780229155958_uj7idw",
+            "taldeId": "tal_1780229155958_10ywvb",
+            "ikasgaiId": "ik_1780229155958_d4jmjt",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781099152080_8pgdgu",
+            "irakasleId": "ir_1780229155958_uj7idw",
+            "taldeId": "tal_1780229852037_fqv1n0",
+            "ikasgaiId": "ik_1780229155958_d4jmjt",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781099164228_b7dfau",
+            "irakasleId": "ir_1780229155958_b3l0v9",
+            "taldeId": "tal_1780229155958_urhmds",
+            "ikasgaiId": "ik_1780229155958_nk32qr",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781099169928_audco3",
+            "irakasleId": "ir_1780229155958_b3l0v9",
+            "taldeId": "tal_1780229155958_u12fzf",
+            "ikasgaiId": "ik_1780229155958_nk32qr",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781099184310_pvbzih",
+            "irakasleId": "ir_1780229155958_b3l0v9",
+            "taldeId": "tal_1780229155958_urhmds",
+            "ikasgaiId": "ik_1780229155958_or6nug",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781099191875_dvzsoa",
+            "irakasleId": "ir_1780229155958_b3l0v9",
+            "taldeId": "tal_1780229155958_u12fzf",
+            "ikasgaiId": "ik_1780229155958_or6nug",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781099199571_mx2q8l",
+            "irakasleId": "ir_1780229155958_b3l0v9",
+            "taldeId": "tal_1780229155958_daigio",
+            "ikasgaiId": "ik_1780229155958_6qz2gp",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781099204742_vk6cwm",
+            "irakasleId": "ir_1780229155958_b3l0v9",
+            "taldeId": "tal_1780229155958_fmjl43",
+            "ikasgaiId": "ik_1780229155958_6qz2gp",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781099215708_98f3ic",
+            "irakasleId": "ir_1780229155958_zm0pqx",
+            "taldeId": "tal_1780229155958_daigio",
+            "ikasgaiId": "ik_1780229155958_ga2av4",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781099221625_zeve3n",
+            "irakasleId": "ir_1780229155958_zm0pqx",
+            "taldeId": "tal_1780229155958_fmjl43",
+            "ikasgaiId": "ik_1780229155958_ga2av4",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781099258434_9l8qd0",
+            "irakasleId": "ir_1780229155958_uj7idw",
+            "taldeId": "tal_1780229155958_xgnefd",
+            "ikasgaiId": "ik_1780229155958_o2b3zb",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781099302414_luvq55",
+            "irakasleId": "ir_1780229155958_uj7idw",
+            "taldeId": "tal_1780229155958_a45j5w",
+            "ikasgaiId": "ik_1780647085766_mpgjro",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781099391254_elyaqq",
+            "irakasleId": "ir_1780229155958_n8fw9n",
+            "taldeId": "tal_1780229155958_xgnefd",
+            "ikasgaiId": "ik_1780229155958_qkqicn",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781099447430_ketgdn",
+            "irakasleId": "ir_1780229155958_n8fw9n",
+            "taldeId": "tal_1780229852037_fqv1n0",
+            "ikasgaiId": "ik_1780229155958_69wdmb",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781099470396_xwazyo",
+            "irakasleId": "ir_1780229155958_n8fw9n",
+            "taldeId": "tal_1780229155958_10ywvb",
+            "ikasgaiId": "ik_1780229155958_69wdmb",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781099682804_fjto9i",
+            "irakasleId": "ir_1780229155958_zdm627",
+            "taldeId": "tal_1780229155958_10ywvb",
+            "ikasgaiId": "ik_1780229155958_x42594",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781099717676_z9bhbc",
+            "irakasleId": "ir_1780229155958_yaq4pu",
+            "taldeId": "tal_1780229155958_urhmds",
+            "ikasgaiId": "ik_1780646496339_atb0p6",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781099730922_puyulp",
+            "irakasleId": "ir_1780229155958_yaq4pu",
+            "taldeId": "tal_1780229155958_u12fzf",
+            "ikasgaiId": "ik_1780646496339_atb0p6",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781099751781_6re0ur",
+            "irakasleId": "ir_1780229155958_zdm627",
+            "taldeId": "tal_1780229155958_daigio",
+            "ikasgaiId": "ik_1780229155958_liwfjn",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781099757481_5xpzxt",
+            "irakasleId": "ir_1780229155958_zdm627",
+            "taldeId": "tal_1780229155958_fmjl43",
+            "ikasgaiId": "ik_1780229155958_liwfjn",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781099786562_eaa5kk",
+            "irakasleId": "ir_1780229155958_zdm627",
+            "taldeId": "tal_1780229155958_xgnefd",
+            "ikasgaiId": "ik_1780229155958_m46e4g",
+            "orduak": 4,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781099803943_m0fnsv",
+            "irakasleId": "ir_1780229155958_yaq4pu",
+            "taldeId": "tal_1780229155958_urhmds",
+            "ikasgaiId": "ik_1780229155958_22axvn",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781099810211_lbl9xm",
+            "irakasleId": "ir_1780229155958_yaq4pu",
+            "taldeId": "tal_1780229155958_u12fzf",
+            "ikasgaiId": "ik_1780229155958_22axvn",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781099821112_bz2b2d",
+            "irakasleId": "ir_1780229155958_yaq4pu",
+            "taldeId": "tal_1780229155958_daigio",
+            "ikasgaiId": "ik_1780646544757_jf2iwb",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781099827535_57vud7",
+            "irakasleId": "ir_1780229155958_yaq4pu",
+            "taldeId": "tal_1780229155958_fmjl43",
+            "ikasgaiId": "ik_1780646544757_jf2iwb",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781099969037_245hgs",
+            "irakasleId": "ir_1780337373294_8vz799",
+            "taldeId": "tal_1780229155958_10ywvb",
+            "ikasgaiId": "ik_1780229155958_9yik4y",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781099975605_4l74if",
+            "irakasleId": "ir_1780337373294_8vz799",
+            "taldeId": "tal_1780229852037_fqv1n0",
+            "ikasgaiId": "ik_1780229155958_9yik4y",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781099995499_xy98oa",
+            "irakasleId": "ir_1780337373294_8vz799",
+            "taldeId": "tal_1780229852037_fqv1n0",
+            "ikasgaiId": "ik_1780229155958_2ap66g",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781100058578_zwc82j",
+            "irakasleId": "ir_1780337298830_ne35lx",
+            "taldeId": "tal_1780229155958_xgnefd",
+            "ikasgaiId": "ik_1780229155958_f5yqac",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781100070176_aaalf5",
+            "irakasleId": "ir_1780337389446_9mw7u8",
+            "taldeId": "tal_1780229155958_daigio",
+            "ikasgaiId": "ik_1780229155958_1sn7am",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781100082241_usnxc3",
+            "irakasleId": "ir_1780337389446_9mw7u8",
+            "taldeId": "tal_1780229155958_fmjl43",
+            "ikasgaiId": "ik_1780229155958_1sn7am",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781100112321_ym7st3",
+            "irakasleId": "ir_1780229155958_p8gkfw",
+            "taldeId": "tal_1780229155958_daigio",
+            "ikasgaiId": "ik_1780229155958_9l4i2a",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781100123891_7zqs6l",
+            "irakasleId": "ir_1780229155958_p8gkfw",
+            "taldeId": "tal_1780229155958_fmjl43",
+            "ikasgaiId": "ik_1780229155958_9l4i2a",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781100145817_8rujor",
+            "irakasleId": "ir_1780337373294_8vz799",
+            "taldeId": "tal_1780229155958_10ywvb",
+            "ikasgaiId": "ik_1780229155958_2ap66g",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781100156089_8zwmx5",
+            "irakasleId": "ir_1780337373294_8vz799",
+            "taldeId": "tal_1780229155958_fmjl43",
+            "ikasgaiId": "ik_1780229155958_ax6i2u",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781100167129_jcbqbz",
+            "irakasleId": "ir_1780337373294_8vz799",
+            "taldeId": "tal_1780229155958_daigio",
+            "ikasgaiId": "ik_1780229155958_ax6i2u",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781100194697_3hw4mp",
+            "irakasleId": "ir_1780337373294_8vz799",
+            "taldeId": "tal_1780229155958_urhmds",
+            "ikasgaiId": "ik_1780229155958_kqjcth",
+            "orduak": 1,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781100200114_ipm8ub",
+            "irakasleId": "ir_1780337373294_8vz799",
+            "taldeId": "tal_1780229155958_u12fzf",
+            "ikasgaiId": "ik_1780229155958_kqjcth",
+            "orduak": 1,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781100207364_2jcbg7",
+            "irakasleId": "ir_1780337373294_8vz799",
+            "taldeId": "tal_1780229155958_daigio",
+            "ikasgaiId": "ik_1780229155958_o4xic1",
+            "orduak": 1,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781100212840_bu5fe8",
+            "irakasleId": "ir_1780337373294_8vz799",
+            "taldeId": "tal_1780229155958_fmjl43",
+            "ikasgaiId": "ik_1780229155958_o4xic1",
+            "orduak": 1,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781100242274_1vxpgv",
+            "irakasleId": "ir_1780229155958_uj7idw",
+            "taldeId": "tal_1780229155958_xgnefd",
+            "ikasgaiId": "ik_1780229155958_dywvyv",
+            "orduak": 1,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781100327981_k6dwmp",
+            "irakasleId": "ir_1780229155958_p8gkfw",
+            "taldeId": "tal_1780229155958_10ywvb",
+            "ikasgaiId": "ik_1780229155958_30zhrd",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781100334914_96xxsy",
+            "irakasleId": "ir_1780229155958_p8gkfw",
+            "taldeId": "tal_1780229852037_fqv1n0",
+            "ikasgaiId": "ik_1780229155958_30zhrd",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781100341846_6q467m",
+            "irakasleId": "ir_1780229155958_p8gkfw",
+            "taldeId": "tal_1780229155958_xgnefd",
+            "ikasgaiId": "ik_1780229155958_uveviv",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781100431554_cd32qw",
+            "irakasleId": "ir_1780648144603_gal3si",
+            "taldeId": "tal_1780229155958_xgnefd",
+            "ikasgaiId": "ik_1780229155958_y2a24k",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781100596963_21qmh5",
+            "irakasleId": "ir_1780229155958_zm0pqx",
+            "taldeId": "tal_1780229852037_fqv1n0",
+            "ikasgaiId": "ik_1780229155958_7pftx4",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781100610720_rzdeup",
+            "irakasleId": "ir_1780229155958_zm0pqx",
+            "taldeId": "tal_1780229155958_10ywvb",
+            "ikasgaiId": "ik_1780229155958_7pftx4",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781100672424_1z03fe",
+            "irakasleId": "ir_1780229155958_zm0pqx",
+            "taldeId": "tal_1780229155958_urhmds",
+            "ikasgaiId": "ik_1780229155958_1wyn34",
+            "orduak": 4,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781100682642_6q7mvn",
+            "irakasleId": "ir_1780337389446_9mw7u8",
+            "taldeId": "tal_1780229155958_u12fzf",
+            "ikasgaiId": "ik_1780229155958_1wyn34",
+            "orduak": 4,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781100716741_80c3we",
+            "irakasleId": "ir_1780337389446_9mw7u8",
+            "taldeId": "tal_1780229155958_10ywvb",
+            "ikasgaiId": "ik_1780229155958_mkvrab",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781100726134_6kaz3b",
+            "irakasleId": "ir_1780337389446_9mw7u8",
+            "taldeId": "tal_1780229852037_fqv1n0",
+            "ikasgaiId": "ik_1780229155958_mkvrab",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781100733355_usrwy4",
+            "irakasleId": "ir_1780337298830_ne35lx",
+            "taldeId": "tal_1780229155958_urhmds",
+            "ikasgaiId": "ik_1780229155958_yryexx",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781100738733_8egdmb",
+            "irakasleId": "ir_1780337298830_ne35lx",
+            "taldeId": "tal_1780229155958_u12fzf",
+            "ikasgaiId": "ik_1780229155958_yryexx",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781100756910_9voeqd",
+            "irakasleId": "ir_1780648144603_gal3si",
+            "taldeId": "tal_1780229155958_daigio",
+            "ikasgaiId": "ik_1780229155958_afnwyz",
+            "orduak": 4,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781100763059_ua8v2x",
+            "irakasleId": "ir_1780648144603_gal3si",
+            "taldeId": "tal_1780229155958_fmjl43",
+            "ikasgaiId": "ik_1780229155958_afnwyz",
+            "orduak": 4,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781100780434_hz68om",
+            "irakasleId": "ir_1780337427134_x72sc3",
+            "taldeId": "tal_1780229155958_urhmds",
+            "ikasgaiId": "ik_1780229155958_ell8t4",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781100786245_06gdwp",
+            "irakasleId": "ir_1780337427134_x72sc3",
+            "taldeId": "tal_1780229155958_u12fzf",
+            "ikasgaiId": "ik_1780229155958_ell8t4",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781100792709_sdduxi",
+            "irakasleId": "ir_1780337427134_x72sc3",
+            "taldeId": "tal_1780229155958_urhmds",
+            "ikasgaiId": "ik_1780229155958_0j09tm",
+            "orduak": 4,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781100799089_1s5on1",
+            "irakasleId": "ir_1780337427134_x72sc3",
+            "taldeId": "tal_1780229155958_u12fzf",
+            "ikasgaiId": "ik_1780229155958_0j09tm",
+            "orduak": 4,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781100875459_8ayksw",
+            "irakasleId": "ir_1780229155958_n8fw9n",
+            "taldeId": "tal_1780229155958_xgnefd",
+            "ikasgaiId": "ik_1780229155958_vvd7wl",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781100911788_gimgea",
+            "irakasleId": "ir_1780337427134_x72sc3",
+            "taldeId": "tal_1780229155958_a45j5w",
+            "ikasgaiId": "ik_1780647046224_3csw5o",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781100923675_rhlzbu",
+            "irakasleId": "ir_1780337427134_x72sc3",
+            "taldeId": "tal_1780229155958_a45j5w",
+            "ikasgaiId": "ik_1780647033597_k0trs2",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781100934955_9cbgme",
+            "irakasleId": "ir_1780337427134_x72sc3",
+            "taldeId": "tal_1780229155958_a45j5w",
+            "ikasgaiId": "ik_1780647057759_2upsnr",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781100995179_cqovil",
+            "irakasleId": "ir_1780229155958_yaq4pu",
+            "taldeId": "tal_1780229155958_10ywvb",
+            "ikasgaiId": "ik_1780229155958_9c8fog",
+            "orduak": 1,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781101001034_5ykrht",
+            "irakasleId": "ir_1780229155958_yaq4pu",
+            "taldeId": "tal_1780229852037_fqv1n0",
+            "ikasgaiId": "ik_1780229155958_9c8fog",
+            "orduak": 1,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781101026310_cykxbo",
+            "irakasleId": "ir_1780229155958_yaq4pu",
+            "taldeId": "tal_1780229155958_10ywvb",
+            "ikasgaiId": "ik_1780646697471_lwij2u",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781101033413_o5qr0q",
+            "irakasleId": "ir_1780229155958_yaq4pu",
+            "taldeId": "tal_1780229852037_fqv1n0",
+            "ikasgaiId": "ik_1780646697471_lwij2u",
+            "orduak": 2,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781101098935_9dt1js",
+            "irakasleId": "ir_1780229155958_n8fw9n",
+            "taldeId": "tal_1780229155958_xgnefd",
+            "ikasgaiId": "ik_1780229155958_jetxh0",
+            "orduak": 3,
+            "rola": "TITULAR"
+          },
+          {
+            "id": "es_1781101556519_816idd",
+            "irakasleId": "ir_1780337389446_9mw7u8",
+            "taldeId": "tal_1780229155958_u12fzf",
+            "ikasgaiId": "ik_1780229155958_s6spxm",
+            "orduak": 3,
+            "rola": "TITULAR"
+          }
+        ]
+      }
     }
   ]
 }
