@@ -105,14 +105,24 @@ function ghListYears(cfg) {
 }
 // urte baten edukia + sha (irakurketa)
 function ghGetYear(cfg, izena) {
-  const url = "https://api.github.com/repos/" + cfg.owner + "/" + cfg.repo + "/contents/" + ghDir(cfg) + "/" + encodeURIComponent(izena) + ".json";
+  const base = "https://api.github.com/repos/" + cfg.owner + "/" + cfg.repo;
+  const url = base + "/contents/" + ghDir(cfg) + "/" + encodeURIComponent(izena) + ".json";
   return fetch(url, { headers: ghHeaders(cfg, false), cache: "no-store" }).then(function (r) {
     if (r.status === 404) return null;
     if (!r.ok) throw new Error("HTTP " + r.status);
     return r.json();
   }).then(function (j) {
     if (!j) return null;
-    return { sha: j.sha, edukia: JSON.parse(b64decode(j.content)) };
+    if (j.content && j.content.replace(/\s/g, "") !== "") {
+      return { sha: j.sha, edukia: JSON.parse(b64decode(j.content)) };
+    }
+    // 1 MB baino handiagoa: contents API-ak ez du edukia bidaltzen; blob API erabili
+    return fetch(base + "/git/blobs/" + j.sha, { headers: ghHeaders(cfg, false), cache: "no-store" }).then(function (rb) {
+      if (!rb.ok) throw new Error("HTTP " + rb.status);
+      return rb.json();
+    }).then(function (bl) {
+      return { sha: j.sha, edukia: JSON.parse(b64decode(bl.content)) };
+    });
   });
 }
 // urte bat idatzi (token behar du)
